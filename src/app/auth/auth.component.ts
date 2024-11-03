@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-auth',
   standalone: true,
   imports: [RouterOutlet],
-  template: `
-    <router-outlet />
-  `,
-  styles: [],
+  templateUrl: './auth.component.html',
+  styleUrl: './auth.component.scss'
 })
-export class AppComponent {
-  title = 'MCList-Frontend';
+export class AuthComponent {
+
 }

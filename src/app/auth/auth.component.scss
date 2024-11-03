@@ -1,0 +1,141 @@
+@import "../../styles/base";
+@import '../../styles/formElement.scss';
+
+body{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    width: 400px;
+    padding: 0 200px;
+
+    box-sizing: content-box;
+
+    background-color: rgba(131, 131, 131, 0.13);
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #logo {
+        width: 100%;
+        height: 150px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 0;
+
+        img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+
+            @media (max-width: 500px){
+                width: 70%;
+            }
+        }
+
+        @media (max-height: 700px){
+            margin: 20px 0;
+        }
+    }
+
+    #form-container{
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 900px) {
+        padding: 0 150px;
+    }
+
+    @media (max-width: 800px) {
+        padding: 0 100px;
+    }
+
+    @media (max-width: 700px) {
+        padding: 0 50px;
+        width: 100%;
+        min-width: 300px;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 500px) {
+        padding: 0 25px;
+        width: 100%;
+        min-width: 300px;
+        box-sizing: border-box;
+    }
+}
+
+#page-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    #form-container {
+        width: 100%;
+        flex-grow: 1;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        
+        .header {
+            font-size: 1.6em;
+        }
+
+        .input-area {
+            background-color: $color-dark;
+            border: 2px solid $color-white;
+
+            input::placeholder {
+                color: $color-white;
+            }
+
+            .icon {
+                color: $color-white;
+            }
+        }
+
+        #reset-password-text{
+            position: relative;
+            top: -15px;
+            text-align: right;
+        }
+    }
+
+    #footer {
+        width: 100%;
+
+        margin-top: 100px;
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+
+        button{
+            width: 100%;
+        }
+        span{
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        @media (max-height: 700px){
+            margin-top: 0;
+        }
+    }
+}

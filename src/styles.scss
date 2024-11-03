@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/base' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        url(../public/img/background.png),
+        #000000 no-repeat;
+    color: rgb(255, 253, 240);
+    font-family: "Roboto", sans-serif;
+    min-width: 360px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.divider-line-vertical {
+    background: linear-gradient(
+        180deg,
+        hsla(36, 100%, 55%, 0.1),
+        hsla(44, 100%, 65%, 0.5) 47.92%,
+        hsla(36, 100%, 55%, 0.1)
+    );
+    width: 2px;
+    min-height: 100vh;
+}
+
+.divider-line-horizontal {
+    background: linear-gradient(
+        90deg,
+        hsla(36, 100%, 55%, 0.1),
+        hsla(44, 100%, 65%, 0.5) 47.92%,
+        hsla(36, 100%, 55%, 0.1)
+    );
+    min-width: 100%;
+    height: 2px;
+}
+
+.action-button{
+    background-color: $color-theme;
+
+    outline: none;
+    border: none;
+    border-radius: 30px;
+
+    padding: 20px 0;
+    font-weight: 600;
+    color: $color-text1;
+    font-size: 1.1em;
+}
+
+.action-button:hover{
+    cursor: pointer;
+    background-color: $color-theme-dark;
+}
+
+.link{
+    color: $color-theme;
+    font-weight: 600;
+}
+
+.link:hover{
+    cursor: pointer;
+    color: $color-theme-dark;
+}
