@@ -1,0 +1,24 @@
+<div id="container">
+    <div class="notification" *ngFor="let notification of notifications" [ngClass]="notification.type">
+        <div class="up-panel">
+            <div class="left-section">
+                <div class="icon">
+                    <i *ngIf="notification.type == 'error'" class="fa-solid fa-circle-xmark"></i>
+                    <i *ngIf="notification.type == 'info'" class="fa-solid fa-circle-info"></i>
+                    <i *ngIf="notification.type == 'success'" class="fa-solid fa-circle-check"></i>
+                </div>
+    
+                <span class="message">
+                     {{notification.message}}
+                </span>
+            </div>
+
+            <div class="close" (click)="this.notificationService.removeNotification(notification.id)">
+                <i class="fa-solid fa-xmark icon"></i>
+            </div>
+        </div>
+        <div class="progress-bar">
+
+        </div>
+    </div>
+</div>

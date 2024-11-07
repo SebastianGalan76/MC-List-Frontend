@@ -442,7 +442,6 @@ body {
 }
 #page-container #footer span {
   margin-top: 5px;
-  text-align: right;
 }
 @media (max-height: 700px) {
   #page-container #footer {

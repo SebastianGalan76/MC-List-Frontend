@@ -5,23 +5,23 @@
         </div>
 
         <div class="input-area">
-            <input id="login-input" type="text" placeholder="Login" maxlength="60">
+            <input id="login-input" type="text" placeholder="Login" maxlength="60" [(ngModel)]="login">
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
         </div>
         <div class="input-area">
-            <input id="password-input" type="password" placeholder="Hasło" maxlength="60">
+            <input id="password-input" type="password" placeholder="Hasło" maxlength="60" [(ngModel)]="password">
             <div class="icon">
                 <i class="fa-solid fa-lock"></i>
             </div>
         </div>
-        <span id="reset-password-text">Nie pamiętasz hasła? <a onclick="togglePopup()" class="link">Zresetuj
+        <span id="reset-password-text">Nie pamiętasz hasła? <a class="link" (click)="resetPassword()">Zresetuj
                 je</a></span>
     </div>
 
     <div id="footer">
-        <button class="action-button" onclick="signIn()">Zaloguj się</button>
-        <span>Nie masz konta? <a class="link" href="/auth/signUp">Zarejestruj się</a></span>
+        <button class="action-button" (click)="signIn()">Zaloguj się</button>
+        <span>Nie masz konta? <a class="link" routerLink="/auth/signUp">Zarejestruj się</a></span>
     </div>
 </div>

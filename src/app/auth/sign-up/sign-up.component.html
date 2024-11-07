@@ -5,37 +5,37 @@
         </div>
 
         <div class="input-area">
-            <input id="login-input" type="text" placeholder="Login" maxlength="60">
+            <input id="login-input" type="text" placeholder="Login" maxlength="30" [(ngModel)]="login">
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
         </div>
         <div class="input-area">
-            <input id="password-input" type="password" placeholder="Hasło" maxlength="60">
+            <input id="password-input" type="password" placeholder="Hasło" maxlength="60" [(ngModel)]="password">
             <div class="icon">
                 <i class="fa-solid fa-lock"></i>
             </div>
         </div>
         <div class="input-area">
-            <input id="password-confirm-input" type="password" placeholder="Hasło" maxlength="60">
+            <input id="password-confirm-input" type="password" placeholder="Hasło" maxlength="60" [(ngModel)]="passwordConfirm">
             <div class="icon">
                 <i class="fa-solid fa-lock"></i>
             </div>
         </div>
         <div class="input-area">
-            <input id="email-input" type="email" placeholder="E-mail" maxlength="60">
+            <input id="email-input" type="email" placeholder="E-mail" maxlength="60" [(ngModel)]="email">
             <div class="icon">
                 <i class="fa-solid fa-envelope"></i>
             </div>
         </div>
         <div class="rule">
-            <input type="checkbox" id="accept-rule-checkbox">
-            <label> Zapoznałem/am się z <a href="/rules" class="link">regulaminem</a> i akceptuję jego treść.</label>
+            <input type="checkbox" id="accept-rule-checkbox" [(ngModel)]="acceptedRules">
+            <label> Zapoznałem/am się z <a class="link" routerLink="/regulamin">regulaminem</a> i akceptuję jego treść.</label>
         </div>
     </div>
 
     <div id="footer">
-        <button class="action-button" onclick="signUp(this)">Zarejestruj się</button>
-        <span>Masz już konto? <a class="link" href="/auth/signIn">Zaloguj się</a></span>
+        <button class="action-button" (click)="signUp()">Zarejestruj się</button>
+        <span>Masz już konto? <a class="link" routerLink="/auth/signIn">Zaloguj się</a></span>
     </div>
 </div>
