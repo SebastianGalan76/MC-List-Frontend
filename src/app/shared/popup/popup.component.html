@@ -1,0 +1,5 @@
+<div *ngIf="isVisible$ | async" class="popup-backdrop" (click)="closePopup(($event))">
+  <div class="popup">
+    <ng-container #popupContainer />
+  </div>
+</div>

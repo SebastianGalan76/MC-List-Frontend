@@ -4,6 +4,8 @@ import { Router, RouterModule } from '@angular/router';
 import { CookieService } from '../../../service/cookie.service';
 import { SignInService } from '../../../service/auth/signIn.service';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
+import { PopupService } from '../../../service/popup.service';
+import { ResetPasswordPopupComponent } from '../../shared/popup/reset-password/reset-password.component';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,6 +20,7 @@ export class SignInComponent {
 
   constructor(
     private signInService: SignInService, 
+    private popupService: PopupService,
     private notificationService: NotificationService, 
     private router: Router
   ) {}
@@ -50,7 +53,7 @@ export class SignInComponent {
   }
 
   resetPassword() {
-    
+    this.popupService.showPopup(ResetPasswordPopupComponent);
   }
 
 }

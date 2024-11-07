@@ -10,10 +10,14 @@ export class ResetPasswordService {
 
   constructor(private apiService: ApiService) { }
 
-  resetPassword(newPassword: string, token:string) : Observable<Response>{
+  changePassword(newPassword: string, token:string) : Observable<Response>{
     return this.apiService.post<Response>("/auth/changePassword", {
       newPassword: newPassword,
       token: token
     }, {});
+  }
+
+  resetPassword(email: string) : Observable<Response>{
+    return this.apiService.post<Response>("/auth/resetPassword?email="+email, {}, {});
   }
 }

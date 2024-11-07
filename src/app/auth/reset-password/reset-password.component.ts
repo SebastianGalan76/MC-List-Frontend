@@ -54,7 +54,7 @@ export class ResetPasswordComponent implements OnInit{
       return;
     }
 
-    this.resetPasswordService.resetPassword(this.password, this.token).subscribe({
+    this.resetPasswordService.changePassword(this.password, this.token).subscribe({
       next: (response) => {
         this.router.navigate(['/auth/signIn']);
 
