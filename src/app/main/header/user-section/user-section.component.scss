@@ -1,0 +1,77 @@
+@import "../../../../styles/base";
+
+#container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+
+    #profile-picture{
+        display: flex;
+        cursor: pointer;
+
+        img{
+            height: 40px;
+            width: auto;
+            min-width: 40px;
+
+            border-radius: 5px;
+            border: 2px solid $color-theme;
+
+            overflow: hidden;
+        }
+    }
+
+    #user-login{
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    #drop-down-menu {
+        background-color: #1a1a1a;
+
+        min-width: 100%;
+
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        padding: 10px;
+        z-index: 1000;
+
+        ul{
+            list-style: none;
+
+            #logout{
+                margin-top: 20px;
+                font-weight: 600;
+            }
+
+            li{
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+                color: $color-text1;
+            }
+
+            li:hover{
+                color: $color-theme;
+                font-weight: 700;
+
+                cursor: pointer;
+                background-color: rgb(54, 54, 54);
+            }
+        }
+    }
+
+    &:hover {
+        background-color: #1a1a1a;
+        color: $color-theme;
+
+        #drop-down-menu {
+            display: block;
+        }
+    }
+}

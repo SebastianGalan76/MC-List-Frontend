@@ -1,0 +1,31 @@
+<header>
+    <div class="wrapper">
+        <div class="left-panel">
+            <a routerLink="/">
+                <img class="logo" src="/img/logo.png">
+            </a>
+            <nav class="button-container">
+                <ul>
+                    <a>
+                        <li class="add-server-button">Dodaj serwer</li>
+                    </a>
+                    <a>
+                        <li class="buy-banner-button">Zakup Baner</li>
+                    </a>
+                    <li>Losuj serwer</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="right-panel">
+            @if (user) {
+                <app-user-section [user]="user" (onLogout)="onLogout()"/>
+            }
+            @else {
+                <a routerLink="/auth/signIn" class="sign-in">
+                    Logowanie
+                </a>
+            }
+        </div>
+    </div>
+    <div class="divider-line-horizontal"></div>
+</header>

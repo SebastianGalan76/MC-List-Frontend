@@ -1,0 +1,60 @@
+#container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+#container #profile-picture {
+  display: flex;
+  cursor: pointer;
+}
+#container #profile-picture img {
+  height: 40px;
+  width: auto;
+  min-width: 40px;
+  border-radius: 5px;
+  border: 2px solid #e2a258;
+  overflow: hidden;
+}
+#container #user-login {
+  font-weight: 600;
+  cursor: pointer;
+}
+#container #drop-down-menu {
+  background-color: #1a1a1a;
+  min-width: 100%;
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 10px;
+  z-index: 1000;
+}
+#container #drop-down-menu ul {
+  list-style: none;
+}
+#container #drop-down-menu ul #logout {
+  margin-top: 20px;
+  font-weight: 600;
+}
+#container #drop-down-menu ul li {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: rgb(255, 255, 232);
+}
+#container #drop-down-menu ul li:hover {
+  color: #e2a258;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: rgb(54, 54, 54);
+}
+#container:hover {
+  background-color: #1a1a1a;
+  color: #e2a258;
+}
+#container:hover #drop-down-menu {
+  display: block;
+}/*# sourceMappingURL=user-section.component.css.map */
