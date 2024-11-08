@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CookieService } from '../../../service/cookie.service';
 import { SignInService } from '../../../service/auth/signIn.service';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
@@ -22,8 +22,15 @@ export class SignInComponent {
     private signInService: SignInService, 
     private popupService: PopupService,
     private notificationService: NotificationService, 
-    private router: Router
-  ) {}
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    var uuid = this.route.snapshot.paramMap.get('uuid');
+    if(uuid){
+      signInService.activeAccount(uuid).subscribe();
+      notificationService.showNotification('Twoje konto zostało aktywowane. Możesz się zalogować');
+    }
+  }
 
   signIn() {
     if(this.login.length==0){

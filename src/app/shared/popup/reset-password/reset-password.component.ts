@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ResetPasswordService } from '../../../../service/auth/resetPassword.service';
 import { NotificationService, NotificationType } from '../../../../service/notification.service';
 import { AuthService } from '../../../../service/auth/auth.service';
+import { ResponseMessage } from '../../../../model/response/ResponseMessage';
+import { ResponseStatusEnum } from '../../../../model/response/ResponseStatusEnum';
 
 @Component({
   selector: 'app-reset-password',

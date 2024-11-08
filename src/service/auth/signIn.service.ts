@@ -2,6 +2,7 @@ import { Observable } from "rxjs";
 import { ApiService } from "../api.service";
 import { Injectable } from '@angular/core';
 import { TokenResponse } from "../../model/response/TokenResponse";
+import { Response } from "../../model/response/Response";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,6 @@ export class SignInService {
   }
 
   activeAccount(uuid: string){
-    return this.apiService.post<null>("/auth/active/"+uuid, null, {});
+    return this.apiService.post<Response>("/auth/active/"+uuid, null, {});
   }
 }

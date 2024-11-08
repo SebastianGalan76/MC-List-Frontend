@@ -17,6 +17,9 @@ export const routes: Routes = [
         }, {
             path: "resetPassword",
             component: ResetPasswordComponent
+        }, {
+            path: 'active/:uuid',
+            component: SignInComponent
         }]
     },
 ];
