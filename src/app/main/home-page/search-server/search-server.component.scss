@@ -1,0 +1,77 @@
+@import "../../../../styles/base";
+@import "../../../../styles/formElement.scss";
+
+#search-container {
+    width: 1200px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+
+    .row {
+        display: flex;
+        gap: 10px;
+
+        .row-half {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    #search-server-button {
+        background-color: $color-theme;
+        border-radius: 10px;
+        
+        height: 0;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-weight: 800;
+        transition: all 0.1s ease-in;
+    }
+
+    #search-server-button.active{
+        height: 50px;
+    }
+
+    #search-server-button:hover {
+        background-color: $color-theme-dark;
+        cursor: pointer;
+    }
+
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+
+    @media (max-width: 800px) {
+        .row-half-container {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 500px) {
+        padding: 5px;
+
+        #search-server-button {
+            padding: 0 20px;
+        }
+
+        .row {
+            .row-half {
+                flex-direction: column;
+            }
+        }
+    }
+}

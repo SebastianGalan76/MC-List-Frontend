@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { User } from '../../../../model/User';
 import { RouterLink } from '@angular/router';
-import { UserService } from '../../../../service/user.service';
+import { User, UserService } from '../../../../service/user.service';
 
 @Component({
   selector: 'app-user-section',

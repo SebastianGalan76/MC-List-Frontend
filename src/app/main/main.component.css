@@ -1,4 +1,7 @@
 #container {
-  min-height: 100vh;
   position: relative;
+}
+#container #page-container {
+  position: relative;
+  min-height: 100vh;
 }/*# sourceMappingURL=main.component.css.map */

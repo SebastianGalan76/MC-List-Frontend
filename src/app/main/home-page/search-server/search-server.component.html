@@ -1,0 +1,35 @@
+<section id="search-container" class="center">
+    <div class="row">
+        <div class="input-area">
+            <input id="name-input" type="text" placeholder="Nazwa serwera lub motd" maxlength="60"
+                (input)="sthChange = true" [(ngModel)]="searchInput">
+            <div class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-half-container">
+        <div class="row-half">
+            <app-input-select [placeholder]="'Wybierz wersje serwera'" [maxChoice]="1" [options]="versionOptions" (onChange)="sthChange = true"/>
+
+            <app-input-select [placeholder]="'Wybierz tryb serwera'" [maxChoice]="1" [options]="modeOptions" (onChange)="sthChange = true"/>
+        </div>
+
+        <div class="checkbox-container">
+            <div class="checkbox-area">
+                <input type="checkbox" id="server-premium-checkbox" [(ngModel)]="premium" (change)="sthChange = true">
+                <label for="server-premium-checkbox">Premium</label>
+            </div>
+
+            <div class="checkbox-area">
+                <input type="checkbox" id="server-mods-checkbox" [(ngModel)]="mods" (change)="sthChange = true">
+                <label for="server-mods-checkbox">Mody</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="button" [ngClass]="{'active' : sthChange}" id="search-server-button" (click)="search()">
+        Szukaj
+    </div>
+</section>

@@ -1,0 +1,9 @@
+@import "../../../../styles/base";
+@import "../../../../styles/formElement.scss";
+
+.input-area-select{
+    width: 100%;
+
+    flex-grow: 1;
+    flex-shrink: 0;
+}

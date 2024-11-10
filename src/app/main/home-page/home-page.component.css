@@ -1,0 +1,17 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 1200px;
+  margin: auto;
+  margin-top: 30px;
+}
+#container h1.header {
+  text-align: center;
+}
+@media (max-width: 1200px) {
+  #container {
+    padding: 10px;
+    width: 100%;
+  }
+}/*# sourceMappingURL=home-page.component.css.map */

@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { User } from '../model/User';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { CookieService } from './cookie.service';
+
+export interface User{
+  id: number;
+  login: string;
+  email: string;
+  role: string;
+}
 
 @Injectable({
   providedIn: 'root'

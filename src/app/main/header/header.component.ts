@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { UserService } from '../../../service/user.service';
-import { User } from '../../../model/User';
+import { User, UserService } from '../../../service/user.service';
 import { UserSectionComponent } from "./user-section/user-section.component";
 
 @Component({

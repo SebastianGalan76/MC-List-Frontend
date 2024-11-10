@@ -1,5 +1,9 @@
 #container{
-    min-height: 100vh;
-    
     position: relative;
+
+    #page-container{
+        position: relative;
+
+        min-height: 100vh;
+    }
 }

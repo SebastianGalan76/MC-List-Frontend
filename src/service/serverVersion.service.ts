@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { ServerVersion } from '../model/ServerVersion';
-import { Observable, of } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
+
+export interface ServerVersion {
+  id: number;
+  name: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +19,9 @@ export class ServerVersionService {
 
   getVersionList() : Observable<ServerVersion[]>{
     if(!this.versionList){
-      return this.apiService.get<ServerVersion[]>("/version/listAll", {});
+      return this.apiService.get<ServerVersion[]>("/version/listAll", {}).pipe(
+        tap(list => this.versionList = list)
+      );
     }
 
     return of(this.versionList);

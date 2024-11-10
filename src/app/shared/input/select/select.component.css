@@ -320,31 +320,8 @@ input[type=color]::-webkit-color-swatch {
   color: #f5f5f5;
 }
 
-#container {
-  background: url(../../../../../public/img/background.png), rgb(0, 0, 0) no-repeat;
-  padding: 20px;
-  border-radius: 20px;
-  width: 400px;
-  border: 1px solid #e2a258;
-}
-#container #header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.5em;
-  border-bottom: 1px solid rgb(255, 255, 232);
-  padding-bottom: 20px;
-}
-#container #header .close-button {
-  cursor: pointer;
-}
-#container #form-container {
-  margin: 100px 0;
-}
-#container .action-button {
+.input-area-select {
   width: 100%;
-}
-@media (max-width: 400px) {
-  #container {
-    width: 100%;
-  }
-}/*# sourceMappingURL=reset-password.component.css.map */
+  flex-grow: 1;
+  flex-shrink: 0;
+}/*# sourceMappingURL=select.component.css.map */

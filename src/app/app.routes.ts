@@ -4,6 +4,7 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { MainPageComponent } from './main/main.component';
+import { HomePageComponent } from './main/home-page/home-page.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,10 @@ export const routes: Routes = [
     },
     {
         path: "",
-        component: MainPageComponent
+        component: MainPageComponent,
+        children: [{
+            path: "",
+            component: HomePageComponent
+        }]
     }
 ];

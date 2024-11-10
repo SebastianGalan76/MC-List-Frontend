@@ -1,0 +1,43 @@
+<div class="input-area-select">
+    <div class="item-list-panel" *ngIf="focused">
+        <div class="item-list-wrapper scrollable scrollable-vertical">
+            <div class="item-list-container">
+                @for (option of options; track $index) {
+                @if (option.isVisibled) {
+                <div class="item">
+                    <input type="checkbox" class="checkbox" [id]="'checkbox-mode'+option.item.id"
+                        [checked]="option.isSelected" (change)="select(option, $event)" [disabled]="selected==maxChoice && !option.isSelected && maxChoice!=1">
+                    <label [for]="'checkbox-mode'+option.item.id">{{option.item.name}}</label>
+                </div>
+                }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="input-container">
+        <input id="mode-input" [placeholder]="placeholder" type="text" maxlength="60" autocomplete="off"
+            [(ngModel)]="searchInput" (input)="search()" (focus)="focused = true" [ngClass]="{'focused': focused}">
+        <div class="icon">
+            <div class="limit" [ngClass]="{'max':maxChoice==selected}" *ngIf="maxChoice>1 && selected>0">
+                {{selected}}/{{maxChoice}}
+            </div>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+    <div class="selected-item-wrapper scrollable-horizontal scrollable">
+        <div class="selected-item-container scrollable-container">
+            @for (option of options; track $index) {
+            @if(option.isSelected){
+            <div class="item">
+                <div class="value">{{option.item.name}}</div>
+                <div class="remove-button" (click)="remove(option)">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                </div>
+            </div>
+            }
+            }
+        </div>
+    </div>
+</div>
