@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { OptionValue, SelectComponent } from "../../../shared/input/select/select.component";
 import { ServerVersionService } from '../../../../service/serverVersion.service';
 import { ServerModeService } from '../../../../service/serverMode.service';
+import { SearchServerService } from '../../../../service/searchServer.service';
 
 @Component({
   selector: 'app-search-server',
@@ -23,6 +24,7 @@ export class SearchServerComponent {
   modeOptions: OptionValue[] = [];
 
   constructor(
+    private searchServerService: SearchServerService,
     private serverVersionService: ServerVersionService,
     private serverModeService: ServerModeService
   ) {
@@ -50,6 +52,18 @@ export class SearchServerComponent {
   search() {
     this.sthChange = false;
 
+    var selectedVersion = this.versionOptions.find(option => option.isSelected)?.item || null;
+    var selectedMode = this.modeOptions.find(option => option.isSelected)?.item || null;
 
+    var searchDto = {
+      name: this.searchInput,
+      version: selectedVersion,
+      mode: selectedMode,
+      premium: this.premium,
+      mods: this.mods
+    }
+
+    //TODO Populate server list
+    this.searchServerService.searchServer(searchDto, 0).subscribe();
   }
 }
