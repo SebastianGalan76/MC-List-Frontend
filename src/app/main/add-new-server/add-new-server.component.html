@@ -1,0 +1,55 @@
+<body>
+    <div class="divider-line-vertical"></div>
+    <div id="container">
+        <a id="logo" href="/">
+            <img src="img/logo.png">
+        </a>
+
+        <div id="form-container">
+            <div class="header">
+                Dodawanie nowego serwera
+            </div>
+
+            <div class="input-area">
+                <input id="address-input" type="text" placeholder="Adres serwera" maxlength="60" [(ngModel)]="ip">
+                <span class="required">*</span>
+                <div class="icon">
+                    <i class="fa-solid fa-server"></i>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <input id="port-input" type="number" placeholder="Port" maxlength="60" [(ngModel)]="port">
+                <div class="icon">
+                    <i class="fa-solid fa-shield"></i>
+                </div>
+            </div>
+
+            <app-input-select [placeholder]="'Wybierz tryb serwera'" [maxChoice]="-1" [options]="modeOptions" />
+
+            <app-input-select [placeholder]="'Wybierz wersje serwera'" [maxChoice]="-1" [options]="versionOptions" />
+        </div>
+
+        @if (responseError) {
+        <div id="server-status-response-error"><span class="red">Nie możemy znaleźć takiego
+                serwera. Czy wpisałeś poprawny adres oraz port serwera?</span><br>
+            <br>
+            Jeśli serwer jest włączony i wciąż występuje błąd z połączeniem, przeczytaj więcej o możliwych
+            przyczynach <a href="/connectionError" class="link">tutaj</a>.
+        </div>
+        }
+
+        @if (loading) {
+        <ng-lottie [options]="{
+                path: '/animation/loading.json',
+              }" />
+        }
+
+        <div id="footer">
+            @if (!loading) {
+            <button class="action-button" (click)="addServer()">Dodaj</button>
+            }
+        </div>
+    </div>
+    <div class="divider-line-vertical"></div>
+</body>

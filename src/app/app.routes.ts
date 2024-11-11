@@ -5,6 +5,7 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { MainPageComponent } from './main/main.component';
 import { HomePageComponent } from './main/home-page/home-page.component';
+import { AddNewServerComponent } from './main/add-new-server/add-new-server.component';
 
 export const routes: Routes = [
     {
@@ -25,10 +26,17 @@ export const routes: Routes = [
         }],
     },
     {
+        path: 'add-new-server',
+        component: AddNewServerComponent
+    },
+    {
         path: "",
         component: MainPageComponent,
         children: [{
             path: "",
+            component: HomePageComponent
+        },{
+            path: "server/:ip",
             component: HomePageComponent
         }]
     }
