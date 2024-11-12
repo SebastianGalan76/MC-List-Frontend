@@ -14,6 +14,7 @@ import { ServerStatisticComponent as ServerStatisticsComponent } from './main/se
 import { ServerRatingsComponent } from './main/server/info-container/ratings/ratings.component';
 import { ServerInfoComponent } from './main/server/info-container/info/info.component';
 import { ServerModesComponent } from './main/server/info-container/modes/modes.component';
+import { ManageServerComponent } from './manage/server/manageServer.component';
 
 export const routes: Routes = [
     {
@@ -36,6 +37,9 @@ export const routes: Routes = [
     {
         path: 'add-new-server',
         component: AddNewServerComponent
+    },{
+        path: "manage/server/:ip",
+        component: ManageServerComponent
     },
     {
         path: "",

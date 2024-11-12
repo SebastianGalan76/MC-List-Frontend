@@ -1,0 +1,69 @@
+#container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+#container #user-profile {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #e2a258;
+}
+#container #user-profile .profile-picture {
+  height: 50px;
+  width: auto;
+}
+#container #user-profile .profile-picture img {
+  height: 100%;
+  width: auto;
+}
+#container #user-profile .info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#container #user-profile .info .login {
+  font-weight: 700;
+}
+#container #menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+#container #menu-container .header {
+  font-weight: 800;
+  margin-left: 25px;
+}
+#container #menu-container .button {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.044);
+  font-weight: 600;
+}
+#container #menu-container .button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.131);
+  color: #e2a258;
+}
+#container #server-page {
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  background-color: #e2a258;
+  padding: 10px;
+  border-radius: 10px;
+}
+#container #server-page:hover {
+  cursor: pointer;
+  background-color: #ce8e45;
+}/*# sourceMappingURL=aside-menu.component.css.map */
