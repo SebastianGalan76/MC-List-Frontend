@@ -1,0 +1,35 @@
+#main-container #button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.1019607843);
+  border-radius: 6px;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  padding: 5px;
+}
+#main-container #button-container .button {
+  padding: 7px 30px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1019607843);
+}
+#main-container #button-container .button.selected {
+  background-color: rgba(0, 0, 0, 0.2588235294);
+}
+#main-container #button-container .button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.0901960784);
+}
+#main-container #button-container .button.selected:hover {
+  background-color: rgba(0, 0, 0, 0.2588235294);
+}
+@media (max-width: 600px) {
+  #main-container #button-container {
+    font-size: 0.9em;
+  }
+}/*# sourceMappingURL=info-container.component.css.map */

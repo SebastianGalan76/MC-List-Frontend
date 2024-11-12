@@ -1,0 +1,41 @@
+#subservers-main-container {
+  position: relative;
+}
+#subservers-main-container #subservers-container {
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#subservers-main-container .subserver {
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+#subservers-main-container .subserver .title {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+#subservers-main-container .subserver .tag-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9em;
+}
+#subservers-main-container .subserver .tag-container .tag {
+  display: flex;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.1019607843);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 3px 10px;
+  border-radius: 15px;
+}/*# sourceMappingURL=modes.component.css.map */

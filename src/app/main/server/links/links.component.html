@@ -1,0 +1,11 @@
+<div class="panel" [id]="style">
+    <div class="title">Linki</div>
+
+    @for (link of server.links; track link.index) {
+    <a class="server-link" [ngClass]="getClass(link.name)" target="_blank" [href]="link.url">
+        <div [ngClass]="getIcon(link.name)" class="icon" aria-hidden="true">
+        </div>
+        <div class="name">{{link.name}}</div>
+    </a>
+    }
+</div>

@@ -1,0 +1,72 @@
+<div id="container" class="panel">
+    <div class="logo">
+        <img class="logo-src" [src]="server.detail.icon">
+    </div>
+    <div class="middle-panel">
+        <h1 class="address-value">
+            {{server.name.name}}
+        </h1>
+        <div class="motd">
+            <div class="motd" [innerHTML]="safeMotdHtml"></div>
+        </div>
+        <div class="tag-container">
+            @if (server.mode) {
+            <div class="tag mode-tag">
+                <div class="icon">
+                    <i class="fa-solid fa-dice-d6"></i>
+                </div>
+                <div class="content">
+                    {{server.mode.name}}
+                </div>
+            </div>
+            }
+
+            @if (versions) {
+            <div class="tag version-tag">
+                <div class="icon">
+                    <i class="fa-solid fa-code-branch"></i>
+                </div>
+                <div class="content">
+                    {{versions}}
+                </div>
+            </div>
+            }
+
+            @if (server.mods) {
+            <div class="tag mods-tag">
+                <div class="icon">
+                    <i class="fa-solid fa-parachute-box"></i>
+                </div>
+                <div class="content">
+                    Mody
+                </div>
+            </div>
+            }
+
+            @if (server.premium) {
+            <div class="tag premium-tag" style="display: none;">
+                <div class="icon">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+                <div class="content">
+                    Premium
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <div class="statistic-container">
+        <div class="online statistic">
+            <div class="icon" title="Ilość graczy">🟢</div><span class="online-value">{{server.onlinePlayers}}</span>
+        </div>
+        <div class="votes statistic">
+            <div class="icon" title="Ilość głosów">❤️</div><span class="vote-value">0</span>
+        </div>
+        @if (server.promotionPoints >= 0) {
+        <div class="statistic">
+            <div class="icon" title="Dni promowania">👑</div><span class="vote-value">{{server.promotionPoints}}</span>
+        </div>
+        }
+    </div>
+</div>

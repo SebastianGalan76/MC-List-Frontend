@@ -1,0 +1,37 @@
+<div class="main-container-content ratings-global" id="ratings-main-container">
+    <div class="ratings-main overall-ratings-container">
+        <div class="header">
+            <div class="title">
+                Ogólna ocena
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="left-panel">
+                <!--
+                    <lottie-player id="loading-animation" src="/animation/star.json"
+                    background="transparent" speed="1" loop autoplay></lottie-player>
+                -->
+                <span class="rating"><span class="overall-rating"></span>/5.0</span>
+            </div>
+            <div class="right-panel categories-container">
+
+            </div>
+        </div>
+    </div>
+
+    <div id="ratings-categories">
+
+    </div>
+
+    <a href="/auth/signIn">
+        <div class="sign-in-to-rate-button center" th:if="${user==null}" style="margin-top: 150px;">
+            Zaloguj się, aby ocenić
+        </div>
+    </a>
+    <a>
+        <div class="rate-button center" th:if="${user!=null}" style="margin-top: 150px;">
+            Oceń serwer
+        </div>
+    </a>
+</div>

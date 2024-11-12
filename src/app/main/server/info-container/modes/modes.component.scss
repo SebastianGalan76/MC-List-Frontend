@@ -1,0 +1,49 @@
+@import "../../../../../styles/base";
+
+#subservers-main-container {
+    position: relative;
+
+    #subservers-container {
+        width: fit-content;
+        max-width: 100%;
+        margin-top: 40px;
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .subserver {
+        background-color: $color-dark;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+
+        .title {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        .tag-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+
+            .tag {
+                display: flex;
+                gap: 8px;
+
+                background-color: #ffffff1a;
+                width: fit-content;
+
+                padding: 3px 10px;
+                border-radius: 15px;
+            }
+        }
+    }
+}

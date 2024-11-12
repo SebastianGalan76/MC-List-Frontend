@@ -1,0 +1,53 @@
+<div id="page-wrapper" class="center" *ngIf="server">
+    <section id="container">
+        <app-server-status [server]="server" />
+
+        <div id="button-panel" class="panel action-buttons-container">
+            <div class="button vote" onclick="showVotePopup()">Zagłosuj</div>
+            <a th:href="'/server/'+ ${server.ip} +'/promote'">
+                <div class="button promote">Promuj</div>
+            </a>
+            <a th:href="'/server/' + ${server.id} + '/manage'" th:if="${role != null}">
+                <div class="button manage">Zarządzaj</div>
+            </a>
+            <a th:href="'/server/'+ ${server.id} +'/take'" th:if="${server.serverUserRoles.size() == 0}">
+                <div class="button manage">Przejmij</div>
+            </a>
+        </div>
+
+        @if (server.links && server.links.length>0) {
+        <app-server-links [server]="server" />
+        }
+
+        <router-outlet  style="display: none;"/>
+    </section>
+    <aside>
+        <div class="panel" id="ip-panel">
+            <div class="ip-address" (click)="copyServerIP()"> {{server.name.name}}</div>
+            <div class="copy-info">Kliknij, aby skopiować</div>
+        </div>
+
+        <div class="panel action-buttons-container" id="button-panel-aside">
+            <div class="button vote" onclick="showVotePopup()">Zagłosuj</div>
+            <a th:href="'/server/'+ ${server.ip} +'/promote'">
+                <div class="button promote">Promuj</div>
+            </a>
+            <a th:href="'/server/' + ${server.id} + '/manage'" th:if="${role != null}">
+                <div class="button manage">Zarządzaj</div>
+            </a>
+            <a th:href="'/server/'+ ${server.id} +'/take'" th:if="${server.serverUserRoles.size() == 0}">
+                <div class="button manage">Przejmij</div>
+            </a>
+        </div>
+
+        @if (server.links && server.links.length>0) {
+        <app-server-links [server]="server" [style]="'link-panel-aside'" />
+        }
+
+        <a [routerLink]="['/server/', server.ip, '/report']">
+            <div id="report-button" class="center">
+                Zgłoś serwer
+            </div>
+        </a>
+    </aside>
+</div>

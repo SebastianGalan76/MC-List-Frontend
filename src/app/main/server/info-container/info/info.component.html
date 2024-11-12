@@ -1,0 +1,16 @@
+<div class="main-container-content" id="information-main-container">
+    <h1 class="content-header">Informacje</h1>
+
+    <span class="info-con"><span class="h">Adres: </span><span th:text="${server.name.name}"></span><br></span>
+    <span class="info-con" th:if="${server.port > 0}"><span class="h">Port: </span><span
+            th:text="${server.port}"></span>
+        <br></span>
+
+    <span class="info-con" th:if="${server.versions.size() > 0}"><span class="h">Wersja:</span> <span
+            id="server-versions-info"></span> <br></span>
+    <span class="info-con" th:if="${server.subServers.size() > 0 or server.mode != null}"><span
+            class="h">Tryby:</span> <span id="server-modes-info"></span><br></span>
+    <span class="info-con"><span class="h">Zaktualizowano:</span> <span
+            id="server-refresh-time-info"></span><br></span>
+    <span class="info-con"><span class="h">Dodano:</span> <span id="server-created-time-info"></span><br></span>
+</div>

@@ -1,0 +1,61 @@
+#link-panel-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#link-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+#link-panel .title {
+  display: none;
+}
+#link-panel .server-link {
+  padding: 10px 20px;
+}
+#link-panel .server-link .icon {
+  font-size: 1em !important;
+}
+@media (max-width: 600px) {
+  #link-panel {
+    font-size: 0.9em;
+  }
+}
+
+.server-link {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-weight: 1.1em;
+  gap: 10px;
+  background-color: rgb(37, 37, 37);
+  padding: 10px;
+  border-radius: 10px;
+  transition: scale 0.2s ease;
+}
+.server-link .icon {
+  font-size: 1.15em;
+}
+@media (max-width: 600px) {
+  .server-link {
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+}
+
+.server-link:hover {
+  scale: 1.02;
+  cursor: pointer;
+}
+
+.server-link.shop {
+  background-color: #f7be21;
+}
+
+.server-link.discord {
+  background-color: #7289da;
+}/*# sourceMappingURL=links.component.css.map */

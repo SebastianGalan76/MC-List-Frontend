@@ -1,0 +1,42 @@
+<div class="main-container-content" id="staff-main-container"
+        th:if="${server.staff != null and server.staff.size() > 0}">
+        <h1 class="content-header">Administracja</h1>
+
+        <div class="staff-rank" th:each="entry: ${server.staff}">
+            <div class="name" th:text="${entry.name}" th:style="'color: ' + ${entry.color} + ';'"></div>
+
+            <div class="players-container scrollable scrollable-horizontal center">
+                <div class="player" th:each="player: ${entry.players}">
+                    <div class="head">
+                        <img th:src="'https://minotar.net/avatar/' + ${player.nick}">
+                    </div>
+                    <div class="nick" th:text="${player.nick}">
+
+                    </div>
+                    <div class="links">
+                        <div th:if="${player.discord.length() > 0}">
+                            <a href="javascript:void(0)" th:attr="data-copy=${player.discord}"
+                                onclick="copyToClipboard(this)">
+                                <i class="fa-brands fa-discord"></i>
+                            </a>
+                        </div>
+                        <div th:if="${player.tiktok.length > 0}">
+                            <a th:href="${player.tiktok}" target="_blank">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                        </div>
+                        <div th:if="${player.instagram.length > 0}">
+                            <a th:href="${player.instagram}" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div th:if="${player.youtube.length > 0}">
+                            <a th:href="${player.youtube}" target="_blank">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

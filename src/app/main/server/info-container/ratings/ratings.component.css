@@ -1,0 +1,178 @@
+.ratings-global {
+  padding: 20px;
+}
+.ratings-global .overall-ratings-container {
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  padding: 20px 0;
+  border-radius: 50px;
+}
+.ratings-global .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ratings-global .header .title {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.8em;
+  font-weight: 800;
+}
+.ratings-global .header .more-info-button {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px 30px;
+}
+.ratings-global .header .more-info-button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2588235294);
+}
+.ratings-global .header.margin-top {
+  margin-top: 50px;
+}
+.ratings-global .container {
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+  margin-top: 30px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ratings-global .container .left-panel {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  border-radius: 50px;
+}
+.ratings-global .container .left-panel lottie-player {
+  width: 200px;
+  height: auto;
+}
+.ratings-global .container .left-panel .rating {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 2em;
+}
+.ratings-global .container .right-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+  flex-grow: 1;
+}
+.ratings-global .container .right-panel .rating {
+  width: 100%;
+  color: #c4c4c4;
+}
+.ratings-global .container .right-panel .rating .up-panel {
+  display: flex;
+  font-weight: 500;
+  font-size: 1.1em;
+  justify-content: space-between;
+}
+.ratings-global .container .right-panel .rating .progress-bar {
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  width: 100%;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.ratings-global .container .right-panel .rating .progress-bar .progress {
+  width: 0%;
+  height: 100%;
+  background-color: #ffba3b;
+  border-radius: 6px;
+}
+@media (max-width: 1000px) {
+  .ratings-global .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+@media (max-width: 800px) {
+  .ratings-global .container {
+    gap: 25px;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 700px) {
+  .ratings-global .container {
+    gap: 10px;
+  }
+  .ratings-global .container .left-panel {
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .ratings-global .container .left-panel lottie-player {
+    width: 150px;
+  }
+  .ratings-global .container .left-panel .rating {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 500px) {
+  .ratings-global .container {
+    gap: 5px;
+  }
+  .ratings-global .container .left-panel {
+    padding: 5px;
+    border-radius: 10px;
+  }
+  .ratings-global .container .left-panel lottie-player {
+    width: 100px;
+  }
+  .ratings-global .container .left-panel .rating {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 400px) {
+  .ratings-global .container {
+    flex-direction: column;
+  }
+}
+.ratings-global .sign-in-to-rate-button {
+  padding: 15px 0;
+  text-align: center;
+  width: 70%;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 60, 0);
+  background-color: rgba(255, 60, 0, 0.493);
+  transition: all 0.3 ease;
+  margin-top: 50px;
+  font-weight: 600;
+}
+.ratings-global .sign-in-to-rate-button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 60, 0, 0.753);
+}
+.ratings-global .rate-button {
+  padding: 15px 0;
+  text-align: center;
+  width: 70%;
+  border-radius: 10px;
+  border: 2px solid #ffba3b;
+  background-color: rgba(255, 186, 59, 0.368627451);
+  transition: all 0.3 ease;
+  margin-top: 50px;
+  font-weight: 600;
+}
+.ratings-global .rate-button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 186, 59, 0.6901960784);
+}
+@media (max-width: 700px) {
+  .ratings-global {
+    padding: 5px;
+  }
+  .ratings-global .overall-ratings-container {
+    padding: 10px 0;
+    border-radius: 20px;
+  }
+}/*# sourceMappingURL=ratings.component.css.map */

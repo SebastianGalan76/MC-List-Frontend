@@ -1,4 +1,5 @@
-@use 'styles/base' as *;
+@import "styles/base";
+@import "styles/quillEditor.scss";
 
 * {
     margin: 0;
@@ -86,4 +87,36 @@ a{
 }
 .scrollable::-webkit-scrollbar-thumb:hover {
     background-color: $color-theme;
+}
+
+.panel {
+    border: 2px solid #79797971;
+    background-color: #ffffff0e;
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 10px;
+
+    .title {
+        font-weight: 700;
+        font-size: 1.25em;
+        padding: 10px 0;
+    }
+
+    @media (max-width: 600px){
+        padding: 4px;
+        border-radius: 6px;
+    }
+}
+
+.main-container-content {
+    .content-header {
+        margin-top: 15px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 2em;
+    }
+}
+
+.center{
+    margin: auto;
 }

@@ -1,0 +1,85 @@
+@import "../../../../../styles/base";
+
+#staff-main-container {
+    padding-bottom: 100px;
+
+    .staff-rank {
+        margin-top: 25px;
+
+        .name {
+            font-size: 2em;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .players-container {
+            display: flex;
+            gap: 20px;
+
+            width: fit-content;
+            max-width: 100%;
+            padding-bottom: 30px;
+
+            overflow: hidden;
+            overflow-x: auto;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+
+            .player {
+                padding: 10px;
+                background-color: $color-dark;
+                border-radius: 10px;
+
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                align-items: center;
+
+                .head {
+                    border-radius: 10px;
+                    overflow: hidden;
+
+                    img {
+                        width: 120px;
+                        height: 120px;
+                    }
+                }
+
+                .nick {
+                    text-align: center;
+                    font-weight: 600;
+                }
+
+                .links {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                }
+            }
+        }
+
+        @media (max-width: 800px) {
+            margin-top: 15px;
+
+            .name {
+                font-size: 1.5em;
+            }
+
+            .players-container {
+                gap: 5px;
+
+                .player {
+                    .head {
+                        img {
+                            width: 80px !important;
+                            height: 80px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
