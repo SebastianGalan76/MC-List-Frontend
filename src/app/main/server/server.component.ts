@@ -6,7 +6,7 @@ import { ServerStatusComponent } from './status/status.component';
 import { NotificationService } from '../../../service/notification.service';
 import { ServerLinksComponent } from './links/links.component';
 import { CommonModule } from '@angular/common';
-import { ServerDataService } from '../../../service/server/serverDataService';
+import { ServerService } from '../../../service/server/serverService';
 
 @Component({
   selector: 'app-server',
@@ -15,13 +15,12 @@ import { ServerDataService } from '../../../service/server/serverDataService';
   templateUrl: './server.component.html',
   styleUrl: './server.component.scss'
 })
-export class ServerComponent implements OnInit{
+export class ServerComponent implements OnInit {
   server!: Server;
   ip: string;
 
   constructor(
-    private serverDataService: ServerDataService,
-    private apiService: ApiService,
+    private serverService: ServerService,
     private route: ActivatedRoute,
     private notificationService: NotificationService
   ) {
@@ -29,22 +28,21 @@ export class ServerComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.apiService.get<Server>('/server/'+this.ip, {withCredentials: true}).subscribe({
-      next: (response) => {
+    this.serverService.getServer(this.ip).subscribe((response) => {
+      if (response) {
         this.server = response;
-        this.serverDataService.server = this.server;
       }
-    });
+    })
   }
 
-  copyServerIP(){
+  copyServerIP() {
     var ip = this.server.ip;
-    if(this.server.port && this.server.port!=0){
+    if (this.server.port && this.server.port != 0) {
       ip += ":" + this.server.port;
     }
 
-    navigator.clipboard.writeText(ip).then(()=>{
-      this.notificationService.showNotification("Skopiowano "+ip+" do schowka");
+    navigator.clipboard.writeText(ip).then(() => {
+      this.notificationService.showNotification("Skopiowano " + ip + " do schowka");
     })
   }
 }

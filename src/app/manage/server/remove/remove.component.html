@@ -1,0 +1,20 @@
+<div id="container" *ngIf="server">
+    <h1 id="header">Usuwanie serwer</h1>
+    <div class="divider-line-horizontal"></div>
+    <div id="content">
+        <section>
+            Jeśli chcesz usunąć serwer, musisz wpisać <span id="ip-server">{{server.ip}}</span> aby potwierdzić.
+            <br>
+            <div class="red">Operacji nie można cofnąć.</div>
+            <div class="input-area">
+                <input type="text" placeholder="Potwierdzenie" [(ngModel)]="confirmation">
+                <div class="icon">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+            </div>
+            <div id="submit-button" (click)="remove()">
+                Usuń serwer
+            </div>
+        </section>
+    </div>
+</div>

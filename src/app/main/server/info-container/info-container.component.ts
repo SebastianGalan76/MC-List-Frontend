@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { ServerDataService } from '../../../../service/server/serverDataService';
+import { ServerService } from '../../../../service/server/serverService';
 import { Server } from '../../../../model/server/server';
 import { CommonModule } from '@angular/common';
 
@@ -17,11 +17,11 @@ export class ServerInfoContainerComponent implements OnInit {
   navButtons: any[] = [];
 
   constructor(
-    private serverDataService: ServerDataService
+    private serverService: ServerService
   ) { }
 
   ngOnInit(): void {
-    this.server = this.serverDataService.server!;
+    this.server = this.serverService.server!;
 
     this.navButtons.push({
       name: "Informacje",

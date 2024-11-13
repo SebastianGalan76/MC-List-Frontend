@@ -1,9 +1,9 @@
 <div id="container">
     <aside id="aside-menu">
-        <app-aside-menu-manage-server [user]="user"/>
+        <app-aside-menu-manage-server [user]="user!" [server]="server!"/>
     </aside>
     <div class="divider-line-vertical"></div>
     <section id="content">
-
+        <router-outlet />
     </section>
 </div>

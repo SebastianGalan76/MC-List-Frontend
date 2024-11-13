@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { ServerDataService } from '../../../../../service/server/serverDataService';
+import { ServerService } from '../../../../../service/server/serverService';
 
 @Component({
   selector: 'app-description',
@@ -14,11 +14,11 @@ export class DescriptionComponent implements OnInit{
 
   constructor(
     private sanitizer: DomSanitizer,
-    private serverDataService: ServerDataService,
+    private serverService: ServerService,
   ) {}
 
   ngOnInit(): void {
-    const description = this.serverDataService.server?.description ?? "";
+    const description = this.serverService.server?.description ?? "";
     this.safeDescriptionHtml = this.sanitizer.bypassSecurityTrustHtml(description);
   }
 }

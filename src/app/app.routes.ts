@@ -15,6 +15,7 @@ import { ServerRatingsComponent } from './main/server/info-container/ratings/rat
 import { ServerInfoComponent } from './main/server/info-container/info/info.component';
 import { ServerModesComponent } from './main/server/info-container/modes/modes.component';
 import { ManageServerComponent } from './manage/server/manageServer.component';
+import { RemoveManageServerComponent } from './manage/server/remove/remove.component';
 
 export const routes: Routes = [
     {
@@ -39,7 +40,11 @@ export const routes: Routes = [
         component: AddNewServerComponent
     },{
         path: "manage/server/:ip",
-        component: ManageServerComponent
+        component: ManageServerComponent,
+        children: [{
+            path: "remove",
+            component: RemoveManageServerComponent
+        }]
     },
     {
         path: "",

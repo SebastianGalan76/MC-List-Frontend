@@ -1,0 +1,68 @@
+@import "../../../../styles/base";
+@import "../../../../styles/formElement.scss";
+
+#container{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    #header{
+        margin: 50px 0;
+
+        font-size: 2em;
+        text-align: center;
+        width: 100%;
+
+        @media (max-height: 500px){
+            margin: 25px 0;
+        }
+    }
+
+    #content{
+        width: 100%;
+
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+
+        section{
+            text-align: center;
+            width: 600px;
+
+            margin: auto;
+
+            .red{
+                color: $color-red;
+                font-size: 1.2em;
+                font-weight: 800;
+                margin: 30px 0;
+            }
+
+            #ip-server{
+                color: $color-theme;
+                font-weight: 600;
+            }
+
+            #submit-button{
+                background-color: $color-theme;
+                padding: 15px;
+                border-radius: 15px;
+
+                margin-top: 100px;
+                font-weight: 600;
+
+                @media (max-height: 500px){
+                    margin-top: 50px;
+                }
+            }
+
+            #submit-button:hover{
+                cursor: pointer;
+                background-color: $color-theme-dark;
+            }
+        }
+    }
+}
