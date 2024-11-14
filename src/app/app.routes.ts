@@ -16,6 +16,8 @@ import { ServerInfoComponent } from './main/server/info-container/info/info.comp
 import { ServerModesComponent } from './main/server/info-container/modes/modes.component';
 import { ManageServerComponent } from './manage/server/manageServer.component';
 import { RemoveManageServerComponent } from './manage/server/remove/remove.component';
+import { DescriptionManageServerComponent } from './manage/server/description/description.component';
+import { unsavedChangesGuard } from './guards/unsaved-changes.guard';
 
 export const routes: Routes = [
     {
@@ -44,6 +46,10 @@ export const routes: Routes = [
         children: [{
             path: "remove",
             component: RemoveManageServerComponent
+        },{
+            path: "description",
+            component: DescriptionManageServerComponent,
+            canDeactivate: [unsavedChangesGuard]
         }]
     },
     {
