@@ -1,0 +1,41 @@
+<div id="container">
+    <h1 id="header">Baner</h1>
+    <div class="divider-line-horizontal"></div>
+    <div id="content">
+        <section>
+            <div id="banner-preview">
+                @if (this.imageUrl) {
+                <img id="banner" [src]="imageUrl" />
+                }
+            </div>
+
+            <div id="form-container">
+                <div class="input-area">
+                    <input type="text" placeholder="URL obrazka" maxlength="256" [(ngModel)]="url"
+                        (change)="onUrlChange()">
+                    <div class="icon">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                </div>
+
+                <span class="center"><br>lub<br><br></span>
+
+                <div class="file-input-container center">
+                    <div class="file-input">
+                        <button type="button" (click)="fileInputs.click()">Wybierz plik</button>
+                        <input type="file" id="file-input" size="1" (change)="onFileChange($event)" #fileInputs>
+                    </div>
+                    <span class="file-name" id="file-name">{{fileName}}</span>
+
+                    <div class="icon">
+                        <i class="fa-solid fa-file"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="submit-button" (click)="save()">
+                Zapisz zmiany
+            </div>
+        </section>
+    </div>
+</div>

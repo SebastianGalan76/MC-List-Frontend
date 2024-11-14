@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LottieComponent } from 'ngx-lottie';
 import { OptionValue, SelectComponent } from '../../../shared/input/select/select.component';
@@ -19,7 +19,7 @@ import { RedirectResponse } from '../../../../model/response/RedirectResponse';
   templateUrl: './information.component.html',
   styleUrl: './information.component.scss'
 })
-export class InformationManageServerComponent implements AfterViewInit {
+export class InformationManageServerComponent implements OnInit {
   ip: string = "";
   port: number | null = null;
 
@@ -64,7 +64,7 @@ export class InformationManageServerComponent implements AfterViewInit {
     })
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     var ip = this.route.parent?.snapshot.paramMap.get('ip') || '';
 
     this.serverService.getServer(ip).subscribe(server => {

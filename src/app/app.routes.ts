@@ -19,6 +19,7 @@ import { RemoveManageServerComponent } from './manage/server/remove/remove.compo
 import { DescriptionManageServerComponent } from './manage/server/description/description.component';
 import { unsavedChangesGuard } from './guards/unsaved-changes.guard';
 import { InformationManageServerComponent } from './manage/server/information/information.component';
+import { BannerManageServerComponent } from './manage/server/banner/banner.component';
 
 export const routes: Routes = [
     {
@@ -55,6 +56,10 @@ export const routes: Routes = [
             }, {
                 path: "description",
                 component: DescriptionManageServerComponent,
+                canDeactivate: [unsavedChangesGuard]
+            }, {
+                path: "banner",
+                component: BannerManageServerComponent,
                 canDeactivate: [unsavedChangesGuard]
             }]
     },

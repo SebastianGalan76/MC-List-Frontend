@@ -7,7 +7,7 @@ import { HttpOptions } from '../model/HttpOptions';
   providedIn: 'root'
 })
 export class ApiService {
-  domain: string = "http://localhost:8080"
+  public domain: string = "http://localhost:8080"
 
   constructor(
     private httpClient: HttpClient
