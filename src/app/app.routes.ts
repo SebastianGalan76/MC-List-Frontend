@@ -18,6 +18,7 @@ import { ManageServerComponent } from './manage/server/manageServer.component';
 import { RemoveManageServerComponent } from './manage/server/remove/remove.component';
 import { DescriptionManageServerComponent } from './manage/server/description/description.component';
 import { unsavedChangesGuard } from './guards/unsaved-changes.guard';
+import { InformationManageServerComponent } from './manage/server/information/information.component';
 
 export const routes: Routes = [
     {
@@ -40,17 +41,22 @@ export const routes: Routes = [
     {
         path: 'add-new-server',
         component: AddNewServerComponent
-    },{
+    }, {
         path: "manage/server/:ip",
         component: ManageServerComponent,
-        children: [{
-            path: "remove",
-            component: RemoveManageServerComponent
-        },{
-            path: "description",
-            component: DescriptionManageServerComponent,
-            canDeactivate: [unsavedChangesGuard]
-        }]
+        children: [
+            {
+                path: "info",
+                component: InformationManageServerComponent,
+                canDeactivate: [unsavedChangesGuard]
+            },{
+                path: "remove",
+                component: RemoveManageServerComponent
+            }, {
+                path: "description",
+                component: DescriptionManageServerComponent,
+                canDeactivate: [unsavedChangesGuard]
+            }]
     },
     {
         path: "",
@@ -87,7 +93,7 @@ export const routes: Routes = [
                 {
                     path: "info",
                     component: ServerInfoComponent
-                },{
+                }, {
                     path: "",
                     component: ServerInfoComponent
                 }]

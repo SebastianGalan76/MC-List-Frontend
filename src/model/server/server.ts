@@ -11,7 +11,7 @@ export interface Server{
     banner: string;
     premium: boolean;
     mods: boolean;
-    mode: ServerMode;
+    mode: ServerMode | null;
     online: boolean;
     onlinePlayers: number;
     promotionPoints: number;

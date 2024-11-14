@@ -1,0 +1,134 @@
+@import "../../../../styles/base";
+@import "../../../../styles/formElement.scss";
+
+#container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    #header {
+        margin: 50px 0;
+
+        font-size: 2em;
+        text-align: center;
+        width: 100%;
+
+        @media (max-height: 500px) {
+            margin: 25px 0;
+        }
+    }
+
+    #content {
+        width: 100%;
+
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+
+        section {
+            margin: auto;
+
+            width: 800px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 20px;
+
+            #form-container {
+                width: 100%;
+                flex-grow: 1;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
+
+                .header {
+                    font-size: 1.6em;
+                }
+
+                #reset-password-text {
+                    position: relative;
+                    top: -15px;
+                    text-align: right;
+                }
+
+                .info{
+                    text-align: center;
+                }
+
+                .checkbox-container{
+                    display: flex;
+                    gap: 10px;
+
+                    margin: auto;
+                }
+            }
+
+            #server-status-response-error {
+                border: 2px solid $color-red;
+                border-radius: 10px;
+                padding: 10px;
+                background-color: $color-dark;
+                text-align: center;
+
+                .link {
+                    color: $color-theme;
+                    font-weight: 600;
+                }
+
+                @media (max-width: 600px) {
+                    font-size: 0.8em;
+                }
+            }
+
+            @media (max-width: 900px) {
+                padding: 0 150px;
+            }
+
+            @media (max-width: 800px) {
+                padding: 0 100px;
+            }
+
+            @media (max-width: 700px) {
+                padding: 0 50px;
+                width: 100%;
+                min-width: 300px;
+                box-sizing: border-box;
+            }
+
+            @media (max-width: 500px) {
+                padding: 0 25px;
+                width: 100%;
+                min-width: 300px;
+                box-sizing: border-box;
+            }
+
+            #submit-button {
+                background-color: $color-theme;
+                padding: 15px;
+                border-radius: 15px;
+
+                width: 100%;
+                text-align: center;
+                
+                margin-top: 100px;
+                font-weight: 600;
+
+                @media (max-height: 500px) {
+                    margin-top: 50px;
+                }
+            }
+
+            #submit-button:hover {
+                cursor: pointer;
+                background-color: $color-theme-dark;
+            }
+        }
+    }
+}
