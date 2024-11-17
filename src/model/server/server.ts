@@ -20,17 +20,20 @@ export interface Server{
 }
 
 export interface ServerDetails{
+    id: number;
     motdHtml: string;
     motdClean: string;
     icon: string;
 }
 
 export interface ServerName{
+    id: number;
     name: string;
     color: string;
 }
 
 export interface ServerLink{
+    id: number;
     index: number;
     name: string;
     url: string;

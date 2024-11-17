@@ -20,6 +20,7 @@ import { DescriptionManageServerComponent } from './manage/server/description/de
 import { unsavedChangesGuard } from './guards/unsaved-changes.guard';
 import { InformationManageServerComponent } from './manage/server/information/information.component';
 import { BannerManageServerComponent } from './manage/server/banner/banner.component';
+import { LinkManageServerComponent } from './manage/server/link/link.component';
 
 export const routes: Routes = [
     {
@@ -61,6 +62,9 @@ export const routes: Routes = [
                 path: "banner",
                 component: BannerManageServerComponent,
                 canDeactivate: [unsavedChangesGuard]
+            }, {
+                path: "link",
+                component: LinkManageServerComponent,
             }]
     },
     {

@@ -1,0 +1,26 @@
+<div id="container">
+    <div id="header">
+        <span class="title">{{editMode ? "Edytowanie linku" : "Tworzenie nowego linku"}}</span>
+        <i class="fa-solid fa-xmark close-button" (click)="closePopup()"></i>
+    </div>
+
+    <div id="form-container">
+        <div class="input-area">
+            <input type="text" placeholder="Nazwa linku np. Sklep, Strona, Discord" maxlength="30" [(ngModel)]="linkName">
+            <div class="icon">
+                <i class="fa-regular fa-id-card"></i>
+            </div>
+        </div>
+    
+        <div class="input-area">
+            <input type="text" placeholder="Link" maxlength="255" [(ngModel)]="linkUrl">
+            <div class="icon">
+                <i class="fa-solid fa-link"></i>
+            </div>
+        </div>
+    </div>
+
+    <button class="action-button" (click)="performAction()">
+        {{editMode ? "Edytuj":"Dodaj"}}
+    </button>
+</div>
