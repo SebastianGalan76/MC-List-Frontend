@@ -8,6 +8,7 @@ import { AddServerService } from '../../../service/server/addServer.service';
 import { Router } from '@angular/router';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
 import { FormsModule } from '@angular/forms';
+import { Utils } from '../../../service/utils.service';
 
 @Component({
   selector: 'app-add-new-server',
@@ -55,12 +56,12 @@ export class AddNewServerComponent {
   }
 
   addServer() {
-    if(!this.isAddressValid(this.ip)){
+    if(!Utils.isAddressValid(this.ip)){
       this.notificationService.showNotification("Wpisz poprawny adres serwera!", NotificationType.ERROR);
       return;
     }
 
-    if(!this.isPortValid(this.port)){
+    if(!Utils.isPortValid(this.port)){
       this.notificationService.showNotification("Wpisz poprawny port serwera!", NotificationType.ERROR);
       return;
     }
@@ -98,32 +99,5 @@ export class AddNewServerComponent {
         this.loading = false;
       }
     });
-  }
-
-  isPortValid(port: number | null) : boolean {
-    if (port == null) {
-      return true;
-    }
-
-    if (port < 0 || port > 65535) {
-      return false;
-    }
-
-    return true;
-  }
-
-  isAddressValid(address: string): boolean {
-    const ipv4Regex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-    if (ipv4Regex.test(address)) {
-      return true;
-    }
-
-    const ipv6Regex = /^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/;
-    if (ipv6Regex.test(address)) {
-      return true;
-    }
-
-    const domainRegex = /^[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
-    return domainRegex.test(address);
   }
 }

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { AsideMenuManageServerComponent } from './aside-menu/aside-menu.component';
 import { User, UserService } from '../../../service/user.service';
 import { Server } from '../../../model/server/server';
 import { ServerService } from '../../../service/server/serverService';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { Subject, take } from 'rxjs';
 
 @Component({
   selector: 'app-server',
@@ -13,9 +14,9 @@ import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
   styleUrl: './manageServer.component.scss'
 })
 export class ManageServerComponent {
-  user: User | null = null;
-  server: Server | null = null;
-  ip: string;
+  user!: User;
+  public server!: Server;
+  public serverInitialized = new EventEmitter<void>();
 
   constructor(
     private userService: UserService,
@@ -23,18 +24,31 @@ export class ManageServerComponent {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.ip = this.route.snapshot.paramMap.get('ip') ?? "";
+    var ip = route.snapshot.paramMap.get('ip') ?? "";
 
-    userService.getUser().subscribe(response => {
-      this.user = response;
+    userService.getUser().subscribe({
+      next: (response) => {
+        if (response) {
+          this.user = response;
+        }
+        else {
+          router.navigate(['/']);
+        }
+      },
+      error: () => router.navigate(['/'])
     })
 
-    serverService.getServer(this.ip).subscribe(response => {
-      this.server = response;
-
-      if(!this.server){
-        router.navigate(['/']);
-      }
+    serverService.getServer(ip).subscribe({
+      next: (response) => {
+        if (response) {
+          this.server = response;
+          this.serverInitialized.emit();
+        }
+        else {
+          router.navigate(['/']);
+        }
+      },
+      error: () => router.navigate(['/'])
     })
   }
 }

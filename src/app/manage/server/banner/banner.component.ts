@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../../../service/api.service';
 import { ServerService } from '../../../../service/server/serverService';
-import { Server } from '../../../../model/server/server';
 import { ActivatedRoute } from '@angular/router';
 import { NotificationService, NotificationType } from '../../../../service/notification.service';
 import { Response } from '../../../../model/response/Response';
 import { Utils } from '../../../../service/utils.service';
+import { ManageServerComponent } from '../manageServer.component';
+import { defer, of, take } from 'rxjs';
 
 @Component({
   selector: 'app-banner-manage-server',
@@ -22,29 +23,22 @@ export class BannerManageServerComponent {
   selectedFile?: File;
   imageUrl?: string;
 
-  server!: Server;
-
   constructor(
+    public parent: ManageServerComponent,
     private apiService: ApiService,
-    private serverService: ServerService,
     private notificationService: NotificationService,
-    private route: ActivatedRoute
   ) {
-    var ip = this.route.parent?.snapshot.paramMap.get('ip') || '';
-
-    serverService.getServer(ip).subscribe(server => {
-      this.server = server!;
-
-      if (this.server.banner) {
-        if (Utils.isLinkValid(this.server.banner)) {
+    defer(() => this.parent.server ? of(null) : this.parent.serverInitialized).pipe(take(1)).subscribe(() => {
+      if (this.parent.server.banner) {
+        if (Utils.isLinkValid(this.parent.server.banner)) {
+          this.url = this.parent.server.banner;
           this.imageUrl = this.url;
-          this.url = this.server.banner;
         }
         else {
-          this.imageUrl = this.apiService.domain + this.server.banner;
+          this.imageUrl = this.apiService.domain + this.parent.server.banner;
         }
       }
-    });
+    })
   }
 
   save() {
@@ -67,7 +61,7 @@ export class BannerManageServerComponent {
       formData.append('url', this.url);
     }
 
-    this.apiService.post<Response>('/server/' + this.server.id + '/manage/banner', formData, { withCredentials: true }).subscribe({
+    this.apiService.post<Response>('/server/' + this.parent.server.id + '/manage/banner', formData, { withCredentials: true }).subscribe({
       next: (response) => {
         this.notificationService.showNotification(response.message);
       },

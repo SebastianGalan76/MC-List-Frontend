@@ -14,7 +14,7 @@ export class Utils {
     return URL_REGEX.test(input);
   }
 
-  static checkBannerFile(file: File): number {
+  static checkBannerFile(file: File | null): number {
     if(!file){
       return 1;
     }
@@ -29,5 +29,32 @@ export class Utils {
     }
 
     return -1;
+  }
+
+  static isPortValid(port: number | null): boolean {
+    if (port == null) {
+      return true;
+    }
+
+    if (port < 0 || port > 65535) {
+      return false;
+    }
+
+    return true;
+  }
+
+  static isAddressValid(address: string): boolean {
+    const ipv4Regex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    if (ipv4Regex.test(address)) {
+      return true;
+    }
+
+    const ipv6Regex = /^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/;
+    if (ipv6Regex.test(address)) {
+      return true;
+    }
+
+    const domainRegex = /^[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
+    return domainRegex.test(address);
   }
 }

@@ -1,16 +1,17 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LottieComponent } from 'ngx-lottie';
 import { OptionValue, SelectComponent } from '../../../shared/input/select/select.component';
-import { AddServerService } from '../../../../service/server/addServer.service';
 import { ServerVersionService } from '../../../../service/serverVersion.service';
 import { ServerModeService } from '../../../../service/serverMode.service';
 import { NotificationService, NotificationType } from '../../../../service/notification.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServerService } from '../../../../service/server/serverService';
-import { Server } from '../../../../model/server/server';
 import { ApiService } from '../../../../service/api.service';
 import { RedirectResponse } from '../../../../model/response/RedirectResponse';
+import { defer, of } from 'rxjs';
+import { ManageServerComponent } from '../manageServer.component';
+import { Utils } from '../../../../service/utils.service';
 
 @Component({
   selector: 'app-information-manage-server',
@@ -19,7 +20,7 @@ import { RedirectResponse } from '../../../../model/response/RedirectResponse';
   templateUrl: './information.component.html',
   styleUrl: './information.component.scss'
 })
-export class InformationManageServerComponent implements OnInit {
+export class InformationManageServerComponent {
   ip: string = "";
   port: number | null = null;
 
@@ -29,12 +30,11 @@ export class InformationManageServerComponent implements OnInit {
   premium: boolean = false;
   mods: boolean = false;
 
-  server!: Server;
-
   loading: boolean = false;
   responseError: boolean = false;
 
   constructor(
+    public parent: ManageServerComponent,
     private serverService: ServerService,
     private apiService: ApiService,
     private serverVersionService: ServerVersionService,
@@ -62,45 +62,41 @@ export class InformationManageServerComponent implements OnInit {
         })
       })
     })
-  }
 
-  ngOnInit(): void {
-    var ip = this.route.parent?.snapshot.paramMap.get('ip') || '';
+    defer(() => this.parent.server ? of(null) : this.parent.serverInitialized).subscribe(() => {
+      var server = this.parent.server;
 
-    this.serverService.getServer(ip).subscribe(server => {
-      this.server = server!;
+      if (server) {
+        this.ip = server.name.name;
+        this.port = server.port == 0 ? null : server!.port;
 
-      if (this.server) {
-        this.ip = this.server.name.name;
-        this.port = this.server.port == 0 ? null : server!.port;
+        this.premium = server.premium;
+        this.mods = server.mods;
 
-        this.premium = this.server.premium;
-        this.mods = this.server.mods;
-
-        var selectedVersionsIds = this.server.versions.map(version => version.id);
+        var selectedVersionsIds = server.versions.map(version => version.id);
         this.versionOptions.forEach(version => {
           if (selectedVersionsIds.find(id => id == version.item.id)) {
             version.isSelected = true;
           }
         });
 
-        if (this.server.mode) {
-          var modeOptions = this.modeOptions.find(mode => mode.item.id == this.server.mode!.id);
+        if (server.mode) {
+          var modeOptions = this.modeOptions.find(mode => mode.item.id == server.mode!.id);
           if (modeOptions) {
             modeOptions.isSelected = true;
           }
         }
       }
-    });
+    })
   }
 
   save() {
-    if (!this.isAddressValid(this.ip)) {
+    if (!Utils.isAddressValid(this.ip)) {
       this.notificationService.showNotification("Wpisz poprawny adres serwera!", NotificationType.ERROR);
       return;
     }
 
-    if (!this.isPortValid(this.port)) {
+    if (!Utils.isPortValid(this.port)) {
       this.notificationService.showNotification("Wpisz poprawny port serwera!", NotificationType.ERROR);
       return;
     }
@@ -108,7 +104,9 @@ export class InformationManageServerComponent implements OnInit {
     this.loading = true;
     this.responseError = false;
 
-    this.apiService.post<RedirectResponse>('/server/' + this.server.id + '/manage/info', {
+    var server = this.parent.server;
+
+    this.apiService.post<RedirectResponse>('/server/' + server.id + '/manage/info', {
       ip: this.ip,
       port: this.port ?? 0,
       premium: this.premium,
@@ -121,21 +119,21 @@ export class InformationManageServerComponent implements OnInit {
 
         this.notificationService.showNotification(response.message);
 
-        this.server.ip = this.ip.toLowerCase();
-        this.server.name.name = this.ip;
-        this.server.port = this.port ?? 0;
-        this.server.premium = this.premium;
-        this.server.mods = this.mods;
-        this.server.versions = this.versionOptions.filter(version => version.isSelected).map(version => version.item);
-        this.server.mode = this.modeOptions.find(mode => mode.isSelected)?.item ?? null;
+        server.ip = this.ip.toLowerCase();
+        server.name.name = this.ip;
+        server.port = this.port ?? 0;
+        server.premium = this.premium;
+        server.mods = this.mods;
+        server.versions = this.versionOptions.filter(version => version.isSelected).map(version => version.item);
+        server.mode = this.modeOptions.find(mode => mode.isSelected)?.item ?? null;
       },
       error: (response) => {
         this.loading = false;
 
-        if(response.error){
+        if (response.error) {
           this.notificationService.showNotification(response.error.message, NotificationType.ERROR);
 
-          if(response.error.errorCode == 8){
+          if (response.error.errorCode == 8) {
             this.responseError = true;
           }
         }
@@ -144,45 +142,12 @@ export class InformationManageServerComponent implements OnInit {
   }
 
   canDeactivate(): boolean {
-    if (this.ip !== this.server.name.name) {
-      return confirm('Masz niezapisane zmiany! Czy na pewno chcesz opuścić tę stronę?');
-    }
-    if (this.port !== this.server.port && this.server.port != 0) {
-      return confirm('Masz niezapisane zmiany! Czy na pewno chcesz opuścić tę stronę?');
-    }
-    if (this.premium !== this.server.premium) {
-      return confirm('Masz niezapisane zmiany! Czy na pewno chcesz opuścić tę stronę?');
-    }
-    if (this.mods !== this.server.mods) {
+    if ((this.ip !== this.parent.server.name.name)
+      || (this.port !== this.parent.server.port && this.parent.server.port != 0)
+      || (this.premium !== this.parent.server.premium)
+      || (this.mods !== this.parent.server.mods)) {
       return confirm('Masz niezapisane zmiany! Czy na pewno chcesz opuścić tę stronę?');
     }
     return true;
-  }
-
-  isPortValid(port: number | null): boolean {
-    if (port == null) {
-      return true;
-    }
-
-    if (port < 0 || port > 65535) {
-      return false;
-    }
-
-    return true;
-  }
-
-  isAddressValid(address: string): boolean {
-    const ipv4Regex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-    if (ipv4Regex.test(address)) {
-      return true;
-    }
-
-    const ipv6Regex = /^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/;
-    if (ipv6Regex.test(address)) {
-      return true;
-    }
-
-    const domainRegex = /^[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
-    return domainRegex.test(address);
   }
 }

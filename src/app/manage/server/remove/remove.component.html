@@ -1,9 +1,9 @@
-<div id="container" *ngIf="server">
+<div id="container" *ngIf="parent.server">
     <h1 id="header">Usuwanie serwer</h1>
     <div class="divider-line-horizontal"></div>
     <div id="content">
         <section>
-            Jeśli chcesz usunąć serwer, musisz wpisać <span id="ip-server">{{server.ip}}</span> aby potwierdzić.
+            Jeśli chcesz usunąć serwer, musisz wpisać <span id="ip-server">{{parent.server.ip}}</span> aby potwierdzić.
             <br>
             <div class="red">Operacji nie można cofnąć.</div>
             <div class="input-area">
