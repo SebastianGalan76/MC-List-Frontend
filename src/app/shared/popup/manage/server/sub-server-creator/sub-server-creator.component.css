@@ -356,4 +356,49 @@ input[type=color]::-webkit-color-swatch {
 .select-value-area option:checked {
   background-color: #e2a258;
   color: #f5f5f5;
-}/*# sourceMappingURL=formElement.css.map */
+}
+
+#container {
+  background: url(../../../../../../../public/img/background.png), rgb(0, 0, 0) no-repeat;
+  padding: 20px;
+  border-radius: 20px;
+  width: 400px;
+  border: 1px solid #e2a258;
+}
+#container #header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5em;
+  border-bottom: 1px solid rgb(255, 255, 232);
+  padding-bottom: 20px;
+}
+#container #header .close-button {
+  cursor: pointer;
+}
+#container .preview {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 20px;
+}
+#container #form-container {
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#container #form-container .row {
+  display: flex;
+  gap: 10px;
+}
+#container #form-container .row .color-input-area {
+  width: 50px;
+}
+#container .action-button {
+  width: 100%;
+}
+@media (max-width: 400px) {
+  #container {
+    width: 100%;
+  }
+}/*# sourceMappingURL=sub-server-creator.component.css.map */

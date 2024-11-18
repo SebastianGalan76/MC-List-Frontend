@@ -1,0 +1,57 @@
+@import "../../../../../../styles/base";
+@import "../../../../../../styles/formElement.scss";
+
+#container{
+    background:
+        url(../../../../../../../public/img/background.png),
+        rgb(0, 0, 0) no-repeat;
+    padding: 20px;
+    border-radius: 20px;
+    width: 400px;
+    border: 1px solid $color-theme;
+
+    #header{
+        display: flex;
+        justify-content: space-between;
+
+        font-size: 1.5em;
+        border-bottom: 1px solid $color-text1;
+        padding-bottom: 20px;
+        
+        .close-button{
+            cursor: pointer;
+        }
+    }
+
+    .preview{
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 700;
+        padding: 20px;
+    }
+
+    #form-container{
+        margin: 50px 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .row{
+            display: flex;
+            gap: 10px;
+
+            .color-input-area{
+                width: 50px;
+            }
+        }
+    }
+
+    .action-button{
+        width: 100%;
+    }
+
+    @media (max-width: 400px) {
+        width: 100%;
+    }
+}

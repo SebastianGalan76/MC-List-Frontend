@@ -17,6 +17,7 @@ export interface Server{
     promotionPoints: number;
     versions: ServerVersion[];
     links: ServerLink[];
+    subServers: SubServer[];
 }
 
 export interface ServerDetails{
@@ -37,4 +38,12 @@ export interface ServerLink{
     index: number;
     name: string;
     url: string;
+}
+
+export interface SubServer{
+    id: number;
+    index: number;
+    name: ServerName;
+    mode: ServerMode;
+    versions: ServerVersion[];
 }

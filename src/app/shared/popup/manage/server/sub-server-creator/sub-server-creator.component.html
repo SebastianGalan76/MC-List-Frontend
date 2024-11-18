@@ -1,0 +1,30 @@
+<div id="container">
+    <div id="header">
+        <span class="title">{{editMode ? "Edytowanie trybu" : "Tworzenie nowego trybu"}}</span>
+        <i class="fa-solid fa-xmark close-button" (click)="closePopup()"></i>
+    </div>
+    <div class="preview" [ngStyle]="{'color': color}">{{name}}</div>
+    <div id="form-container">
+        <div class="row">
+            <div class="input-area">
+                <input type="text" placeholder="Nazwa trybu" maxlength="30" [(ngModel)]="name">
+                <div class="icon">
+                    <i class="fa-regular fa-id-card"></i>
+                </div>
+            </div>
+
+            <div class="input-area color-input-area">
+                <input id="color-input" class="color-input" type="color" value="#ffffff" autocomplete="off" [(ngModel)]="color">
+                <label for="color-input"><i class="fa-solid fa-palette"></i></label>
+            </div>
+        </div>
+
+        <app-input-select [placeholder]="'Wybierz tryb serwera'" [maxChoice]="1" [options]="modeOptions" />
+
+        <app-input-select [placeholder]="'Wybierz wersje serwera'" [maxChoice]="-1" [options]="versionOptions" />
+    </div>
+
+    <button class="action-button" (click)="performAction()">
+        {{editMode ? "Edytuj":"Dodaj"}}
+    </button>
+</div>
