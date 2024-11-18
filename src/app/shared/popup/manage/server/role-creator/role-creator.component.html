@@ -1,0 +1,25 @@
+<div id="container">
+    <div id="header">
+        <span class="title">Tworzenie nowej roli</span>
+        <i class="fa-solid fa-xmark close-button" (click)="closePopup()"></i>
+    </div>
+
+    <div id="form-container">
+        <div class="input-area">
+            <input type="text" placeholder="E-mail użytkownika" maxlength="60" [(ngModel)]="email">
+            <div class="icon">
+                <i class="fa-regular fa-id-card"></i>
+            </div>
+        </div>
+    
+        <select id="role-select" class="select-value-area" name="role" [(ngModel)]="selectedRole">
+            <option value="HELPER">Helper</option>
+            <option value="MODERATOR">Moderator</option>
+            <option value="ADMINISTRATOR">Administrator</option>
+        </select>
+    </div>
+
+    <button class="action-button" (click)="performAction()">
+        Dodaj
+    </button>
+</div>

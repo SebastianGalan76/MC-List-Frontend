@@ -22,6 +22,7 @@ import { InformationManageServerComponent } from './manage/server/information/in
 import { BannerManageServerComponent } from './manage/server/banner/banner.component';
 import { LinkManageServerComponent } from './manage/server/link/link.component';
 import { SubServerManageServerComponent } from './manage/server/sub-server/sub-server.component';
+import { RoleManageServerComponent } from './manage/server/role/role.component';
 
 export const routes: Routes = [
     {
@@ -69,6 +70,9 @@ export const routes: Routes = [
             }, {
                 path: "mode",
                 component: SubServerManageServerComponent,
+            }, {
+                path: "role",
+                component: RoleManageServerComponent,
             }]
     },
     {

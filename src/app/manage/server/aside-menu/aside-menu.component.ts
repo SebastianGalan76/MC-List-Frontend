@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { User } from '../../../../service/user.service';
-import { Server } from '../../../../model/server/server';
+import { Server, ServerUserRole } from '../../../../model/server/server';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -14,4 +14,10 @@ import { CommonModule } from '@angular/common';
 export class AsideMenuManageServerComponent {
   @Input({required: true}) user!: User;
   @Input({required: true}) server!: Server;
+
+  ServerUserRole = ServerUserRole;
+
+  getRoleDisplay(roleKey: string): string {
+    return ServerUserRole[roleKey as keyof typeof ServerUserRole] || 'Użytkownik';
+  }
 }

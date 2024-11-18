@@ -18,6 +18,8 @@ export interface Server{
     versions: ServerVersion[];
     links: ServerLink[];
     subServers: SubServer[];
+    roles: ServerRole[];
+    role: ServerUserRole;
 }
 
 export interface ServerDetails{
@@ -38,6 +40,15 @@ export interface ServerLink{
     index: number;
     name: string;
     url: string;
+}
+
+export interface ServerRole{
+    email: string;
+    role: ServerUserRole;
+}
+
+export enum ServerUserRole{
+    HELPER = 'Helper', MODERATOR = "Moderator", ADMINISTRATOR = "Administrator", OWNER = "Właściciel"
 }
 
 export interface SubServer{

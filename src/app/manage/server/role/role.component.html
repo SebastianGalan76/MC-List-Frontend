@@ -1,0 +1,84 @@
+<div id="container">
+    <h1 id="header">Role serwera</h1>
+    <div class="divider-line-horizontal"></div>
+
+    <div id="content">
+
+        <div id="info-container">
+            <div class="info">Jest to miejsce, gdzie możesz nadać innym użytkownikom uprawnienia do edycji różnych
+                sekcji serwera na naszej stronie. Dzięki temu możesz przedzielić poszczególnym osobom zadanie
+                aktualizowania m.in. informacji o serwerze, linków, administracji itp.</div>
+
+            <div id="role-description">
+                <div class="role">
+                    <div class="title">HELPER</div>
+
+                    <div class="permissions">
+                        <ul>
+                            <li>Edycja opisu serwera</li>
+                            <li>Edycja administracji</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="role">
+                    <div class="title">MODERATOR</div>
+
+                    <div class="permissions">
+                        <ul>
+                            <li>Edycja opisu serwera</li>
+                            <li>Edycja administracji</li>
+                            <br>
+                            <li>Edycja podstawowych informacji</li>
+                            <li>Edycja linków</li>
+                            <li>Edycja banneru</li>
+                            <li>Edycja trybów</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="role">
+                    <div class="title">ADMINISTRATOR</div>
+
+                    <div class="permissions">
+                        <ul>
+                            <li>Edycja opisu serwera</li>
+                            <li>Edycja administracji</li>
+                            <br>
+                            <li>Edycja podstawowych informacji</li>
+                            <li>Edycja linków</li>
+                            <li>Edycja banneru</li>
+                            <li>Edycja trybów</li>
+                            <br>
+                            <li>Edycja uprawnień</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divider-line-horizontal"></div>
+
+        <div id="add-button" class="button" (click)="addRole()">Dodaj</div>
+
+        <section>
+            <ul id="role-list-container">
+                @for (role of roles; track $index) {
+                <li class="role item" [ngClass]="{'your-role' : role.email == parent.user.email}">
+                    <div class="left-panel">
+                        <div class="user-email">{{role.email}}</div>
+                        <div class="role-name">
+                            {{ getRoleDisplay(role.role) }}
+                        </div>
+                    </div>
+
+                    <div class="right-panel">
+                        <div class="remove-role-button" (click)="removeRole(role, $event)">
+                            <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </li>
+                }
+            </ul>
+        </section>
+    </div>
+</div>
