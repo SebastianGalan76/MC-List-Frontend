@@ -1,0 +1,29 @@
+<div id="container">
+    <h1 id="header">Administracja serwera</h1>
+    <div class="divider-line-horizontal"></div>
+
+    <div id="content">
+        <div id="add-button" class="button" (click)="addRank()">Dodaj</div>
+
+        <section>
+            <ul id="list-container" class="sortable-list-link" cdkDropList (cdkDropListDropped)="onDrop($event)">
+                @for (role of staff; track $index) {
+                <li class="item" cdkDrag [cdkDragData]="role" (click)="editRank(role)">
+                    <div class="name-preview" [ngStyle]="{'color': role.color}">{{role.name}}</div>
+
+                    <div class="right-panel">
+                        <div class="click-to-edit">Kliknij, aby edytować</div>
+                        <div class="remove-button" (click)="removeRank(role, $event)">
+                            <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </li>
+                }
+            </ul>
+
+            <div id="submit-button" class="button" (click)="save()">
+                Zapisz zmiany
+            </div>
+        </section>
+    </div>
+</div>

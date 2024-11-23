@@ -14,7 +14,7 @@
     justify-content: space-between;
     padding: 20px 30px;
 
-    .link-name-preview {
+    .name-preview {
         font-weight: 800;
         font-size: 1.5em;
     }
@@ -29,7 +29,7 @@
             color: #c7c7c7;
         }
 
-        .remove-link-button {
+        .remove-button {
             padding: 8px 10px;
             width: fit-content;
             height: fit-content;
@@ -40,7 +40,7 @@
             border-radius: 10px;
         }
 
-        .remove-link-button:hover {
+        .remove-button:hover {
             cursor: pointer;
             background-color: rgba(255, 0, 0, 0.664);
         }
@@ -75,6 +75,42 @@
         align-items: center;
         padding: 20px;
 
+        #info-container{
+            padding-bottom: 20px;
+
+            .info{
+                text-align: center;
+            }
+
+            #role-description{
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+                margin-top: 20px;
+        
+                .role{
+                    background-color: $color-dark;
+                    border-radius: 20px;
+                    padding: 20px;
+        
+                    border: 2px solid $color-theme;
+        
+                    flex-grow: 1;
+        
+                    .title{
+                        font-weight: 800;
+                        text-align: center;
+        
+                        margin-bottom: 25px;
+                    }
+        
+                    ul{
+                        list-style-type: none;
+                    }
+                }
+            }
+        }
+
         .button {
             padding: 15px;
             border-radius: 15px;
@@ -88,11 +124,12 @@
             cursor: pointer;
         }
 
-        #add-link-button {
+        #add-button {
             background-color: $color-green;
+            margin-top: 20px;
         }
 
-        #add-link-button:hover {
+        #add-button:hover {
             background-color: $color-green-dark;
         }
 
@@ -102,18 +139,18 @@
 
             margin: auto;
 
-            #link-list-container {
-                .link {
+            #list-container {
+                .item {
                     @include item();
                     backdrop-filter: blur(5px);
                 }
 
-                .link:hover {
+                .item:hover {
                     cursor: pointer;
                     background-color: #ffffff3f;
                 }
 
-                .link.cdk-drag-placeholder {
+                .item.cdk-drag-placeholder {
                     opacity: 0.25;
                 }
             }
@@ -134,7 +171,7 @@
     }
 }
 
-.link.cdk-drag-preview {
+.item.cdk-drag-preview {
     @include item();
 
     background-color: #161616;

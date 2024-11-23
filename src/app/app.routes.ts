@@ -23,6 +23,7 @@ import { BannerManageServerComponent } from './manage/server/banner/banner.compo
 import { LinkManageServerComponent } from './manage/server/link/link.component';
 import { SubServerManageServerComponent } from './manage/server/sub-server/sub-server.component';
 import { RoleManageServerComponent } from './manage/server/role/role.component';
+import { StaffManageServerComponent } from './manage/server/staff/staff.component';
 
 export const routes: Routes = [
     {
@@ -73,6 +74,9 @@ export const routes: Routes = [
             }, {
                 path: "role",
                 component: RoleManageServerComponent,
+            }, {
+                path: "staff",
+                component: StaffManageServerComponent,
             }]
     },
     {

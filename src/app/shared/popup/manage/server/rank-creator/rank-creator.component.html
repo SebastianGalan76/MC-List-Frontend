@@ -1,0 +1,111 @@
+<div id="container">
+    <div id="header">
+        <span class="title">{{editMode ? "Edytowanie rangi" : "Tworzenie nowej rangi"}}</span>
+        <i class="fa-solid fa-xmark close-button" (click)="closePopup()"></i>
+    </div>
+    <div class="preview" [ngStyle]="{'color': color}">{{name}}</div>
+    <div id="form-container">
+        <div class="input-area">
+            <input type="text" placeholder="Nazwa rangi" maxlength="30" [(ngModel)]="name">
+            <div class="icon">
+                <i class="fa-regular fa-id-card"></i>
+            </div>
+        </div>
+
+        <div class="input-area color-input-area">
+            <input id="color-input" class="color-input" type="color" value="#ffffff" autocomplete="off"
+                [(ngModel)]="color">
+            <label for="color-input"><i class="fa-solid fa-palette"></i></label>
+        </div>
+    </div>
+
+    <div id="staff-editor">
+        <div class="player-panel">
+            <div class="player-form-container center">
+                <div class="input-area">
+                    <input id="nick-input" type="text" maxlength="60" placeholder="Nick gracza" [(ngModel)]="playerNick"
+                        autocomplete="off">
+                    <div class="icon">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <div class="required">*</div>
+                </div>
+            </div>
+
+            <div class="down-panel">
+                <div class="selected-player-wrapper">
+                    <div class="selected-player" *ngIf="selectedPlayer">
+                        <div class="player">
+                            <div class="head">
+                                <img class="head-src" [src]="'https://minotar.net/helm/'+selectedPlayer.nick">
+                            </div>
+                            <div class="nick">{{selectedPlayer.nick}}</div>
+                        </div>
+
+                        <div class="remove-button button" id="remove-player-button" (click)="removePlayer()" title="Usuń gracza">
+                            <i class="fa-solid fa-trash center"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links-form-container scrollable">
+                    <div id="social-form-container">
+                        <div class="input-area">
+                            <input id="discord-input" type="text" autocomplete="off" placeholder="Discord"
+                                [(ngModel)]="playerDiscord">
+                            <div class="icon">
+                                <i class="fa-brands fa-discord"></i>
+                            </div>
+                        </div>
+                        <div class="input-area">
+                            <input id="tiktok-input" type="text" autocomplete="off" placeholder="TikTok"
+                                [(ngModel)]="playerTikTok">
+                            <div class="icon">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </div>
+                        </div>
+                        <div class="input-area">
+                            <input id="youtube-input" type="text" autocomplete="off" placeholder="YouTube"
+                                [(ngModel)]="playerYouTube">
+                            <div class="icon">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                        </div>
+                        <div class="input-area">
+                            <input id="instagram-input" type="text" autocomplete="off" placeholder="Instagram"
+                                [(ngModel)]="playerInstagram">
+                            <div class="icon">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="create-new-player" class="add-button" (click)="performPlayerAction()">
+                        {{selectedPlayer ? "Edytuj gracza":"Dodaj gracza"}}
+                    </div>
+                </div>
+            </div>
+
+            <ul class="players-container scrollable-horizontal scrollable sortable-list" cdkDropListOrientation="horizontal" cdkDropList *ngIf="players.length>0" (cdkDropListDropped)="onDrop($event)">
+                @for (player of players; track $index) {
+                    <li class="player item" (click)="selectPlayer(player)" cdkDrag [cdkDragData]="player">
+                        <div class="head">
+                            <img class="head-src" [src]="'https://minotar.net/helm/'+player.nick">
+                        </div>
+                        <div class="nick">{{player.nick}}</div>
+                        <div class="links">
+                            <i class="fa-brands fa-discord" aria-hidden="true" *ngIf="player.discord.length>0"></i>
+                            <i class="fa-brands fa-tiktok" aria-hidden="true" *ngIf="player.tiktok.length>0"></i>
+                            <i class="fa-brands fa-instagram" aria-hidden="true" *ngIf="player.instagram.length>0"></i>
+                            <i class="fa-brands fa-youtube" aria-hidden="true" *ngIf="player.youtube.length>0"></i>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <button class="action-button" (click)="performAction()">
+        {{editMode ? "Edytuj": "Stwórz"}}
+    </button>
+</div>

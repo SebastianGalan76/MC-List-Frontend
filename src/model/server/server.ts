@@ -18,6 +18,7 @@ export interface Server{
     versions: ServerVersion[];
     links: ServerLink[];
     subServers: SubServer[];
+    staff: ServerStaff[];
     roles: ServerRole[];
     role: ServerUserRole;
 }
@@ -57,4 +58,22 @@ export interface SubServer{
     name: ServerName;
     mode: ServerMode;
     versions: ServerVersion[];
+}
+
+export interface ServerStaff{
+    id: number;
+    index: number;
+    name: string;
+    color: string;
+    players: ServerStaffPlayer[];
+}
+
+export interface ServerStaffPlayer{
+    id: number | null;
+    index: number;
+    nick: string;
+    discord: string;
+    instagram: string;
+    tiktok: string;
+    youtube: string;
 }
