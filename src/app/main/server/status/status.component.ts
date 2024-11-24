@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Server } from '../../../../model/server/server';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Utils } from '../../../../service/utils.service';
 
 @Component({
   selector: 'app-server-status',
@@ -23,18 +24,6 @@ export class ServerStatusComponent implements OnInit {
     const formattedHtml = this.server.detail.motdHtml.replace(/\n/g, '<br>');
     this.safeMotdHtml = this.sanitizer.bypassSecurityTrustHtml(formattedHtml);
 
-    if (this.server.versions != null && this.server.versions.length > 0) {
-      const sortedArray = this.server.versions.sort((a, b) => a.id - b.id);
-
-      const minValue = sortedArray[0];
-      const maxValue = sortedArray[sortedArray.length - 1];
-
-      if (minValue.id == maxValue.id) {
-        this.versions = minValue.name;
-      }
-      else {
-        this.versions = minValue.name + " - " + maxValue.name;
-      }
-    }
+    this.versions = Utils.convertVersions(this.server.versions);
   }
 }

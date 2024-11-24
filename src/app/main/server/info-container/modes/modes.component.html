@@ -1,7 +1,29 @@
-<div style="display: none;" class="main-container-content" id="subservers-main-container">
+<div class="main-container-content" id="subservers-main-container">
     <h1 class="content-header">Tryby</h1>
 
     <div id="subservers-container" class="center">
+        @for (mode of parent.server.subServers; track $index) {
+        <div class="subserver" [style]="{'border': '2px solid '+mode.name.color}">
+            <div class="title" [style]="{'color': mode.name.color}">{{mode.name.name}}</div>
 
+            <div class="tag-container">
+                <div class="tag mode-tag" style="display: flex;">
+                    <div class="icon">
+                        <i class="fa-solid fa-dice-d6" aria-hidden="true"></i>
+                    </div>
+                    <div class="content">{{mode.mode.name}}</div>
+                </div>
+
+                @if (getConvertedVersion(mode.versions); as version) {
+                <div class="tag version-tag" style="display: flex;">
+                    <div class="icon">
+                        <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+                    </div>
+                    <div class="content">{{version}}</div>
+                </div>
+                }
+            </div>
+        </div>
+        }
     </div>
 </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ServerVersion } from './serverVersion.service';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +57,22 @@ export class Utils {
 
     const domainRegex = /^[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
     return domainRegex.test(address);
+  }
+
+  static convertVersions(versions: ServerVersion[]) : string | null{
+    if (versions != null && versions.length > 0) {
+      const sortedArray = versions.sort((a, b) => a.id - b.id);
+
+      const minValue = sortedArray[0];
+      const maxValue = sortedArray[sortedArray.length - 1];
+
+      if (minValue.id == maxValue.id) {
+        return minValue.name;
+      }
+      else {
+        return minValue.name + " - " + maxValue.name;
+      }
+    }
+    return null;
   }
 }
