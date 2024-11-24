@@ -2,7 +2,7 @@
   padding-bottom: 100px;
 }
 #staff-main-container .staff-rank {
-  margin-top: 25px;
+  margin-top: 50px;
 }
 #staff-main-container .staff-rank .name {
   font-size: 2em;
@@ -47,6 +47,9 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+#staff-main-container .staff-rank .players-container .player .links .discord-link {
+  cursor: pointer;
 }
 @media (max-width: 800px) {
   #staff-main-container .staff-rank {

@@ -97,7 +97,7 @@ export class LinkManageServerComponent {
     this.popupService.closePopup();
 
     const linkByName = this.links.find(link => link.name.toLowerCase() == linkName.toLocaleLowerCase());
-    if(linkByName != this.selectedLink){
+    if(linkByName != null && linkByName != this.selectedLink){
       this.notificationService.showNotification("Wprowadzona nazwa linku jest już zajęta.", NotificationType.ERROR);
       return;
     } 
