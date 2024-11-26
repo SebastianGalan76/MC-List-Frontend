@@ -7,15 +7,9 @@
   border-radius: 50px;
 }
 .ratings-global .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.ratings-global .header .title {
-  margin-left: auto;
-  margin-right: auto;
   font-size: 1.8em;
   font-weight: 800;
+  text-align: center;
 }
 .ratings-global .header .more-info-button {
   border: 1px solid white;
@@ -175,4 +169,10 @@
     padding: 10px 0;
     border-radius: 20px;
   }
+}
+.ratings-global #ratings-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 50px;
 }/*# sourceMappingURL=ratings.component.css.map */

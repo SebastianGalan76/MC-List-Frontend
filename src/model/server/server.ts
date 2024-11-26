@@ -21,6 +21,7 @@ export interface Server{
     staff: ServerStaff[];
     roles: ServerRole[];
     role: ServerUserRole;
+    ratings: PlayerRating[];
 }
 
 export interface ServerDetails{
@@ -76,4 +77,16 @@ export interface ServerStaffPlayer{
     instagram: string;
     tiktok: string;
     youtube: string;
+}
+
+export interface PlayerRating{
+    id: number;
+    category: RatingCategory;
+    userId: number;
+    rating: number;
+}
+
+export interface RatingCategory{
+    id: number;
+    name: string;
 }

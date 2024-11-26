@@ -1,0 +1,71 @@
+<div class="ratings" [class]="{'reversed': reversed}">
+    <div class="header">{{header}}</div>
+
+    <div class="container">
+        <div class="left-panel">
+            <ng-lottie [options]="{path: '/animation/star.json'}" />
+            <span class="rating"><span class="overall-rating">{{averageRating}}</span>/5.0</span>
+        </div>
+        <div class="right-panel">
+            <div class="rating">
+                <div class="up-panel">
+                    <div class="star-container"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+                            class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+                            class="fa-solid fa-star"></i></div>
+                    <div class="rating-value">{{starAmount[4]}}</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"
+                        [style]="{'width': totalRatings !== 0 ? (starAmount[4] / totalRatings) * 100 + '%' : '0%'}">
+                    </div>
+                </div>
+            </div>
+            <div class="rating">
+                <div class="up-panel">
+                    <div class="star-container"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+                            class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></div>
+                    <div class="rating-value">{{starAmount[3]}}</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"
+                        [style]="{'width': totalRatings !== 0 ? (starAmount[3] / totalRatings) * 100 + '%' : '0%'}">
+                    </div>
+                </div>
+            </div>
+            <div class="rating">
+                <div class="up-panel">
+                    <div class="star-container"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+                            class="fa-solid fa-star"></i></div>
+                    <div class="rating-value">{{starAmount[2]}}</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"
+                        [style]="{'width': totalRatings !== 0 ? (starAmount[2] / totalRatings) * 100 + '%' : '0%'}">
+                    </div>
+                </div>
+            </div>
+            <div class="rating">
+                <div class="up-panel">
+                    <div class="star-container"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></div>
+                    <div class="rating-value">{{starAmount[1]}}</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"
+                        [style]="{'width': totalRatings !== 0 ? (starAmount[1] / totalRatings) * 100 + '%' : '0%'}">
+                    </div>
+                </div>
+            </div>
+            <div class="rating">
+                <div class="up-panel">
+                    <div class="star-container"><i class="fa-solid fa-star"></i></div>
+                    <div class="rating-value">{{starAmount[0]}}</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"
+                        [style]="{'width': totalRatings !== 0 ? (starAmount[0] / totalRatings) * 100 + '%' : '0%'}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

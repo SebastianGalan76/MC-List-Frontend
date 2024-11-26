@@ -1,37 +1,91 @@
 <div class="main-container-content ratings-global" id="ratings-main-container">
     <div class="ratings-main overall-ratings-container">
-        <div class="header">
-            <div class="title">
-                Ogólna ocena
-            </div>
-        </div>
+        <div class="ratings">
+            <div class="header">Ogólna ocena</div>
 
-        <div class="container">
-            <div class="left-panel">
-                <!--
-                    <lottie-player id="loading-animation" src="/animation/star.json"
-                    background="transparent" speed="1" loop autoplay></lottie-player>
-                -->
-                <span class="rating"><span class="overall-rating"></span>/5.0</span>
-            </div>
-            <div class="right-panel categories-container">
-
+            <div class="container">
+                <div class="left-panel">
+                    <ng-lottie [options]="{path: '/animation/star.json'}" />
+                    <span class="rating"><span class="overall-rating">{{averageRating}}</span>/5.0</span>
+                </div>
+                <div class="right-panel">
+                    <div class="rating">
+                        <div class="up-panel">
+                            <div class="star-container">Atmosfera gry</div>
+                            <div class="rating-value">{{averageRatings[0]}}</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" [style]="{'width': (averageRatings[0] / 5) * 100 + '%'}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <div class="up-panel">
+                            <div class="star-container">Unikalne funkcje</div>
+                            <div class="rating-value">{{averageRatings[1]}}</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" [style]="{'width': (averageRatings[1] / 5) * 100 + '%'}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <div class="up-panel">
+                            <div class="star-container">Eventy i aktywność</div>
+                            <div class="rating-value">{{averageRatings[2]}}</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" [style]="{'width': (averageRatings[2] / 5) * 100 + '%'}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <div class="up-panel">
+                            <div class="star-container">Ochrona przed oszustami</div>
+                            <div class="rating-value">{{averageRatings[3]}}</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" [style]="{'width': (averageRatings[3] / 5) * 100 + '%'}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <div class="up-panel">
+                            <div class="star-container">Administracja</div>
+                            <div class="rating-value">{{averageRatings[4]}}</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" [style]="{'width': (averageRatings[4] / 5) * 100 + '%'}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="ratings-categories">
-
+        <app-rating-category [ratings]="getRatingsByCategoryId(1)" [header]="'Atmosfera gry'" />
+        <app-rating-category [ratings]="getRatingsByCategoryId(2)" [header]="'Unikalne funkcje'" [reversed]="true" />
+        <app-rating-category [ratings]="getRatingsByCategoryId(3)" [header]="'Eventy i aktywność'" />
+        <app-rating-category [ratings]="getRatingsByCategoryId(4)" [header]="'Ochrona przed oszustami'"
+            [reversed]="true" />
+        <app-rating-category [ratings]="getRatingsByCategoryId(5)" [header]="'Administracja'" />
     </div>
 
-    <a href="/auth/signIn">
-        <div class="sign-in-to-rate-button center" th:if="${user==null}" style="margin-top: 150px;">
+    @if (!userService.getUser()) {
+    <a [routerLink]="['/auth/signIn']">
+        <div class="sign-in-to-rate-button center" style="margin-top: 150px;">
             Zaloguj się, aby ocenić
         </div>
     </a>
+    }
+    @else{
     <a>
-        <div class="rate-button center" th:if="${user!=null}" style="margin-top: 150px;">
+        <div class="rate-button center" style="margin-top: 150px;">
             Oceń serwer
         </div>
     </a>
+    }
+
 </div>
