@@ -22,6 +22,9 @@ export interface Server{
     roles: ServerRole[];
     role: ServerUserRole;
     ratings: PlayerRating[];
+
+    hourlyPlayerCounts: PlayerCountStatistic[];
+    dailyPlayerCounts: PlayerCountStatistic[];
 }
 
 export interface ServerDetails{
@@ -89,4 +92,10 @@ export interface PlayerRating{
 export interface RatingCategory{
     id: number;
     name: string;
+}
+
+export interface PlayerCountStatistic{
+    id: number;
+    time: string;
+    playerCount: number;
 }

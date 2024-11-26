@@ -1,22 +1,15 @@
-<div class="main-container-content" id="statistic-main-container">
+<div id="container" class="main-container-content">
     <h1 class="content-header">Statystyki</h1>
-    <div class="chart" style="margin-top: 30px;">
-        <div class="header">Gracze Online (24h)</div>
-        <canvas id="online-player-chart" height="80"></canvas>
-    </div>
 
-    <div class="chart" style="margin-top: 30px;">
-        <div class="header">Gracze Online (7d)</div>
-        <canvas id="daily-player-chart-7" height="80"></canvas>
-    </div>
+    <div id="chart-container">
+        <app-statistics-chart [data]="parent.server.hourlyPlayerCounts.slice(-48)" header="Gracze Online (24h)" />
 
-    <div class="chart" style="margin-top: 30px;">
-        <div class="header">Szczytowa liczba graczy (30d)</div>
-        <canvas id="daily-player-chart-30" height="80"></canvas>
-    </div>
+        <app-statistics-chart [data]="parent.server.hourlyPlayerCounts" header="Gracze Online (7d)" />
 
-    <div class="chart" style="margin-top: 30px;">
-        <div class="header">Szczytowa liczba graczy (1y)</div>
-        <canvas id="daily-player-chart-365" height="80"></canvas>
+        <app-statistics-chart [data]="parent.server.dailyPlayerCounts.slice(-30)" header="Szczytowa liczba graczy (30d)"
+            [labelsWithDay]="true" [beginAtZero]="false" />
+
+        <app-statistics-chart [data]="parent.server.dailyPlayerCounts.slice(-365)" header="Szczytowa liczba graczy (1y)"
+            [labelsWithDay]="true" [beginAtZero]="false" />
     </div>
 </div>

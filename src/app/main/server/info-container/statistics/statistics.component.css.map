@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"statistics.component.css"}
+{"version":3,"sources":["statistics.component.scss","statistics.component.css"],"names":[],"mappings":"AACI;EACI,aAAA;EACA,sBAAA;EACA,UAAA;EAEA,gBAAA;ACDR","file":"statistics.component.css"}

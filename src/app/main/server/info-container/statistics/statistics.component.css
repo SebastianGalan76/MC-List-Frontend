@@ -1,1 +1,6 @@
-/*# sourceMappingURL=statistics.component.css.map */
+#container #chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: 60px;
+}/*# sourceMappingURL=statistics.component.css.map */
