@@ -32,7 +32,7 @@
             background-color: $color-dark;
             border-radius: 50px;
 
-            lottie-player {
+            ng-lottie {
                 width: 200px;
                 height: auto;
             }
@@ -41,6 +41,10 @@
                 margin-top: 10px;
                 font-weight: 500;
                 font-size: 2em;
+            }
+
+            @media (max-width: 500px) {
+                padding: 20px;
             }
         }
 
@@ -64,7 +68,7 @@
 
                     font-size: 1.1em;
 
-                    .fa-star{
+                    .fa-star {
                         letter-spacing: 5px;
                     }
                 }
@@ -87,30 +91,79 @@
                 }
             }
         }
+
+        @media (max-width: 1000px) {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 800px) {
+            gap: 25px;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 700px) {
+            gap: 10px;
+
+            .left-panel {
+                padding: 10px;
+                border-radius: 20px;
+
+                ng-lottie {
+                    width: 150px;
+                }
+
+                .rating {
+                    font-size: 1.5em;
+                }
+            }
+        }
+
+        @media (max-width: 500px) {
+            gap: 5px;
+
+            .left-panel {
+                padding: 5px;
+                border-radius: 10px;
+
+                .rating {
+                    font-size: 1.2em;
+                }
+            }
+        }
+        @media (max-width: 400px) {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 700px){
+        padding: 0;
     }
 }
 
-.reversed{
-    .container{
-        .left-panel{
-            order: 2;
-        }
-        .right-panel{
-            order: 1;
+.reversed {
+    @media (min-width: 400px) {
+        .container {
+            .left-panel {
+                order: 2;
+            }
+            .right-panel {
+                order: 1;
 
-            .rating{
-                .up-panel{
-                    .star-container{
-                        order: 2;
+                .rating {
+                    .up-panel {
+                        .star-container {
+                            order: 2;
+                        }
+                        .rating-value {
+                            order: 1;
+                        }
                     }
-                    .rating-value{
-                        order: 1;
-                    }
-                }
 
-                .progress-bar{
-                    .progress{
-                        margin-left: auto;
+                    .progress-bar {
+                        .progress {
+                            margin-left: auto;
+                        }
                     }
                 }
             }

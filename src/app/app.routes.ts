@@ -24,6 +24,7 @@ import { LinkManageServerComponent } from './manage/server/link/link.component';
 import { SubServerManageServerComponent } from './manage/server/sub-server/sub-server.component';
 import { RoleManageServerComponent } from './manage/server/role/role.component';
 import { StaffManageServerComponent } from './manage/server/staff/staff.component';
+import { manageServerAuthGuard } from './guards/manage-server-auth.guard';
 
 export const routes: Routes = [
     {
@@ -49,34 +50,43 @@ export const routes: Routes = [
     }, {
         path: "manage/server/:ip",
         component: ManageServerComponent,
+        canActivate: [manageServerAuthGuard],
         children: [
             {
                 path: "info",
                 component: InformationManageServerComponent,
-                canDeactivate: [unsavedChangesGuard]
+                canDeactivate: [unsavedChangesGuard],
+                canActivate: [manageServerAuthGuard]
             },{
                 path: "remove",
-                component: RemoveManageServerComponent
+                component: RemoveManageServerComponent,
+                canActivate: [manageServerAuthGuard]
             }, {
                 path: "description",
                 component: DescriptionManageServerComponent,
-                canDeactivate: [unsavedChangesGuard]
+                canDeactivate: [unsavedChangesGuard],
+                canActivate: [manageServerAuthGuard]
             }, {
                 path: "banner",
                 component: BannerManageServerComponent,
-                canDeactivate: [unsavedChangesGuard]
+                canDeactivate: [unsavedChangesGuard],
+                canActivate: [manageServerAuthGuard]
             }, {
                 path: "link",
                 component: LinkManageServerComponent,
+                canActivate: [manageServerAuthGuard]
             }, {
                 path: "mode",
                 component: SubServerManageServerComponent,
+                canActivate: [manageServerAuthGuard]
             }, {
                 path: "role",
                 component: RoleManageServerComponent,
+                canActivate: [manageServerAuthGuard]
             }, {
                 path: "staff",
                 component: StaffManageServerComponent,
+                canActivate: [manageServerAuthGuard]
             }]
     },
     {

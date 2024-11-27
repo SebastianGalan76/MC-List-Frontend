@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { PlayerCountStatistic } from '../../../../../../model/server/server';
 import gradientPlugin from 'chartjs-plugin-gradient';
@@ -49,6 +49,8 @@ export class ChartComponent implements AfterViewInit {
   @Input({ required: true }) data!: PlayerCountStatistic[];
   @Input() beginAtZero: boolean = true;
   @Input() labelsWithDay: boolean = false;
+
+  canvasHeight: number = 100;
 
   ngAfterViewInit(): void {
     var labels;

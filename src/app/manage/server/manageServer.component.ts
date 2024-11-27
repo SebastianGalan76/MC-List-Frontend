@@ -1,10 +1,9 @@
 import { Component, EventEmitter } from '@angular/core';
 import { AsideMenuManageServerComponent } from './aside-menu/aside-menu.component';
 import { User, UserService } from '../../../service/user.service';
-import { Server } from '../../../model/server/server';
+import { Server, ServerUserRole } from '../../../model/server/server';
 import { ServerService } from '../../../service/server/serverService';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-import { Subject, take } from 'rxjs';
 
 @Component({
   selector: 'app-server',
@@ -17,6 +16,8 @@ export class ManageServerComponent {
   user!: User;
   public server!: Server;
   public serverInitialized = new EventEmitter<void>();
+
+  ServerUserRole?: ServerUserRole;
 
   constructor(
     private userService: UserService,
@@ -43,6 +44,10 @@ export class ManageServerComponent {
         if (response) {
           this.server = response;
           this.serverInitialized.emit();
+
+          if(!this.server.role){
+            router.navigate(['/']);
+          }
         }
         else {
           router.navigate(['/']);

@@ -7,7 +7,7 @@
             <div class="title" [style]="{'color': mode.name.color}">{{mode.name.name}}</div>
 
             <div class="tag-container">
-                <div class="tag mode-tag" style="display: flex;">
+                <div class="tag mode-tag" [style]="{'color': mode.name.color}">
                     <div class="icon">
                         <i class="fa-solid fa-dice-d6" aria-hidden="true"></i>
                     </div>
@@ -15,7 +15,7 @@
                 </div>
 
                 @if (getConvertedVersion(mode.versions); as version) {
-                <div class="tag version-tag" style="display: flex;">
+                <div class="tag version-tag" [style]="{'color': mode.name.color}">
                     <div class="icon">
                         <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
                     </div>

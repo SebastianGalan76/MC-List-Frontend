@@ -1,48 +1,56 @@
 <div id="container" *ngIf="server">
     @if(user){
-        <div id="user-profile">
-            <div class="profile-picture">
-                <img [src]="'https://minotar.net/avatar/'+user.login">
-            </div>
-            <div class="info">
-                <span class="login">{{user.login}}</span>
-                <span class="role">{{getRoleDisplay(server.role)}}</span>
-            </div>
+    <div id="user-profile">
+        <div class="profile-picture">
+            <img [src]="'https://minotar.net/avatar/'+user.login">
         </div>
+        <div class="info">
+            <span class="login">{{user.login}}</span>
+            <span class="role">{{getRole(server.role)}}</span>
+        </div>
+    </div>
     }
 
     <div id="menu-container" class="scrollable-vertical scrollable">
         <div class="header">MENU</div>
 
-        <div class="button" [routerLink]="['info']">
+        <div class="button" [routerLink]="!hasModeratorPermission ? null : ['info']"
+            [ngClass]="{'blocked': !hasModeratorPermission}">
             <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
             <div class="text">Podstawowe informacje</div>
         </div>
-        <div class="button" [routerLink]="['description']">
+        <div class="button" [routerLink]="!hasHelperPermission ? null : ['description']"
+            [ngClass]="{'blocked': !hasHelperPermission}">
             <div class="icon"><i class="fa-solid fa-scroll"></i></div>
             <div class="text">Opis serwera</div>
         </div>
-        <div class="button" [routerLink]="['banner']">
+        <div class="button" [routerLink]="!hasModeratorPermission ? null : ['banner']"
+            [ngClass]="{'blocked': !hasModeratorPermission}">
             <div class="icon"><i class="fa-regular fa-image"></i></div>
             <div class="text">Baner</div>
         </div>
-        <div class="button" [routerLink]="['mode']">
+        <div class="button" [routerLink]="!hasModeratorPermission ? null : ['mode']"
+            [ngClass]="{'blocked': !hasModeratorPermission}">
             <div class="icon"><i class="fa-solid fa-dice"></i></div>
             <div class="text">Tryby</div>
         </div>
-        <div class="button" [routerLink]="['link']">
+        <div class="button" [routerLink]="!hasModeratorPermission ? null : ['link']"
+            [ngClass]="{'blocked': !hasModeratorPermission}">
             <div class="icon"><i class="fa-solid fa-link"></i></div>
             <div class="text">Linki</div>
         </div>
-        <div class="button" [routerLink]="['staff']">
+        <div class="button" [routerLink]="!hasHelperPermission ? null : ['staff']"
+            [ngClass]="{'blocked': !hasHelperPermission}">
             <div class="icon"><i class="fa-solid fa-users"></i></div>
             <div class="text">Administracja</div>
         </div>
-        <div class="button" [routerLink]="['role']">
+        <div class="button" [routerLink]="!hasAdminPermission ? null : ['role']"
+            [ngClass]="{'blocked': !hasAdminPermission}">
             <div class="icon"><i class="fa-regular fa-id-card"></i></div>
             <div class="text">Uprawnienia</div>
         </div>
-        <div class="button" [routerLink]="['remove']">
+        <div class="button" [routerLink]="!hasOwnerPermission ? null : ['remove']"
+            [ngClass]="{'blocked': !hasOwnerPermission}">
             <div class="icon"><i class="fa-solid fa-trash"></i></div>
             <div class="text">Usuń serwer</div>
         </div>

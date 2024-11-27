@@ -6,9 +6,7 @@
         <h1 class="address-value">
             {{server.name.name}}
         </h1>
-        <div class="motd">
-            <div class="motd" [innerHTML]="safeMotdHtml"></div>
-        </div>
+        <div class="motd" [innerHTML]="safeMotdHtml"></div>
         <div class="tag-container">
             @if (server.mode) {
             <div class="tag mode-tag">

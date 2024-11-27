@@ -23,6 +23,7 @@
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
+  padding: 20px;
 }
 #page-wrapper #container {
   width: 1100px;
@@ -70,6 +71,11 @@
   margin-top: 5px;
   font-style: italic;
 }
+@media (max-width: 1200px) {
+  #page-wrapper aside #ip-panel {
+    padding: 24px 20px;
+  }
+}
 #page-wrapper aside #button-panel-aside {
   display: flex;
   flex-direction: column;
@@ -97,6 +103,9 @@
   }
 }
 @media (max-width: 1100px) {
+  #page-wrapper {
+    padding: 5px;
+  }
   #page-wrapper aside {
     display: none;
   }
@@ -108,6 +117,13 @@
   border-radius: 15px;
   font-weight: 700;
   cursor: pointer;
+}
+@media (max-width: 800px) {
+  .action-buttons-container .button {
+    padding: 10px 20px !important;
+    border-radius: 10px;
+    font-weight: 600;
+  }
 }
 .action-buttons-container .button.vote {
   background-color: rgb(52, 172, 241);
@@ -146,29 +162,6 @@
 }
 #button-panel .button {
   padding: 15px 45px;
-}
-
-#statistic-main {
-  width: 100%;
-}
-#statistic-main .header {
-  padding: 10px;
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: 600;
-}
-
-.chart {
-  width: 100%;
-  border-radius: 15px;
-  padding: 10px;
-}
-.chart .header {
-  text-align: center;
-  width: 100%;
-  font-size: 1.4em;
-  font-weight: 800;
-  padding: 10px 0;
 }
 
 #rate-server-popup {

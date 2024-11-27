@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ServerVersion } from './serverVersion.service';
+import { ServerUserRole } from '../model/server/server';
 
 @Injectable({
   providedIn: 'root'
@@ -74,5 +75,22 @@ export class Utils {
       }
     }
     return null;
+  }
+
+  static convertServerRoleToValue(roleKey: ServerUserRole ) : number {
+    if(roleKey === ServerUserRole.HELPER){
+      return 500;
+    }
+    if(roleKey === ServerUserRole.MODERATOR){
+      return 750;
+    }
+    if(roleKey === ServerUserRole.ADMINISTRATOR){
+      return 1000;
+    }
+    if(roleKey === ServerUserRole.OWNER){
+      return 5000;
+    }
+
+    return 0;
   }
 }

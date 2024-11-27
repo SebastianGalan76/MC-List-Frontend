@@ -66,7 +66,7 @@ export class UserService {
   }
 
   logout(){
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     CookieService.eraseCookie('jwt_token');
   }
 }

@@ -25,7 +25,7 @@
   background-color: rgba(0, 0, 0, 0.2588235294);
   border-radius: 50px;
 }
-.ratings .container .left-panel lottie-player {
+.ratings .container .left-panel ng-lottie {
   width: 200px;
   height: auto;
 }
@@ -33,6 +33,11 @@
   margin-top: 10px;
   font-weight: 500;
   font-size: 2em;
+}
+@media (max-width: 500px) {
+  .ratings .container .left-panel {
+    padding: 20px;
+  }
 }
 .ratings .container .right-panel {
   display: flex;
@@ -69,19 +74,70 @@
   background-color: #ffba3b;
   border-radius: 6px;
 }
+@media (max-width: 1000px) {
+  .ratings .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+@media (max-width: 800px) {
+  .ratings .container {
+    gap: 25px;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 700px) {
+  .ratings .container {
+    gap: 10px;
+  }
+  .ratings .container .left-panel {
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .ratings .container .left-panel ng-lottie {
+    width: 150px;
+  }
+  .ratings .container .left-panel .rating {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 500px) {
+  .ratings .container {
+    gap: 5px;
+  }
+  .ratings .container .left-panel {
+    padding: 5px;
+    border-radius: 10px;
+  }
+  .ratings .container .left-panel .rating {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 400px) {
+  .ratings .container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 700px) {
+  .ratings {
+    padding: 0;
+  }
+}
 
-.reversed .container .left-panel {
-  order: 2;
-}
-.reversed .container .right-panel {
-  order: 1;
-}
-.reversed .container .right-panel .rating .up-panel .star-container {
-  order: 2;
-}
-.reversed .container .right-panel .rating .up-panel .rating-value {
-  order: 1;
-}
-.reversed .container .right-panel .rating .progress-bar .progress {
-  margin-left: auto;
+@media (min-width: 400px) {
+  .reversed .container .left-panel {
+    order: 2;
+  }
+  .reversed .container .right-panel {
+    order: 1;
+  }
+  .reversed .container .right-panel .rating .up-panel .star-container {
+    order: 2;
+  }
+  .reversed .container .right-panel .rating .up-panel .rating-value {
+    order: 1;
+  }
+  .reversed .container .right-panel .rating .progress-bar .progress {
+    margin-left: auto;
+  }
 }/*# sourceMappingURL=rating-category.component.css.map */

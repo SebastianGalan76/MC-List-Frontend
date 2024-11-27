@@ -52,7 +52,7 @@
             background-color: $color-dark;
             border-radius: 50px;
 
-            lottie-player {
+            ng-lottie {
                 width: 200px;
                 height: auto;
             }
@@ -120,7 +120,7 @@
                 padding: 10px;
                 border-radius: 20px;
 
-                lottie-player {
+                ng-lottie {
                     width: 150px;
                 }
 
@@ -136,10 +136,6 @@
             .left-panel {
                 padding: 5px;
                 border-radius: 10px;
-
-                lottie-player {
-                    width: 100px;
-                }
 
                 .rating {
                     font-size: 1.2em;

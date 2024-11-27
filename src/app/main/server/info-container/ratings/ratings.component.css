@@ -42,7 +42,7 @@
   background-color: rgba(0, 0, 0, 0.2588235294);
   border-radius: 50px;
 }
-.ratings-global .container .left-panel lottie-player {
+.ratings-global .container .left-panel ng-lottie {
   width: 200px;
   height: auto;
 }
@@ -104,7 +104,7 @@
     padding: 10px;
     border-radius: 20px;
   }
-  .ratings-global .container .left-panel lottie-player {
+  .ratings-global .container .left-panel ng-lottie {
     width: 150px;
   }
   .ratings-global .container .left-panel .rating {
@@ -118,9 +118,6 @@
   .ratings-global .container .left-panel {
     padding: 5px;
     border-radius: 10px;
-  }
-  .ratings-global .container .left-panel lottie-player {
-    width: 100px;
   }
   .ratings-global .container .left-panel .rating {
     font-size: 1.2em;

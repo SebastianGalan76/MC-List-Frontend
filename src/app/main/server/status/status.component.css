@@ -23,6 +23,12 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+@media (max-width: 800px) {
+  #container .logo {
+    width: 100px;
+    height: 100px;
+  }
+}
 #container .middle-panel {
   flex-grow: 1;
   display: flex;
@@ -72,6 +78,18 @@
 }
 #container .statistic-container .statistic .icon {
   font-size: 2.2em;
+}
+@media (max-width: 800px) {
+  #container .statistic-container {
+    gap: 10px;
+  }
+  #container .statistic-container .statistic {
+    width: 100px;
+    height: 100px;
+  }
+  #container .statistic-container .statistic .icon {
+    font-size: 1.8em;
+  }
 }
 @media (max-width: 1200px) {
   #container .logo {

@@ -50,6 +50,15 @@
   background-color: rgba(255, 255, 255, 0.044);
   font-weight: 600;
 }
+#container #menu-container .button.blocked {
+  background-color: rgba(118, 107, 107, 0.044);
+  color: rgba(131, 131, 131, 0.819);
+}
+#container #menu-container .button.blocked:hover {
+  cursor: not-allowed;
+  background-color: rgba(118, 107, 107, 0.044);
+  color: rgba(131, 131, 131, 0.819);
+}
 #container #menu-container .button:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.131);
