@@ -413,3 +413,19 @@ input[type="color"]::-webkit-color-swatch {
         color: $color-white;
     }
 }
+
+textarea {
+    border: 2px solid $color-theme;
+    background-color: $color-dark;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 100px;
+    width: 100%;
+
+    font: inherit;
+    color: inherit;
+    font-weight: 500;
+
+    resize: vertical;
+    outline: none;
+}

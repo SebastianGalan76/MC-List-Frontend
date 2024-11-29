@@ -1,0 +1,20 @@
+<div class="main-container-content">
+    <h1 class="content-header">Zgłaszanie serwera</h1>
+
+    <div class="info">
+        Czy zauważyłeś, że jakiś serwer narusza zasady naszego regulaminu? <br>
+        Zgłoś go tutaj, aby pomóc nam utrzymać wysoką jakość naszej listy serwerów.
+    </div>
+
+    <div id="form-container">
+        <app-input-select [placeholder]="'Wybierz powód'" [maxChoice]="-1" [options]="reportOptions" />
+        <div class="or">lub</div>
+        <textarea placeholder="Napisz powód" [(ngModel)]="reportReason"></textarea>
+
+        <div id="submit-button" (click)="submit()">
+            Zgłoś
+        </div>
+    </div>
+
+    
+</div>

@@ -37,17 +37,21 @@ export class ServerInfoContainerComponent implements OnInit {
       });
     }
 
-    this.navButtons.push({
-      name: "Tryby",
-      destination: '/server/' + this.server.ip + '/modes',
-      isSelected: false
-    });
+    if (this.server.subServers != null && this.server.subServers.length > 0) {
+      this.navButtons.push({
+        name: "Tryby",
+        destination: '/server/' + this.server.ip + '/modes',
+        isSelected: false
+      });
+    }
 
-    this.navButtons.push({
-      name: "Administracja",
-      destination: '/server/' + this.server.ip + '/staff',
-      isSelected: false
-    });
+    if (this.server.staff != null && this.server.staff.length > 0) {
+      this.navButtons.push({
+        name: "Administracja",
+        destination: '/server/' + this.server.ip + '/staff',
+        isSelected: false
+      });
+    }
 
     this.navButtons.push({
       name: "Statystyki",

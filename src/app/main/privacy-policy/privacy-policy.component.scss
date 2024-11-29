@@ -1,0 +1,46 @@
+@import "../../../styles/base";
+
+#container{
+    width: 800px;
+
+    margin-left: auto;
+    margin-right: auto;
+    
+    text-align: justify;
+    margin-bottom: 250px;
+
+    h1{
+        margin-top: 40px;
+        margin-bottom: 70px;
+        text-align: center;
+
+        font-size: 2em;
+    }
+
+    h2{
+        margin-left: 20px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        display: block;
+        text-align: start;
+
+        @media (max-width: 550px){
+            margin-left: 5px;
+        }
+    }
+
+    li{
+        margin-top: 5px;
+    }
+
+    .link{
+        color: $color-theme;
+    }
+
+    @media (max-width: 850px){
+        width: 100%;
+        padding: 20px;
+
+        font-size: 0.8em;
+    }
+}

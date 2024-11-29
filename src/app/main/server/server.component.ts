@@ -7,6 +7,7 @@ import { NotificationService } from '../../../service/notification.service';
 import { ServerLinksComponent } from './links/links.component';
 import { CommonModule } from '@angular/common';
 import { ServerService } from '../../../service/server/serverService';
+import { Utils } from '../../../service/utils.service';
 
 @Component({
   selector: 'app-server',
@@ -33,6 +34,8 @@ export class ServerComponent implements OnInit {
         this.server = response;
       }
     })
+
+    Utils.scrollTop();
   }
 
   copyServerIP() {

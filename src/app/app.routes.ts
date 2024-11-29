@@ -25,6 +25,9 @@ import { SubServerManageServerComponent } from './manage/server/sub-server/sub-s
 import { RoleManageServerComponent } from './manage/server/role/role.component';
 import { StaffManageServerComponent } from './manage/server/staff/staff.component';
 import { manageServerAuthGuard } from './guards/manage-server-auth.guard';
+import { RulesComponent } from './main/rules/rules.component';
+import { PrivacyPolicyComponent } from './main/privacy-policy/privacy-policy.component';
+import { ServerReportComponent } from './main/server/info-container/report/report.component';
 
 export const routes: Routes = [
     {
@@ -57,7 +60,7 @@ export const routes: Routes = [
                 component: InformationManageServerComponent,
                 canDeactivate: [unsavedChangesGuard],
                 canActivate: [manageServerAuthGuard]
-            },{
+            }, {
                 path: "remove",
                 component: RemoveManageServerComponent,
                 canActivate: [manageServerAuthGuard]
@@ -124,11 +127,22 @@ export const routes: Routes = [
                 {
                     path: "info",
                     component: ServerInfoComponent
-                }, {
+                },
+                {
+                    path: "report",
+                    component: ServerReportComponent
+                },
+                {
                     path: "",
                     component: ServerInfoComponent
                 }]
             }]
+        }, {
+            path: "rules",
+            component: RulesComponent
+        }, {
+            path: "privacy-policy",
+            component: PrivacyPolicyComponent
         }]
     }
 ];

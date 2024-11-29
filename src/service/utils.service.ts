@@ -17,7 +17,7 @@ export class Utils {
   }
 
   static checkBannerFile(file: File | null): number {
-    if(!file){
+    if (!file) {
       return 1;
     }
 
@@ -60,7 +60,7 @@ export class Utils {
     return domainRegex.test(address);
   }
 
-  static convertVersions(versions: ServerVersion[]) : string | null{
+  static convertVersions(versions: ServerVersion[]): string | null {
     if (versions != null && versions.length > 0) {
       const sortedArray = versions.sort((a, b) => a.id - b.id);
 
@@ -77,20 +77,28 @@ export class Utils {
     return null;
   }
 
-  static convertServerRoleToValue(roleKey: ServerUserRole ) : number {
-    if(roleKey === ServerUserRole.HELPER){
+  static convertServerRoleToValue(roleKey: ServerUserRole): number {
+    if (roleKey === ServerUserRole.HELPER) {
       return 500;
     }
-    if(roleKey === ServerUserRole.MODERATOR){
+    if (roleKey === ServerUserRole.MODERATOR) {
       return 750;
     }
-    if(roleKey === ServerUserRole.ADMINISTRATOR){
+    if (roleKey === ServerUserRole.ADMINISTRATOR) {
       return 1000;
     }
-    if(roleKey === ServerUserRole.OWNER){
+    if (roleKey === ServerUserRole.OWNER) {
       return 5000;
     }
 
     return 0;
+  }
+
+  static scrollTop() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 }

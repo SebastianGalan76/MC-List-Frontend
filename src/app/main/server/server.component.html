@@ -1,4 +1,10 @@
-<div id="page-wrapper" class="center" *ngIf="server">
+@if (server) {
+@if (server.banner) {
+<div id="banner">
+    <img [src]="server.banner" [alt]="'Banner serwera '+server.name.name">
+</div>
+}
+<div id="page-wrapper" class="center">
     <section id="container">
         <app-server-status [server]="server" />
 
@@ -52,10 +58,11 @@
         <app-server-links [server]="server" [style]="'link-panel-aside'" />
         }
 
-        <a [routerLink]="['/server/', server.ip, '/report']">
+        <a [routerLink]="['report']">
             <div id="report-button" class="center">
                 Zgłoś serwer
             </div>
         </a>
     </aside>
 </div>
+}
