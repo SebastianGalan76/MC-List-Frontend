@@ -29,7 +29,7 @@ export class ServerInfoContainerComponent implements OnInit {
       isSelected: false
     });
 
-    if (this.server.description.length > 0) {
+    if (this.server.description && this.server.description.length > 0) {
       this.navButtons.push({
         name: "Opis",
         destination: '/server/' + this.server.ip + '/description',

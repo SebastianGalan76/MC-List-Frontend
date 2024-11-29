@@ -27,6 +27,25 @@ export interface Server{
     dailyPlayerCounts: PlayerCountStatistic[];
 }
 
+export interface ServerList {
+    id: number;
+    ip: string;
+    port: number;
+    detail: ServerDetails;
+    name: ServerName;
+
+    online: boolean;
+    premium: boolean;
+    mods: boolean;
+    
+    players: number;
+    promotionPoints: number;
+    votes: number;
+
+    mode: ServerMode | null;
+    versions: ServerVersion[];
+}
+
 export interface ServerDetails{
     id: number;
     motdHtml: string;

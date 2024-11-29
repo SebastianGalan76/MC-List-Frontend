@@ -1,0 +1,11 @@
+<div id="container">
+    <div id="server-container">
+        <ng-container #serverContainer></ng-container>
+    </div>
+
+    <div id="page-container">
+
+    </div>
+
+    <app-page-manager (changePageEvent)="onPageChange($event)"/>
+</div>

@@ -1,0 +1,9 @@
+#container {
+  width: 100%;
+}
+#container #server-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}/*# sourceMappingURL=server-list.component.css.map */

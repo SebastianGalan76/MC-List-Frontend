@@ -1,0 +1,13 @@
+@import "../../../../styles/base";
+
+#container{
+    width: 100%;
+
+    #server-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        margin-top: 30px;
+    }
+}

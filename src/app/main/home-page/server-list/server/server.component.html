@@ -1,0 +1,72 @@
+<div class="server" (click)="select()" [ngClass]="{'promoted': server.promotionPoints > 0}">
+    <div class="up-panel">
+        <div class="address" title="Kliknij, aby skopiować adres" (click)="copyServerIP($event)">
+            <span class="address-value">{{server.name.name}}</span> <i class="fa-regular fa-copy"></i>
+        </div>
+
+        <div class="tag-container">
+            @if (server.mode) {
+            <div class="tag mode-tag">
+                <div class="icon">
+                    <i class="fa-solid fa-dice-d6"></i>
+                </div>
+                <div class="content">
+                    {{server.mode.name}}
+                </div>
+            </div>
+            }
+
+            @if (getConvertedVersions(server.versions); as versions) {
+            <div class="tag version-tag">
+                <div class="icon">
+                    <i class="fa-solid fa-code-branch"></i>
+                </div>
+                <div class="content">
+                    {{versions}}
+                </div>
+            </div>
+            }
+
+            @if (server.mods) {
+            <div class="tag mods-tag">
+                <div class="icon">
+                    <i class="fa-solid fa-parachute-box"></i>
+                </div>
+                <div class="content">
+                    Mody
+                </div>
+            </div>
+            }
+
+            @if(server.premium){
+            <div class="tag premium-tag">
+                <div class="icon">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+                <div class="content">
+                    Premium
+                </div>
+            </div>
+            }
+        </div>
+
+        @if (server.promotionPoints > 0) {
+        <div class="promotion statistic" title="Punkty promowania"><span
+                class="promotion-value">{{server.promotionPoints}}</span>
+            <div class="icon">👑</div>
+        </div>
+        }
+    </div>
+    <div class="down-panel">
+        <div class="logo">
+            <img class="logo-src" [src]="server.detail.icon">
+        </div>
+        <div class="motd" [innerHTML]="safeMotdHtml"></div>
+        <div class="statistic-container">
+            <div class="online statistic" title="Gracze online"><span
+                    class="online-value">{{server.players}}</span> 🟢</div>
+            <div class="votes statistic" title="Ilość głosów"><span class="vote-value">{{server.votes}}</span>
+                ❤️</div>
+        </div>
+    </div>
+</div>

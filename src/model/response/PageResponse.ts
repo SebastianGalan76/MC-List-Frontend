@@ -1,12 +1,14 @@
-import { ErrorStatusResponse } from "./ErrorStatusResponse";
-import { ResponseStatusEnum } from "./ResponseStatusEnum";
-
-export interface PageResponse<T> {
-    status: ResponseStatusEnum;
-    error: ErrorStatusResponse;
-    content: PageContent<T>
+export interface PageContent<T> {
+    content: T[];
+    page: {
+        size: number;
+        number: number;
+        totalElements: number;
+        totalPages: number;
+    }
 }
 
+/*
 export interface PageContent<T> {
     totalElements: number;
     totalPages: number;
@@ -35,3 +37,4 @@ export interface PageContent<T> {
     };
     empty: boolean;
 }
+*/

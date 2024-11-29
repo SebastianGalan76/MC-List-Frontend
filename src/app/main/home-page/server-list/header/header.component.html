@@ -1,0 +1,11 @@
+<div class="servers-header" [ngClass]="{'promoted': promoted}">
+    <div class="title">
+        @if (promoted) {
+            <div class="icon">👑</div>Promowane serwery
+        }
+        @else {
+            Serwery
+        }
+    </div>
+    <div class="divider-line"></div>
+</div>

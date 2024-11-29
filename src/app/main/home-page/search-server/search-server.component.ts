@@ -63,7 +63,6 @@ export class SearchServerComponent {
       mods: this.mods
     }
 
-    //TODO Populate server list
-    this.searchServerService.searchServer(searchDto, 0).subscribe();
+    this.searchServerService.searchServer(searchDto, 1);
   }
 }

@@ -1,0 +1,56 @@
+@import "../../../../../styles/base";
+
+.servers-header {
+    .title {
+        font-size: 1.2em;
+        font-weight: 800;
+        color: $color-white;
+
+        display: flex;
+        gap: 5px;
+
+        position: relative;
+        padding: 10px 0;
+    }
+
+    .divider-line {
+        background: linear-gradient(
+            90deg,
+            hsla(36, 100%, 93%, 0.1),
+            hsla(43, 100%, 95%, 0.5) 47.92%,
+            hsla(36, 100%, 93%, 0.1)
+        );
+        width: 100%;
+        height: 2px;
+    }
+
+    @media (max-width: 600px) {
+        .title {
+            font-size: 1em;
+            padding: 5px 0;
+        }
+    }
+}
+
+.servers-header.promoted {
+    .title {
+        color: $color-theme;
+
+        .icon {
+            font-size: 1.4em;
+            position: relative;
+            bottom: 10px;
+        }
+    }
+
+    .divider-line {
+        background: linear-gradient(
+            180deg,
+            hsla(36, 100%, 55%, 0.1),
+            hsla(44, 100%, 65%, 0.5) 47.92%,
+            hsla(36, 100%, 55%, 0.1)
+        );
+        width: 100%;
+        height: 2px;
+    }
+}

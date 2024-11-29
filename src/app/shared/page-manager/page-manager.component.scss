@@ -1,0 +1,38 @@
+@import '../../../styles/base';
+
+#container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 0;
+
+    .page{
+        width: 40px;
+        height: 40px;
+
+        background-color: $color-dark;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-weight: 700;
+        border-radius: 5px;
+        border: 2px solid $color-theme;
+    }
+    .page.selected{
+        background-color: $color-dark;
+        border: 2px solid $color-theme;
+        color: $color-theme;
+    }
+
+    .page:hover{
+        cursor: pointer;
+        border: 2px solid $color-theme;
+    }
+
+    .divider{
+        font-size: 1.5em;
+    }
+}

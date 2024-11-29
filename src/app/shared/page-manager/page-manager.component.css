@@ -1,0 +1,29 @@
+#container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+#container .page {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 2px solid #e2a258;
+}
+#container .page.selected {
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  border: 2px solid #e2a258;
+  color: #e2a258;
+}
+#container .page:hover {
+  cursor: pointer;
+  border: 2px solid #e2a258;
+}
+#container .divider {
+  font-size: 1.5em;
+}/*# sourceMappingURL=page-manager.component.css.map */
