@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Server } from '../../../../model/server/server';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Utils } from '../../../../service/utils.service';
+import { ServerPage } from '../serverPage.service';
+import { ServerService } from '../../../../service/server/serverService';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-server-status',
@@ -10,17 +13,19 @@ import { Utils } from '../../../../service/utils.service';
   templateUrl: './status.component.html',
   styleUrl: './status.component.scss'
 })
-export class ServerStatusComponent implements OnInit {
-  @Input({ required: true }) server!: Server;
-
+export class ServerStatusComponent extends ServerPage {
   safeMotdHtml!: SafeHtml;
   versions: string | null = null;
 
   constructor(
-    private sanitizer: DomSanitizer
-  ) {}
+    private sanitizer: DomSanitizer,
+    protected override serverService: ServerService,
+    protected override route: ActivatedRoute,
+  ) {
+    super(route, serverService);
+  }
   
-  ngOnInit(): void {
+  override onLoad(): void {
     const formattedHtml = this.server.detail.motdHtml.replace(/\n/g, '<br>');
     this.safeMotdHtml = this.sanitizer.bypassSecurityTrustHtml(formattedHtml);
 

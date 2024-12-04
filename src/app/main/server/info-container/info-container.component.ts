@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { ServerService } from '../../../../service/server/serverService';
-import { Server } from '../../../../model/server/server';
 import { CommonModule } from '@angular/common';
+import { ServerPage } from '../serverPage.service';
 
 @Component({
   selector: 'app-server-info-container',
@@ -11,17 +10,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './info-container.component.html',
   styleUrl: './info-container.component.scss'
 })
-export class ServerInfoContainerComponent implements OnInit {
-  server!: Server;
-
+export class ServerInfoContainerComponent extends ServerPage {
   navButtons: any[] = [];
 
-  constructor(
-    private serverService: ServerService
-  ) { }
-
-  ngOnInit(): void {
-    this.server = this.serverService.server!;
+  override onLoad(): void {
+    this.navButtons = [];
 
     this.navButtons.push({
       name: "Informacje",

@@ -9,10 +9,10 @@
                     <a routerLink="/add-new-server">
                         <li class="add-server-button">Dodaj serwer</li>
                     </a>
-                    <a routerLink="/server/grajkownia.pl">
+                    <a>
                         <li class="buy-banner-button">Zakup Baner</li>
                     </a>
-                    <li>Losuj serwer</li>
+                    <li (click)="getRandomServer()">Losuj serwer</li>
                 </ul>
             </nav>
         </div>

@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Server } from '../../../model/server/server';
 import { ApiService } from '../../../service/api.service';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ServerStatusComponent } from './status/status.component';
 import { NotificationService } from '../../../service/notification.service';
 import { ServerLinksComponent } from './links/links.component';
 import { CommonModule } from '@angular/common';
 import { ServerService } from '../../../service/server/serverService';
 import { Utils } from '../../../service/utils.service';
+import { ServerPage } from './serverPage.service';
 
 @Component({
   selector: 'app-server',
@@ -16,26 +17,13 @@ import { Utils } from '../../../service/utils.service';
   templateUrl: './server.component.html',
   styleUrl: './server.component.scss'
 })
-export class ServerComponent implements OnInit {
-  server!: Server;
-  ip: string;
-
+export class ServerComponent extends ServerPage {
   constructor(
-    private serverService: ServerService,
-    private route: ActivatedRoute,
-    private notificationService: NotificationService
+    protected override serverService: ServerService,
+    protected override route: ActivatedRoute,
+    private notificationService: NotificationService,
   ) {
-    this.ip = this.route.snapshot.paramMap.get('ip') ?? "";
-  }
-
-  ngOnInit(): void {
-    this.serverService.getServer(this.ip).subscribe((response) => {
-      if (response) {
-        this.server = response;
-      }
-    })
-
-    Utils.scrollToTop();
+    super(route, serverService);
   }
 
   copyServerIP() {
