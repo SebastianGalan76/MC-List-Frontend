@@ -5,7 +5,7 @@ import { ServerModeService } from '../../../service/serverMode.service';
 
 import { LottieComponent } from 'ngx-lottie';
 import { AddServerService } from '../../../service/server/addServer.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
 import { FormsModule } from '@angular/forms';
 import { Utils } from '../../../service/utils.service';
@@ -13,7 +13,7 @@ import { Utils } from '../../../service/utils.service';
 @Component({
   selector: 'app-add-new-server',
   standalone: true,
-  imports: [SelectComponent, LottieComponent, FormsModule],
+  imports: [SelectComponent, LottieComponent, FormsModule, RouterLink],
   templateUrl: './add-new-server.component.html',
   styleUrl: './add-new-server.component.scss'
 })

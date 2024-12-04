@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Utils } from '../../../service/utils.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   templateUrl: './privacy-policy.component.html',
   styleUrl: './privacy-policy.component.scss'
 })
-export class PrivacyPolicyComponent {
-
+export class PrivacyPolicyComponent implements OnInit{
+  ngOnInit(): void {
+    Utils.scrollToTop();
+  }
 }

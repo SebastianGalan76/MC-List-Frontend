@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { ServerListService } from '../../../../service/server/serverList.service';
 import { Subscription } from 'rxjs';
 import { PageManagerComponent } from "../../../shared/page-manager/page-manager.component";
+import { Utils } from '../../../../service/utils.service';
 
 @Component({
   selector: 'app-server-list',
@@ -20,6 +21,7 @@ export class ServerListComponent implements OnInit, OnDestroy {
   serverContainer!: ViewContainerRef;
 
   subscription: Subscription | null = null;
+  test = true;
 
   constructor(
     private apiService: ApiService,
@@ -72,11 +74,8 @@ export class ServerListComponent implements OnInit, OnDestroy {
     this.apiService.get<PageContent<ServerList>>(url, {}).subscribe(response => {
       this.serverListService.load(response);
     });
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
+    
+    //Utils.scrollTop();
   }
 
   addServerComponent(server: ServerList) {

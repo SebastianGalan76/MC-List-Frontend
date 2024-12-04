@@ -94,11 +94,11 @@ export class Utils {
     return 0;
   }
 
-  static scrollTop() {
+  static scrollToTop(smooth: boolean = false) {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth',
+      behavior: smooth ? 'smooth' : 'auto',
     });
   }
 }

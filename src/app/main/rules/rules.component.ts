@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Utils } from '../../../service/utils.service';
 
 @Component({
   selector: 'app-rules',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   templateUrl: './rules.component.html',
   styleUrl: './rules.component.scss'
 })
-export class RulesComponent {
-
+export class RulesComponent implements OnInit {
+  ngOnInit(): void {
+    Utils.scrollToTop();
+  }
 }

@@ -50,7 +50,10 @@ export class DescriptionManageServerComponent implements AfterViewInit {
   }
 
   canDeactivate(): boolean {
-    if (this.editorContent !== this.parent.server.description) {
+    if(this.parent.server.description == null && this.editorContent.length == 0){
+      return true;
+    }
+    if (this.editorContent != this.parent.server.description) {
       return confirm('Masz niezapisane zmiany! Czy na pewno chcesz opuścić tę stronę?');
     }
     return true;

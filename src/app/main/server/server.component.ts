@@ -35,7 +35,7 @@ export class ServerComponent implements OnInit {
       }
     })
 
-    Utils.scrollTop();
+    Utils.scrollToTop();
   }
 
   copyServerIP() {
