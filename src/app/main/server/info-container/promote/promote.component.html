@@ -1,0 +1,45 @@
+<div class="main-container-content">
+    <h1 class="content-header">Promowanie serwera</h1>
+
+    <div class="info" style="margin-top: 30px;"><b>MC-List.pl</b> to najnowocześniejsza lista serwerów
+        Minecraft. Dzięki promowaniu swojego serwera możesz dotrzeć do większej liczby graczy.
+        <br><br>
+        Promowane serwery wyświetlają się na samej górze listy. Im więcej serwer posiada punktów promowania,
+        tym wyżej jest na liście. Serwery z zakupionym promowaniem posiadają wyróżniający się styl.
+    </div>
+    <div class="info">Chcesz lepiej wyróżnić swój serwer?
+        <br>
+        <a href="/banners" class="link">Zakup baner reklamowy</a>
+    </div>
+    <div class="info">Każdego dnia serwer traci jeden punkt promowania.<br>
+        10 Punktów Promowania = 10 dni promowania
+    </div>
+    <br>
+
+    <div id="form-container">
+        <div class="header">
+            👑 Punkty Promowania 👑
+        </div>
+
+        <div class="input-area-range">
+            <input class="custom-range" type="range" list="markers" min="7" max="365" [(ngModel)]="value"
+                (input)="onValueChange()">
+        </div>
+
+        <br>
+        <div class="form-info">
+            <div class="days">
+                <span>Dni: {{value == null ? 0:value}}</span>
+            </div>
+            <div class="price">
+                <span>Cena: {{price}}</span>zł
+            </div>
+        </div>
+
+        <div id="submit-button" (click)="submit()">
+            Zakup
+        </div>
+    </div>
+
+
+</div>

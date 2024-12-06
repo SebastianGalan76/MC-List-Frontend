@@ -28,6 +28,7 @@ import { manageServerAuthGuard } from './guards/manage-server-auth.guard';
 import { RulesComponent } from './main/rules/rules.component';
 import { PrivacyPolicyComponent } from './main/privacy-policy/privacy-policy.component';
 import { ServerReportComponent } from './main/server/info-container/report/report.component';
+import { ServerPromoteComponent } from './main/server/info-container/promote/promote.component';
 
 export const routes: Routes = [
     {
@@ -131,6 +132,10 @@ export const routes: Routes = [
                 {
                     path: "report",
                     component: ServerReportComponent
+                },
+                {
+                    path: "promote",
+                    component: ServerPromoteComponent
                 },
                 {
                     path: "",
