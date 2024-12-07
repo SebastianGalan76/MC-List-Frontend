@@ -1,0 +1,39 @@
+.rating {
+    padding: 15px;
+    background-color: #ffffff15;
+    border-radius: 30px;
+    width: 100%;
+
+    .rating-header {
+        text-align: center;
+
+        .name {
+            font-weight: 600;
+        }
+        .description {
+            font-style: italic;
+            color: #d4d4d49f;
+        }
+    }
+
+    .stars {
+        margin-top: 10px;
+        font-size: 2em;
+        width: fit-content;
+
+        i {
+            color: #d4d4d49f;
+            transition: all 0.2s ease;
+        }
+
+        i:hover {
+            cursor: pointer;
+            color: #ffba3b;
+        }
+
+        i.active {
+            color: #ffba3b;
+            font-size: 1.05em;
+        }
+    }
+}

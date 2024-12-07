@@ -1,0 +1,29 @@
+<div id="container">
+    <div class="header">
+        <div class="title">
+            Oceń serwer
+        </div>
+        <span>
+            Twoja opinia dla Administracji serwera jest niezwykle ważna! Aby mogli ciągle doskonalić swoje
+            usługi, prosimy o uczciwe i rzetelne ocenienie serwera.
+        </span>
+
+        <div id="close-button" (click)="closePopup()"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+
+    <div id="rating-container" class="scrollable scrollable-vertical">
+        <app-rate-category header="Atmosfera gry" description="Jak oceniasz ogólny klimat na serwerze?" [(currentRate)]="selectedStars[0]"/>
+        <app-rate-category header="Unikalne funkcje"
+            description="Jak oceniasz serwer pod względem unikalnych funkcji, trybów i dodatków?" [(currentRate)]="selectedStars[1]"/>
+        <app-rate-category header="Eventy i aktywność"
+            description="Jak oceniasz organizowane eventy oraz ich częstotliwość?" [(currentRate)]="selectedStars[2]"/>
+        <app-rate-category header="Ochrona przed oszustami"
+            description="Jak oceniasz zabezpieczenia przed cheaterami i oszustami?" [(currentRate)]="selectedStars[3]"/>
+        <app-rate-category header="Administracja" description="Jak oceniasz pracę administracji, jej zaangażowanie w pomoc oraz łatwość
+        kontaktu?" [(currentRate)]="selectedStars[4]"/>
+    </div>
+
+    <div class="save-button center" (click)="submit()">
+        Prześlij ocenę
+    </div>
+</div>

@@ -5,6 +5,8 @@ import { LottieComponent } from 'ngx-lottie';
 import { PlayerRating } from '../../../../../model/server/server';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../../../../service/user.service';
+import { PopupService } from '../../../../../service/popup.service';
+import { RateServerPopupComponent } from '../../../../shared/popup/server/rate/rate.component';
 
 @Component({
   selector: 'app-ratings',
@@ -22,7 +24,8 @@ export class ServerRatingsComponent {
 
   constructor(
     private parent: ServerComponent,
-    public userService: UserService
+    public userService: UserService,
+    private popupService: PopupService,
   ) {
     this.parent.server.ratings.forEach(rating => {
       const categoryIndex = rating.category.id - 1;
@@ -42,6 +45,10 @@ export class ServerRatingsComponent {
     });
 
     this.averageRating = totalAverageRating / 5;
+  }
+
+  rateServer(){
+    this.popupService.showPopup(RateServerPopupComponent, [{ name: "serverId", value: this.parent.server.id }]);
   }
 
   getRatingsByCategoryId(id: number) {
