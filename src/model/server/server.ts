@@ -22,7 +22,8 @@ export interface Server{
     roles: ServerRole[];
     role: ServerUserRole;
     ratings: PlayerRating[];
-
+    votes: number;
+    
     hourlyPlayerCounts: PlayerCountStatistic[];
     dailyPlayerCounts: PlayerCountStatistic[];
 }

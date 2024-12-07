@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { ServerService } from '../../../service/server/serverService';
 import { Utils } from '../../../service/utils.service';
 import { ServerPage } from './serverPage.service';
+import { PopupService } from '../../../service/popup.service';
+import { VoteServerPopupComponent } from '../../shared/popup/server/vote/vote.component';
 
 @Component({
   selector: 'app-server',
@@ -22,6 +24,7 @@ export class ServerComponent extends ServerPage {
     protected override serverService: ServerService,
     protected override route: ActivatedRoute,
     private notificationService: NotificationService,
+    private popupService: PopupService
   ) {
     super(route, serverService);
   }
@@ -35,5 +38,9 @@ export class ServerComponent extends ServerPage {
     navigator.clipboard.writeText(ip).then(() => {
       this.notificationService.showNotification("Skopiowano " + ip + " do schowka");
     })
+  }
+
+  vote(){
+    this.popupService.showPopup(VoteServerPopupComponent, [{name: 'serverId', value: this.server.id}]);
   }
 }

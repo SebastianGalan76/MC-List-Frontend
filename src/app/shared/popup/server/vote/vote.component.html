@@ -1,0 +1,20 @@
+<div id="container">
+    <div class="header">
+        <div class="title">❤️ Głosowanie</div>
+        <div id="close-vote-popup" (click)="closePopup()"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+
+    <div class="container">
+        <div class="input-area">
+            <input type="text" placeholder="Nick" maxlength="256" [(ngModel)]="nick">
+            <div class="icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="error" id="vote-error"></div>
+        <div class="vote-button" (click)="submit()">Zagłosuj</div>
+    </div>
+</div>

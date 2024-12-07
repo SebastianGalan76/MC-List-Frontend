@@ -9,7 +9,7 @@
         <app-server-status />
 
         <div id="button-panel" class="panel action-buttons-container">
-            <div class="button vote" onclick="showVotePopup()">Zagłosuj</div>
+            <div class="button vote" (click)="vote()">Zagłosuj</div>
             <a [routerLink]="['/server/', server.ip, 'promote']">
                 <div class="button promote">Promuj</div>
             </a>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="panel action-buttons-container" id="button-panel-aside">
-            <div class="button vote" onclick="showVotePopup()">Zagłosuj</div>
+            <div class="button vote" (click)="vote()">Zagłosuj</div>
             <a [routerLink]="['/server/', server.ip, 'promote']">
                 <div class="button promote">Promuj</div>
             </a>
