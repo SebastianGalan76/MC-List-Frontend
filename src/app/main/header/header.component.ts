@@ -3,7 +3,6 @@ import { Router, RouterLink } from '@angular/router';
 import { User, UserService } from '../../../service/user.service';
 import { UserSectionComponent } from "./user-section/user-section.component";
 import { ApiService } from '../../../service/api.service';
-import { HttpOptions } from '../../../model/HttpOptions';
 import { ObjectResponse } from '../../../model/response/ObjectResponse';
 
 @Component({

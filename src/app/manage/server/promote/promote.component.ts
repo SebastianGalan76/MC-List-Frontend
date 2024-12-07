@@ -5,11 +5,12 @@ import { NotificationService, NotificationType } from '../../../../service/notif
 import { PaymentDto } from '../../../../model/PaymentDto';
 import { ObjectResponse } from '../../../../model/response/ObjectResponse';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-promote',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './promote.component.html',
   styleUrl: './promote.component.scss'
 })

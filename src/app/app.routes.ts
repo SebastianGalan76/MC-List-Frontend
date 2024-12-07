@@ -30,6 +30,7 @@ import { PrivacyPolicyComponent } from './main/privacy-policy/privacy-policy.com
 import { ServerReportComponent } from './main/server/info-container/report/report.component';
 import { ServerPromoteComponent } from './main/server/info-container/promote/promote.component';
 import { PromoteManageServerComponent } from './manage/server/promote/promote.component';
+import { BannerPurchaseComponent } from './main/banner/banner.component';
 
 export const routes: Routes = [
     {
@@ -153,6 +154,9 @@ export const routes: Routes = [
         }, {
             path: "privacy-policy",
             component: PrivacyPolicyComponent
+        }, {
+            path: "banner",
+            component: BannerPurchaseComponent
         }]
     }
 ];

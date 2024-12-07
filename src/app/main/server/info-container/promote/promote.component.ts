@@ -5,11 +5,12 @@ import { NotificationService, NotificationType } from '../../../../../service/no
 import { ApiService } from '../../../../../service/api.service';
 import { ObjectResponse } from '../../../../../model/response/ObjectResponse';
 import { PaymentDto } from '../../../../../model/PaymentDto';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-server-promote',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './promote.component.html',
   styleUrl: './promote.component.scss'
 })

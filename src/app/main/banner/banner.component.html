@@ -1,0 +1,76 @@
+<div id="container">
+    <div class="header">
+        <h1>Zakup baner reklamowy</h1>
+        <br><br>
+        <h3>Wybierz typ:</h3>
+    </div>
+    <div id="banner-container-big" class="center">
+        <div class="banner-preview" [ngClass]="{'selected': selectedSize == 1}" (click)="selectBanner(1)">
+            <div class="banner">
+                @if (this.imageUrl && selectedSize == 1) {
+                <img id="banner-preview-img" [src]="imageUrl" />
+                }
+            </div>
+
+        </div>
+        <div class="banner">
+            <img src="/img/banner-big-preview.png">
+        </div>
+    </div>
+
+    <div id="banner-container-small" class="center">
+        <div class="banner-preview" [ngClass]="{'selected': selectedSize == 2}" (click)="selectBanner(2)">
+            <div class="banner">
+                @if (this.imageUrl && selectedSize == 2) {
+                <img id="banner-preview-img" [src]="imageUrl" />
+                }
+            </div>
+        </div>
+
+        <div class="banner">
+            <img src="/img/banner-small-preview.png">
+        </div>
+    </div>
+    <div id="form-container" class="center">
+        <div class="title">Wypełnij formularz:</div>
+        <br>
+        <div class="input-area">
+            <input type="text" placeholder="Docelowy link (np. sklep, discord, strona główna)" maxlength="256"
+                [(ngModel)]="url">
+            <div class="icon">
+                <i class="fa-solid fa-link"></i>
+            </div>
+        </div>
+
+        <div class="file-input-container center">
+            <div class="file-input">
+                <button type="button" (click)="fileInputs.click()">Wybierz plik</button>
+                <input type="file" id="file-input" size="1" (change)="onFileChange($event)" #fileInputs>
+            </div>
+            <span class="file-name" id="file-name">{{fileName}}</span>
+
+            <div class="icon">
+                <i class="fa-solid fa-file"></i>
+            </div>
+        </div>
+
+        <div class="button" (click)="submit()">Prześlij do weryfikacji</div>
+    </div>
+    <div class="section center">
+        <h2>Metody płatności</h2>
+        <div class="item-container">
+            <div class="item">BLIK</div>
+            <div class="item">Przelew</div>
+            <div class="item">PayPal</div>
+        </div>
+    </div>
+    <div class="section center">
+        <h2>Etapy zakupu</h2>
+        <ol>
+            <li>Wybierasz wielkość.</li>
+            <li>Wypełniasz formularz i przesyłasz dane do weryfikacji.</li>
+            <li>Administrator strony weryfikuje grafikę oraz link.</li>
+            <li>Po akceptacji możesz uiścić opłatę i aktywować baner w zakładce "Moje banery".</li>
+        </ol>
+    </div>
+</div>
