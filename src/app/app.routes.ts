@@ -29,6 +29,7 @@ import { RulesComponent } from './main/rules/rules.component';
 import { PrivacyPolicyComponent } from './main/privacy-policy/privacy-policy.component';
 import { ServerReportComponent } from './main/server/info-container/report/report.component';
 import { ServerPromoteComponent } from './main/server/info-container/promote/promote.component';
+import { PromoteManageServerComponent } from './manage/server/promote/promote.component';
 
 export const routes: Routes = [
     {
@@ -90,6 +91,10 @@ export const routes: Routes = [
             }, {
                 path: "staff",
                 component: StaffManageServerComponent,
+                canActivate: [manageServerAuthGuard]
+            }, {
+                path: "promote",
+                component: PromoteManageServerComponent,
                 canActivate: [manageServerAuthGuard]
             }]
     },

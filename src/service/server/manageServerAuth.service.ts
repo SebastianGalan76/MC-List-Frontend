@@ -15,7 +15,8 @@ export class ManageServerAuthService {
     ["link", ServerUserRole.MODERATOR],
     ["staff", ServerUserRole.HELPER],
     ["role", ServerUserRole.ADMINISTRATOR],
-    ["remove", ServerUserRole.OWNER]
+    ["remove", ServerUserRole.OWNER],
+    ["promote", ServerUserRole.HELPER]
   ]);
 
   public hasPermission(path: string, role: ServerUserRole){

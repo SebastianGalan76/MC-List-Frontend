@@ -24,6 +24,11 @@
             <div class="icon"><i class="fa-solid fa-scroll"></i></div>
             <div class="text">Opis serwera</div>
         </div>
+        <div class="button" [routerLink]="!hasHelperPermission ? null : ['promote']"
+            [ngClass]="{'blocked': !hasHelperPermission}">
+            <div class="icon"><i class="fa-solid fa-crown"></i></div>
+            <div class="text">Promowanie</div>
+        </div>
         <div class="button" [routerLink]="!hasModeratorPermission ? null : ['banner']"
             [ngClass]="{'blocked': !hasModeratorPermission}">
             <div class="icon"><i class="fa-regular fa-image"></i></div>

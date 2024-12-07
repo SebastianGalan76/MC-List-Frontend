@@ -1,24 +1,24 @@
 import { Component } from '@angular/core';
+import { ManageServerComponent } from '../manageServer.component';
+import { ApiService } from '../../../../service/api.service';
+import { NotificationService, NotificationType } from '../../../../service/notification.service';
+import { PaymentDto } from '../../../../model/PaymentDto';
+import { ObjectResponse } from '../../../../model/response/ObjectResponse';
 import { FormsModule } from '@angular/forms';
-import { ServerComponent } from '../../server.component';
-import { NotificationService, NotificationType } from '../../../../../service/notification.service';
-import { ApiService } from '../../../../../service/api.service';
-import { ObjectResponse } from '../../../../../model/response/ObjectResponse';
-import { PaymentDto } from '../../../../../model/PaymentDto';
 
 @Component({
-  selector: 'app-server-promote',
+  selector: 'app-promote',
   standalone: true,
   imports: [FormsModule],
   templateUrl: './promote.component.html',
   styleUrl: './promote.component.scss'
 })
-export class ServerPromoteComponent {
+export class PromoteManageServerComponent {
   value: number = 7;
   price: number = 14;
 
   constructor(
-    private parent: ServerComponent,
+    private parent: ManageServerComponent,
     private apiService: ApiService,
     private notificationService: NotificationService
   ) { }
