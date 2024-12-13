@@ -1,12 +1,48 @@
 @import "../../../../styles/base";
 @import "../../../../styles/formElement.scss";
 
+.actived {
+    @media (max-width: 600px) {
+        background-color: $color-dark;
+        border-radius: 12px;
+
+        #search-container {
+            height: auto;
+            padding: 10px;
+        }
+    }
+}
+
+#filter {
+    background-color: $color-theme;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    font-weight: 800;
+
+    display: none;
+    justify-content: space-between;
+
+    @media (max-width: 600px) {
+        display: flex;
+    }
+}
+
+#filter:hover {
+    cursor: pointer;
+}
+
 #search-container {
     width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    overflow: hidden;
+    height: auto;
+
+    #form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 
     .row {
         display: flex;
@@ -29,7 +65,7 @@
     #search-server-button {
         background-color: $color-theme;
         border-radius: 10px;
-        
+
         height: 0;
         overflow: hidden;
 
@@ -39,10 +75,20 @@
 
         font-weight: 800;
         transition: all 0.1s ease-in;
+
+        @media (max-width: 800px) {
+            font-weight: 500;
+            font-size: 0.8em;
+        }
     }
 
-    #search-server-button.active{
+    #search-server-button.active {
         height: 50px;
+        margin-top: 10px;
+
+        @media (max-width: 800px) {
+            height: 40px;
+        }
     }
 
     #search-server-button:hover {
@@ -60,13 +106,12 @@
         }
     }
 
+    @media (max-width: 600px) {
+        padding: 0;
+        height: 0;
+    }
+
     @media (max-width: 500px) {
-        padding: 5px;
-
-        #search-server-button {
-            padding: 0 20px;
-        }
-
         .row {
             .row-half {
                 flex-direction: column;

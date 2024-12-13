@@ -1,0 +1,50 @@
+
+#container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 1600px;
+    max-height: 350px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .banner {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+        padding: 5px;
+        
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    @media (max-width: 1600px) {
+        width: 100%;
+    }
+
+    @media (max-width: 800px) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .banner{
+            overflow: hidden;
+
+            img{
+                width: 150%;
+            }
+        }
+    }
+}

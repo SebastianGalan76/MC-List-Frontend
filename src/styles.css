@@ -1431,6 +1431,14 @@ a {
   background-color: #e2a258;
 }
 
+.scrollable-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollable-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 .panel {
   border: 2px solid rgba(121, 121, 121, 0.4431372549);
   background-color: rgba(255, 255, 255, 0.0549019608);

@@ -26,9 +26,11 @@
   display: flex;
   gap: 10px;
   font-size: 0.9em;
+  overflow-x: auto;
 }
 .server .up-panel .tag-container .tag {
   display: flex;
+  flex: 0 0 auto;
   gap: 8px;
   background-color: rgba(255, 255, 255, 0.1019607843);
   width: -moz-fit-content;
@@ -99,9 +101,6 @@
   .server {
     font-size: 0.6em;
   }
-  .server .up-panel .tag-container {
-    display: none;
-  }
   .server .down-panel .logo {
     width: 40px;
     height: 40px;
@@ -110,7 +109,18 @@
 
 .server:hover {
   cursor: pointer;
-  scale: 1.08;
+  scale: 1.01;
+  background-color: rgba(255, 255, 255, 0);
+}
+@media (min-width: 1250px) {
+  .server:hover {
+    scale: 1.03;
+  }
+}
+@media (min-width: 1300px) {
+  .server:hover {
+    scale: 1.08;
+  }
 }
 
 .server.promoted {

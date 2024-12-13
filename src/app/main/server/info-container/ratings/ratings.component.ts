@@ -41,7 +41,7 @@ export class ServerRatingsComponent {
     });
 
     const totalAverageRating = this.averageRatings.reduce((sum, amount, index) => {
-      return sum + (amount * index);
+      return sum + amount;
     });
 
     this.averageRating = totalAverageRating / 5;

@@ -23,6 +23,8 @@ export class SearchServerComponent {
   versionOptions: OptionValue[] = [];
   modeOptions: OptionValue[] = [];
 
+  isVisible: boolean = false;
+
   constructor(
     private searchServerService: SearchServerService,
     private serverVersionService: ServerVersionService,
@@ -64,5 +66,9 @@ export class SearchServerComponent {
     }
 
     this.searchServerService.searchServer(searchDto, 1);
+  }
+
+  toggleVisibility(){
+    this.isVisible = !this.isVisible;
   }
 }

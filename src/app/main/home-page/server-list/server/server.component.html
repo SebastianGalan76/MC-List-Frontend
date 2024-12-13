@@ -4,7 +4,7 @@
             <span class="address-value">{{server.name.name}}</span> <i class="fa-regular fa-copy"></i>
         </div>
 
-        <div class="tag-container">
+        <div class="tag-container scrollable-hidden">
             @if (server.mode) {
             <div class="tag mode-tag">
                 <div class="icon">
@@ -27,6 +27,17 @@
             </div>
             }
 
+            @if(server.premium){
+                <div class="tag premium-tag">
+                    <div class="icon">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <div class="content">
+                        Premium
+                    </div>
+                </div>
+                }
+
             @if (server.mods) {
             <div class="tag mods-tag">
                 <div class="icon">
@@ -34,17 +45,6 @@
                 </div>
                 <div class="content">
                     Mody
-                </div>
-            </div>
-            }
-
-            @if(server.premium){
-            <div class="tag premium-tag">
-                <div class="icon">
-                    <i class="fa-solid fa-medal"></i>
-                </div>
-                <div class="content">
-                    Premium
                 </div>
             </div>
             }

@@ -1,0 +1,43 @@
+#container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1600px;
+  max-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#container .banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 5px;
+}
+#container .banner img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 1600px) {
+  #container {
+    width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  #container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  #container .banner {
+    overflow: hidden;
+  }
+  #container .banner img {
+    width: 150%;
+  }
+}/*# sourceMappingURL=big.component.css.map */

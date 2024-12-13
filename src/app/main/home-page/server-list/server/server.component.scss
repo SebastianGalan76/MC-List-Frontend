@@ -31,9 +31,12 @@
             display: flex;
             gap: 10px;
             font-size: 0.9em;
+            overflow-x: auto;
 
             .tag {
                 display: flex;
+                flex: 0 0 auto;
+
                 gap: 8px;
 
                 background-color: #ffffff1a;
@@ -119,12 +122,6 @@
     @media (max-width: 500px) {
         font-size: 0.6em;
 
-        .up-panel {
-            .tag-container {
-                display: none;
-            }
-        }
-
         .down-panel {
             .logo {
                 width: 40px;
@@ -136,7 +133,15 @@
 
 .server:hover {
     cursor: pointer;
-    scale: 1.08;
+    scale: 1.01;
+    background-color: #ffffff00;
+    
+    @media (min-width: 1250px) {    
+        scale: 1.03;
+    }
+    @media (min-width: 1300px) {    
+        scale: 1.08;
+    }
 }
 
 .server.promoted {
