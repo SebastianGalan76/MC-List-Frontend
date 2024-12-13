@@ -1,0 +1,111 @@
+@import "../../../../../styles/base";
+
+.info {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#option-container {
+    display: flex;
+    gap: 20px;
+
+    .option {
+        width: calc(50% - 10px);
+        flex-shrink: 0;
+        background-color: $color-dark;
+        padding: 20px;
+        border-radius: 20px;
+
+        .number {
+            padding: 50px;
+            background-color: $color-dark;
+            width: fit-content;
+            font-size: 3em;
+            border-radius: 20px;
+            border: 2px solid $color-white;
+        }
+
+        .title {
+            font-weight: 500;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.3em;
+        }
+
+        .info {
+            margin-top: 20px;
+            line-height: 30px;
+
+            .key {
+                background-color: $color-dark;
+                padding: 3px 10px;
+                margin: 5px 0;
+                display: block;
+                border: 1px solid $color-white;
+            }
+
+            .key:hover {
+                cursor: pointer;
+            }
+
+            .button {
+                background-color: $color-theme;
+                padding: 10px 30px;
+                width: fit-content;
+                margin-top: 20px;
+                border-radius: 5px;
+                font-weight: 800;
+            }
+
+            .button:hover {
+                cursor: pointer;
+                background-color: $color-theme-dark;
+            }
+        }
+    }
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+
+        .option {
+            width: 100%;
+        }
+    }
+}
+
+#error-response {
+    #motd{
+        margin: auto;
+        width: fit-content;
+
+        background-color: $color-dark;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .error {
+        color: $color-red;
+        text-align: center;
+        padding: 10px 0;
+        font-weight: 600;
+    }
+}
+
+#submit-button {
+    background-color: $color-theme;
+    padding: 15px;
+    border-radius: 15px;
+
+    margin-top: 20px;
+    font-weight: 600;
+    text-align: center;
+
+    @media (max-height: 500px) {
+        margin-top: 50px;
+    }
+}
+
+#submit-button:hover {
+    cursor: pointer;
+    background-color: $color-theme-dark;
+}

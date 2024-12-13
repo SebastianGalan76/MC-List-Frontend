@@ -10,6 +10,7 @@ export interface User{
   login: string;
   email: string;
   role: string;
+  uuid: string;
 }
 
 @Injectable({
@@ -44,7 +45,8 @@ export class UserService {
             id: data.id,
             login: data.login,
             email: data.email,
-            role: data.role
+            role: data.role,
+            uuid: data.uuid
           }
           
           this.saveUser();

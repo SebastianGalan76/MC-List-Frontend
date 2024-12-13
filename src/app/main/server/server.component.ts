@@ -35,9 +35,7 @@ export class ServerComponent extends ServerPage {
       ip += ":" + this.server.port;
     }
 
-    navigator.clipboard.writeText(ip).then(() => {
-      this.notificationService.showNotification("Skopiowano " + ip + " do schowka");
-    })
+    Utils.copyToClipboard(ip, this.notificationService);
   }
 
   vote(){

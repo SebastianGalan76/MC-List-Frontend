@@ -1,0 +1,63 @@
+<div class="main-container-content">
+    <h1 class="content-header">Przejmowanie serwera</h1>
+
+    <div class="info">Przejmij serwer, aby móc dodawać opis serwera, linki, administrację, banner i wiele
+        więcej.</div>
+    <br>
+
+    <div id="option-container">
+        <div class="option">
+            <div class="number center">1</div>
+            <div class="title">Dla małych serwerów</div>
+
+            @if (user) {
+            <div class="info">
+                1. Skopiuj swój klucz:<br>
+                <span class="key" (click)="copyUUID()" title="Kliknij, aby skopiować">{{user.uuid}}</span>
+                2. Wklej ten klucz do MOTD serwera<br>
+                3. Zapisz zmiany i przeładuj swój serwer<br>
+                4. Poczekaj co najmniej 1 minutę<br>
+                5. Kliknij poniższy przycisk<br>
+
+                @if (safeMotdHtml) {
+                <div id="error-response">
+                    <div class="error">Błędna weryfikacja. Jesteś pewien, że zresetowałeś serwer po zmianie MOTD
+                        serwera? Serwer musi być włączony. <br>Obecny motd serwera:</div>
+
+                    <div id="motd" [innerHTML]="safeMotdHtml"></div>
+
+                    <div class="error">Jeśli jest to poprzedni motd serwera, oznacza to, że dane nie zostały odświeżone.
+                        <br>Poczekaj jedną minutę i kliknij przycisk ponownie!
+                    </div>
+                </div>
+                }
+
+                <div class="button center" (click)="takeOver()">Przejmij serwer</div>
+            </div>
+            }
+            @else {
+            <div class="info">
+                1. <a class="link" routerLink="/auth/signIn">Zaloguj</a> się na naszej stronie <br>
+                2. Skopiuj wygenerowany klucz <br>
+                3. Dodaj wygenerowany klucz do MOTD serwera <br>
+                4. Zapisz zmiany i przeładuj serwer <br>
+                5. Poczekaj co najmniej 1 minutę <br>
+                6. Kliknij widoczny przycisk <br>
+                <br>
+                Serwer powinien zostać przypisany do Twojego konta<br>
+                Po zakończeniu, możesz zmienić MOTD swojego serwera
+            </div>
+            }
+        </div>
+
+        <div class="option">
+            <div class="number center">2</div>
+            <div class="title">Dla dużych serwerów</div>
+
+            <div class="info" style="text-align: center;">
+                Jeśli prowadzisz duży serwer i nie chcesz zmieniać MOTD swojego serwera, skontaktuj się z
+                nami na discord, a my przeprowadzimy weryfikacje i przypiszemy Ci serwer do konta.
+            </div>
+        </div>
+    </div>
+</div>

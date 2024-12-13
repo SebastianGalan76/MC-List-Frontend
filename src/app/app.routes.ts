@@ -31,6 +31,7 @@ import { ServerReportComponent } from './main/server/info-container/report/repor
 import { ServerPromoteComponent } from './main/server/info-container/promote/promote.component';
 import { PromoteManageServerComponent } from './manage/server/promote/promote.component';
 import { BannerPurchaseComponent } from './main/banner/banner.component';
+import { ServerAdoptComponent } from './main/server/info-container/adopt/adopt.component';
 
 export const routes: Routes = [
     {
@@ -142,6 +143,10 @@ export const routes: Routes = [
                 {
                     path: "promote",
                     component: ServerPromoteComponent
+                },
+                {
+                    path: "adopt",
+                    component: ServerAdoptComponent
                 },
                 {
                     path: "",

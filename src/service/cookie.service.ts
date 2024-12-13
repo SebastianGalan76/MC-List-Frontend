@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CookieService {
+  static domain = "mc-list.pl";
 
   static setCookie(name: string, value: string, days: number) {
     let expires = "";
@@ -12,8 +13,7 @@ export class CookieService {
       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
       expires = `expires=${date.toUTCString()};`;
     }
-    const domain = "mc-list.pl";
-    //document.cookie = `${name}=${value};${expires}path=/;domain=${domain};SameSite=None;Secure`;
+    //document.cookie = `${name}=${value};${expires}path=/;domain=${this.domain};SameSite=None;Secure`;
     document.cookie = `${name}=${value};${expires}path=/`;
   }
 
@@ -29,7 +29,7 @@ export class CookieService {
   }
 
   static eraseCookie(name: string) {
-    document.cookie = `${name}=; Max-Age=-99999999;`;
+    document.cookie = `${name}=; Max-Age=0; path=/;`;
   }
 
   static isJwtTokenExpired(): boolean {

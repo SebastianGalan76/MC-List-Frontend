@@ -1,11 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { User, UserService } from '../../../../service/user.service';
 
 @Component({
   selector: 'app-user-section',
   standalone: true,
-  imports: [RouterLink],
   templateUrl: './user-section.component.html',
   styleUrl: './user-section.component.scss'
 })

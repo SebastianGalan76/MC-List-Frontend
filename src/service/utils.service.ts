@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ServerVersion } from './serverVersion.service';
 import { ServerUserRole } from '../model/server/server';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Utils {
+
+  static copyToClipboard(text: string, notificationService: NotificationService) {
+    navigator.clipboard.writeText(text).then(() => {
+      notificationService.showNotification("Skopiowano " + text + " do schowka");
+    })
+  }
 
   static isLinkValid(input: string) {
     if (!input) {
