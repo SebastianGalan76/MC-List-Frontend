@@ -19,20 +19,15 @@ export class ManageServerAuthService {
     ["promote", ServerUserRole.HELPER]
   ]);
 
-  public hasPermission(path: string, role: ServerUserRole){
-    var permission = this.permissionMap.get(path);
-    if(!permission){
+  public hasPermission(path: string, role: string): boolean {
+    const permission = this.permissionMap.get(path);
+
+    if (permission === undefined) {
+      console.error(`Path "${path}" does not exist in permission map.`);
       return false;
     }
 
-    return Utils.convertServerRoleToValue(this.getEnumValue(this.getRole(role))!) >= Utils.convertServerRoleToValue(this.getEnumValue(permission)!);
-  }
-
-  getRole(roleKey: string): string {
-    return ServerUserRole[roleKey as keyof typeof ServerUserRole] || 'Użytkownik';
-  }
-
-  getEnumValue(value: string): ServerUserRole | undefined {
-    return Object.entries(ServerUserRole).find(([key, val]) => val === value)?.[1] as ServerUserRole | undefined;
+    var roleNumber = Utils.getRoleNumber(role);
+    return roleNumber >= permission;
   }
 }

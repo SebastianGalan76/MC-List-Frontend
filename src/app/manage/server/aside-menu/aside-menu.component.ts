@@ -15,7 +15,7 @@ import { Utils } from '../../../../service/utils.service';
   styleUrl: './aside-menu.component.scss'
 })
 export class AsideMenuManageServerComponent {
-  @Input({required: true}) user!: User;
+  @Input({ required: true }) user!: User;
 
   server!: Server;
   ServerUserRole = ServerUserRole;
@@ -25,24 +25,27 @@ export class AsideMenuManageServerComponent {
   hasAdminPermission: boolean = false;
   hasOwnerPermission: boolean = false;
 
-  constructor(private parent: ManageServerComponent) {
+  constructor(
+    private parent: ManageServerComponent
+  ) {
     defer(() => this.parent.server ? of(null) : this.parent.serverInitialized).pipe(take(1)).subscribe(() => {
       this.server = parent.server;
 
-      this.hasHelperPermission = this.hasPermission(this.server.role, ServerUserRole.HELPER);
-      this.hasModeratorPermission = this.hasPermission(this.server.role, ServerUserRole.MODERATOR);
-      this.hasAdminPermission = this.hasPermission(this.server.role, ServerUserRole.ADMINISTRATOR);
-      this.hasOwnerPermission = this.hasPermission(this.server.role, ServerUserRole.OWNER);
+      this.hasHelperPermission = this.hasPermission(this.server.role.toString(), ServerUserRole.HELPER);
+      this.hasModeratorPermission = this.hasPermission(this.server.role.toString(), ServerUserRole.MODERATOR);
+      this.hasAdminPermission = this.hasPermission(this.server.role.toString(), ServerUserRole.ADMINISTRATOR);
+      this.hasOwnerPermission = this.hasPermission(this.server.role.toString(), ServerUserRole.OWNER);
     })
   }
 
   getRole(roleKey: string): string {
-    return ServerUserRole[roleKey as keyof typeof ServerUserRole] || 'Użytkownik';
+    return Utils.getServerRoleDisplay(roleKey)
   }
 
   hasPermission(role: string, minPermission: ServerUserRole): boolean {
-    return Utils.convertServerRoleToValue(ServerUserRole[role as keyof typeof ServerUserRole]) >= Utils.convertServerRoleToValue(minPermission);
+    const roleEnum = Utils.getRoleNumber(role);
+    return roleEnum >= minPermission;
   }
 
-  
+
 }

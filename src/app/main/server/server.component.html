@@ -18,7 +18,7 @@
                 <div class="button manage">Zarządzaj</div>
             </a>
             }
-            @if(server.roles == null){
+            @if(server.roles == null || server.roles.length == 0){
             <a [routerLink]="['/server/', server.ip,'adopt']">
                 <div class="button manage">Przejmij</div>
             </a>
@@ -47,7 +47,7 @@
                 <div class="button manage">Zarządzaj</div>
             </a>
             }
-            @if(server.roles == null){
+            @if(server.roles == null || server.roles.length == 0){
             <a [routerLink]="['/server/', server.ip,'adopt']">
                 <div class="button manage">Przejmij</div>
             </a>

@@ -9,6 +9,7 @@ import { defer, of, take } from 'rxjs';
 import { RoleCreatorPopupComponent } from '../../../shared/popup/manage/server/role-creator/role-creator.component';
 import { ObjectResponse } from '../../../../model/response/ObjectResponse';
 import { Response } from '../../../../model/response/Response';
+import { Utils } from '../../../../service/utils.service';
 
 @Component({
   selector: 'app-role-manage-server',
@@ -83,6 +84,6 @@ export class RoleManageServerComponent {
   }
 
   getRoleDisplay(roleKey: string): string {
-    return ServerUserRole[roleKey as keyof typeof ServerUserRole] || 'Użytkownik';
+    return Utils.getServerRoleDisplay(roleKey)
   }
 }

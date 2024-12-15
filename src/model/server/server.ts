@@ -73,7 +73,7 @@ export interface ServerRole{
 }
 
 export enum ServerUserRole{
-    HELPER = 'Helper', MODERATOR = "Moderator", ADMINISTRATOR = "Administrator", OWNER = "Właściciel"
+    HELPER = 500, MODERATOR = 750, ADMINISTRATOR = 1000, OWNER = 5000
 }
 
 export interface SubServer{

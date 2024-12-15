@@ -84,21 +84,28 @@ export class Utils {
     return null;
   }
 
-  static convertServerRoleToValue(roleKey: ServerUserRole): number {
-    if (roleKey === ServerUserRole.HELPER) {
-      return 500;
+  static getRoleNumber(role: string) : number {
+    if (!isNaN(Number(role))) {
+      return Number(role);
     }
-    if (roleKey === ServerUserRole.MODERATOR) {
-      return 750;
+    else {
+      return ServerUserRole[role as keyof typeof ServerUserRole];
     }
-    if (roleKey === ServerUserRole.ADMINISTRATOR) {
-      return 1000;
-    }
-    if (roleKey === ServerUserRole.OWNER) {
-      return 5000;
+  }
+
+  static getServerRoleDisplay(roleKey: string): string {
+    switch (this.getRoleNumber(roleKey)) {
+      case 500:
+        return "Pomocnik";
+      case 750:
+        return "Moderator";
+      case 1000:
+        return "Administrator";
+      case 5000:
+        return "Właściciel";
     }
 
-    return 0;
+    return "Użytkownik";
   }
 
   static scrollToTop(smooth: boolean = false) {

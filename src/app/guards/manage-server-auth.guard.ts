@@ -37,7 +37,8 @@ export const manageServerAuthGuard: CanActivateFn = (route, state) => {
             return false;
           }
           
-          const isAllowed = manageServerAuthService.hasPermission(route.routeConfig?.path ?? "", server.role);
+          const isAllowed = manageServerAuthService.hasPermission(route.routeConfig?.path ?? "", server.role.toString());
+
           if(!isAllowed){
             router.navigate(['/server/', ip]);
             return false;

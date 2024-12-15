@@ -40,14 +40,15 @@ export class ServerAdoptComponent {
     this.apiService.get<Response>('/take-over/' + this.parent.server.id, { withCredentials: true }).subscribe({
       next: (response) => {
         this.notificationService.showNotification(response.message);
-        
+
         var server = this.parent.server;
 
         server.roles.push({
           email: this.user!.email,
-          role: ServerUserRole.OWNER
+          role: ServerUserRole.OWNER,
         });
         server.role = ServerUserRole.OWNER;
+        this.router.navigate(['/manage/server/', server.ip]);
       },
       error: (response) => {
         if (response.error) {
