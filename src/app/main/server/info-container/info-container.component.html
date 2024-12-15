@@ -1,4 +1,4 @@
-<div *ngIf="server" id="main-container" class="panel">
+<div *ngIf="server" id="main-container" #mainContainer class="panel">
     <div id="button-container">
         @for (button of navButtons; track $index) {
             <div class="button" 
@@ -9,7 +9,5 @@
         }
     </div>
 
-    <router-outlet />
-
-    
+    <router-outlet (activate)="onActivate()"/>
 </div>

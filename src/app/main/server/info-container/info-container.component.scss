@@ -1,5 +1,11 @@
 @import "../../../../styles/base";
 
+#outlet-container{
+    background-color: rebeccapurple;
+    width: 100%;
+    height: 10px;
+}
+
 #main-container {
     #button-container {
         display: flex;

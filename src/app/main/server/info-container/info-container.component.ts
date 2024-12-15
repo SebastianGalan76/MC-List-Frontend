@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ServerPage } from '../serverPage.service';
@@ -12,6 +12,9 @@ import { ServerPage } from '../serverPage.service';
 })
 export class ServerInfoContainerComponent extends ServerPage {
   navButtons: any[] = [];
+  isLoaded: boolean = false;
+
+  @ViewChild('mainContainer') outletContainer!: ElementRef;
 
   override onLoad(): void {
     this.navButtons = [];
@@ -65,5 +68,18 @@ export class ServerInfoContainerComponent extends ServerPage {
     });
 
     button.isSelected = true;
+  }
+
+  onActivate() {
+    setTimeout(() => {
+      if (this.isLoaded) {
+        if (this.outletContainer) {
+          this.outletContainer.nativeElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      else {
+        this.isLoaded = true;
+      }
+    }, 0)
   }
 }
