@@ -1,15 +1,17 @@
 <div id="container">
-    <div id="profile-picture">
-        <img [src]="'https://minotar.net/avatar/'+user.login">
+    <div class="wrapper" (click)="showManagePanel($event)">
+        <div id="profile-picture">
+            <img [src]="'https://minotar.net/avatar/'+user.login">
+        </div>
+        <span id="user-login">{{user.login}}</span>
+        <i class="fa-solid fa-caret-down"></i>
     </div>
-    <span id="user-login">{{user.login}}</span>
-    <i class="fa-solid fa-caret-down"></i>
 
     <div id="drop-down-menu">
         <ul>
-            <li>Profil</li>
+            <li (click)="showManagePanel($event)">Profil</li>
             <li>Ustawienia</li>
-            <li id="logout" (click)="logout()">Wyloguj</li>
+            <li id="logout" (click)="logout($event)">Wyloguj</li>
         </ul>
     </div>
 </div>

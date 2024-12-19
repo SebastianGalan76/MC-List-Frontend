@@ -1,31 +1,37 @@
 @import "../../../../styles/base";
 
-#container{
-    display: flex;
-    gap: 10px;
-    align-items: center;
+#container {
     position: relative;
     padding: 5px;
     border-radius: 5px 5px 0 0;
 
-    #profile-picture{
+    .wrapper {
         display: flex;
-        cursor: pointer;
+        gap: 10px;
+        align-items: center;
 
-        img{
-            height: 40px;
-            width: auto;
-            min-width: 40px;
+        #profile-picture {
+            display: flex;
+            cursor: pointer;
 
-            border-radius: 5px;
-            border: 2px solid $color-theme;
+            img {
+                height: 40px;
+                width: auto;
+                min-width: 40px;
 
-            overflow: hidden;
+                border-radius: 5px;
+                border: 2px solid $color-theme;
+
+                overflow: hidden;
+            }
+        }
+
+        #user-login {
+            font-weight: 600;
+            cursor: pointer;
         }
     }
-
-    #user-login{
-        font-weight: 600;
+    .wrapper:hover {
         cursor: pointer;
     }
 
@@ -41,22 +47,22 @@
         padding: 10px;
         z-index: 1000;
 
-        ul{
+        ul {
             list-style: none;
 
-            #logout{
+            #logout {
                 margin-top: 20px;
                 font-weight: 600;
             }
 
-            li{
+            li {
                 width: 100%;
                 padding: 10px;
                 text-align: center;
                 color: $color-text1;
             }
 
-            li:hover{
+            li:hover {
                 color: $color-theme;
                 font-weight: 700;
 

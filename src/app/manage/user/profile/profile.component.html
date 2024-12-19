@@ -1,0 +1,58 @@
+<div id="container">
+    <h1 id="header">Podstawowe informacje</h1>
+    <div class="divider-line-horizontal"></div>
+    <div id="content">
+        <section id="user-data" class="panel">
+            <div id="head">
+                <img [src]="'https://minotar.net/avatar/'+parent.user.login">
+            </div>
+            <div id="form-container">
+                <div class="basic-data">
+                    <div class="input-area">
+                        <input type="text" placeholder="Login" maxlength="60" [(ngModel)]="login">
+                        <div class="icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="submit-button" (click)="changeLogin()">Aktualizuj</div>
+                </div>
+
+                <div class="basic-data">
+                    <div class="input-area">
+                        <input type="text" placeholder="E-mail" maxlength="60" [(ngModel)]="email">
+                        <div class="icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="submit-button" (click)="changeEmail()">Aktualizuj</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="password" class="panel">
+            <div class="title">Zmiana hasła</div>
+
+            <div class="input-area">
+                <input type="password" placeholder="Obecne hasło" maxlength="255" autocomplete="off" [(ngModel)]="currentPassword">
+                <div class="icon">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+
+            <div class="input-area" style="margin-top: 20px;">
+                <input type="password" placeholder="Nowe hasło" maxlength="255" autocomplete="off" [(ngModel)]="newPassword">
+                <div class="icon">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <input type="password" placeholder="Nowe hasło" maxlength="255" autocomplete="off" [(ngModel)]="newPasswordConfirm">
+                <div class="icon">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+            <div class="submit-button" (click)="changePassword()">Zmień hasło</div>
+        </section>
+    </div>
+</div>

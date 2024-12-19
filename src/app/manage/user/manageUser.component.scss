@@ -1,0 +1,26 @@
+@import "../../../styles/base";
+
+#container{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    position: relative;
+    
+    #aside-menu{
+        width: 300px;
+        height: 100vh;
+
+        background-color: rgba(0, 0, 0, 0.5);
+
+        position: sticky;
+        top: 0;
+    }
+
+    #content{
+        width: 1000px;
+        min-height: 100vh;
+
+        margin: auto;
+    }
+}

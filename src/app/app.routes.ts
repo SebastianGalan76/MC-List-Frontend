@@ -32,6 +32,9 @@ import { ServerPromoteComponent } from './main/server/info-container/promote/pro
 import { PromoteManageServerComponent } from './manage/server/promote/promote.component';
 import { BannerPurchaseComponent } from './main/banner/banner.component';
 import { ServerAdoptComponent } from './main/server/info-container/adopt/adopt.component';
+import { ManageUserComponent } from './manage/user/manageUser.component';
+import { manageUserAuthGuard } from './guards/manage-user-auth.guard';
+import { ProfileManageUserComponent } from './manage/user/profile/profile.component';
 
 export const routes: Routes = [
     {
@@ -99,6 +102,15 @@ export const routes: Routes = [
                 component: PromoteManageServerComponent,
                 canActivate: [manageServerAuthGuard]
             }]
+    },
+    {
+        path: "user",
+        component: ManageUserComponent,
+        canActivate: [manageUserAuthGuard],
+        children: [{
+            path: "",
+            component: ProfileManageUserComponent
+        }]
     },
     {
         path: "",

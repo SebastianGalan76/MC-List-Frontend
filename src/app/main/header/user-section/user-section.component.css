@@ -1,16 +1,18 @@
 #container {
-  display: flex;
-  gap: 10px;
-  align-items: center;
   position: relative;
   padding: 5px;
   border-radius: 5px 5px 0 0;
 }
-#container #profile-picture {
+#container .wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#container .wrapper #profile-picture {
   display: flex;
   cursor: pointer;
 }
-#container #profile-picture img {
+#container .wrapper #profile-picture img {
   height: 40px;
   width: auto;
   min-width: 40px;
@@ -18,8 +20,11 @@
   border: 2px solid #e2a258;
   overflow: hidden;
 }
-#container #user-login {
+#container .wrapper #user-login {
   font-weight: 600;
+  cursor: pointer;
+}
+#container .wrapper:hover {
   cursor: pointer;
 }
 #container #drop-down-menu {
