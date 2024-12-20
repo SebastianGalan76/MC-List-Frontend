@@ -35,6 +35,7 @@ import { ServerAdoptComponent } from './main/server/info-container/adopt/adopt.c
 import { ManageUserComponent } from './manage/user/manageUser.component';
 import { manageUserAuthGuard } from './guards/manage-user-auth.guard';
 import { ProfileManageUserComponent } from './manage/user/profile/profile.component';
+import { ServersManageUserComponent } from './manage/user/servers/servers.component';
 
 export const routes: Routes = [
     {
@@ -66,41 +67,32 @@ export const routes: Routes = [
                 path: "info",
                 component: InformationManageServerComponent,
                 canDeactivate: [unsavedChangesGuard],
-                canActivate: [manageServerAuthGuard]
             }, {
                 path: "remove",
                 component: RemoveManageServerComponent,
-                canActivate: [manageServerAuthGuard]
             }, {
                 path: "description",
                 component: DescriptionManageServerComponent,
                 canDeactivate: [unsavedChangesGuard],
-                canActivate: [manageServerAuthGuard]
             }, {
                 path: "banner",
                 component: BannerManageServerComponent,
                 canDeactivate: [unsavedChangesGuard],
-                canActivate: [manageServerAuthGuard]
             }, {
                 path: "link",
                 component: LinkManageServerComponent,
-                canActivate: [manageServerAuthGuard]
             }, {
                 path: "mode",
                 component: SubServerManageServerComponent,
-                canActivate: [manageServerAuthGuard]
             }, {
                 path: "role",
                 component: RoleManageServerComponent,
-                canActivate: [manageServerAuthGuard]
             }, {
                 path: "staff",
                 component: StaffManageServerComponent,
-                canActivate: [manageServerAuthGuard]
             }, {
                 path: "promote",
                 component: PromoteManageServerComponent,
-                canActivate: [manageServerAuthGuard]
             }]
     },
     {
@@ -108,6 +100,9 @@ export const routes: Routes = [
         component: ManageUserComponent,
         canActivate: [manageUserAuthGuard],
         children: [{
+            path: "servers",
+            component: ServersManageUserComponent
+        }, {
             path: "",
             component: ProfileManageUserComponent
         }]

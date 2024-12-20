@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ServerComponent } from './server/server.component';
 import { ServerList } from '../../../../model/server/server';
 import { ApiService } from '../../../../service/api.service';
@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { ServerListService } from '../../../../service/server/serverList.service';
 import { Subscription } from 'rxjs';
 import { PageManagerComponent } from "../../../shared/page-manager/page-manager.component";
-import { Utils } from '../../../../service/utils.service';
 
 @Component({
   selector: 'app-server-list',
@@ -16,9 +15,11 @@ import { Utils } from '../../../../service/utils.service';
   templateUrl: './server-list.component.html',
   styleUrl: './server-list.component.scss'
 })
-export class ServerListComponent implements OnInit, OnDestroy {
+export class ServerListComponent implements OnDestroy {
   @ViewChild('serverContainer', { read: ViewContainerRef, static: true })
   serverContainer!: ViewContainerRef;
+
+  @Input() showHeaders: boolean = true;
 
   subscription: Subscription | null = null;
   test = true;
@@ -35,12 +36,9 @@ export class ServerListComponent implements OnInit, OnDestroy {
       }
     })
   }
-  ngOnInit(): void {
-    this.onPageChange(0);
-  }
 
   public populateList(servers: PageContent<ServerList>) {
-    if(!this.serverContainer){
+    if (!this.serverContainer) {
       return;
     }
 
@@ -74,7 +72,7 @@ export class ServerListComponent implements OnInit, OnDestroy {
     this.apiService.get<PageContent<ServerList>>(url, {}).subscribe(response => {
       this.serverListService.load(response);
     });
-    
+
     //Utils.scrollTop();
   }
 
@@ -84,6 +82,10 @@ export class ServerListComponent implements OnInit, OnDestroy {
   }
 
   addHeaderComponent(promoted: boolean) {
+    if (!this.showHeaders) {
+      return;
+    }
+
     const componentRef = this.serverContainer.createComponent(HeaderComponent);
     componentRef.instance.promoted = promoted;
   }
