@@ -1,0 +1,98 @@
+#container {
+  width: 100%;
+  background-color: #1a1a1a;
+}
+#container #preview {
+  width: 100%;
+  max-height: 457.1428571429vw;
+  aspect-ratio: 1600/350;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+#container #preview img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#container #preview #settings {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5em;
+  color: rgba(240, 248, 255, 0.428);
+}
+#container #preview #settings:hover {
+  color: rgb(240, 248, 255);
+  cursor: pointer;
+}
+#container #preview #status {
+  position: absolute;
+  bottom: 0;
+  right: 55px;
+  padding: 5px 20px;
+  font-weight: 700;
+  border-radius: 10px 10px 0 0;
+}
+#container #info {
+  padding: 10px;
+  text-align: center;
+}
+#container #info #pay-button {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 15px;
+  background-color: #e2a258;
+}
+#container #info #pay-button:hover {
+  cursor: pointer;
+  background-color: #ce8e45;
+}
+
+.PUBLISHED {
+  border: 2px solid rgb(38, 202, 76);
+}
+.PUBLISHED #preview {
+  border-bottom: 2px solid rgb(38, 202, 76);
+}
+.PUBLISHED #preview #status {
+  background-color: rgb(38, 202, 76);
+}
+
+.REJECTED {
+  border: 2px solid rgb(249, 76, 41);
+}
+.REJECTED #preview {
+  border-bottom: 2px solid rgb(249, 76, 41);
+}
+.REJECTED #preview #status {
+  background-color: rgb(249, 76, 41);
+}
+
+.ACCEPTED {
+  border: 2px solid rgb(41, 103, 249);
+}
+.ACCEPTED #preview {
+  border-bottom: 2px solid rgb(41, 103, 249);
+}
+.ACCEPTED #preview #status {
+  background-color: rgb(41, 103, 249);
+}
+
+.NOT_VERIFIED {
+  border: 2px solid rgb(57, 68, 96);
+}
+.NOT_VERIFIED #preview {
+  border-bottom: 2px solid rgb(57, 68, 96);
+}
+.NOT_VERIFIED #preview #status {
+  background-color: rgb(57, 68, 96);
+}/*# sourceMappingURL=banner.component.css.map */

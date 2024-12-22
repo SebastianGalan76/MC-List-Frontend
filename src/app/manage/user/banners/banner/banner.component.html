@@ -1,0 +1,30 @@
+@if (banner) {
+<div id="container" [classList]="banner.status">
+    <div id="preview">
+        <img [src]="'http://localhost:8080'+banner.filePath">
+
+        <div id="settings" title="Edytuj" (click)="edit()"><i class="fa-solid fa-gear"></i></div>
+
+        <div id="status" title="Obecny status">{{getStatus()}}
+        </div>
+    </div>
+    <div id="info">
+        @if(banner.status.toString() == 'PUBLISHED'){
+        Data zakończenia: 25.12.2025 16:32
+        }
+        @if(banner.status.toString() == 'NOT_VERIFIED'){
+        Baner został przesłany do weryfikacji. Po zweryfikowaniu przez Administrację będziesz mógł go opłacić i
+        aktywować.
+        }
+        @if(banner.status.toString() == 'REJECTED'){
+        Baner został odrzucony w procesie weryfikacji przez Administrację serwisu! <br>
+        <b>Powód:</b> Brzydka stylistyka
+        }
+        @if(banner.status.toString() == 'ACCEPTED'){
+        Opłać baner, aby został opublikowany.
+
+        <div id="pay-button">Zapłać 100zł</div>
+        }
+    </div>
+</div>
+}

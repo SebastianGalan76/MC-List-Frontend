@@ -395,21 +395,16 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: center;
   padding: 20px;
 }
-#container #content app-server-list {
-  width: 100%;
-}
-#container #content #create-server {
+#container #content #create-banner {
   background-color: rgb(92, 228, 98);
   padding: 15px;
   border-radius: 15px;
   font-weight: 700;
   text-align: center;
-  width: 100%;
 }
-#container #content #create-server:hover {
+#container #content #create-banner:hover {
   cursor: pointer;
   background-color: rgb(69, 202, 76);
 }
@@ -424,4 +419,4 @@ textarea {
 .submit-button:hover {
   cursor: pointer;
   background-color: #ce8e45;
-}/*# sourceMappingURL=servers.component.css.map */
+}/*# sourceMappingURL=banners.component.css.map */

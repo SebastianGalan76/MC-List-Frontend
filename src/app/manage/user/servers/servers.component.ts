@@ -4,11 +4,12 @@ import { ServerList } from '../../../../model/server/server';
 import { ApiService } from '../../../../service/api.service';
 import { ServerListService } from '../../../../service/server/serverList.service';
 import { PageContent } from '../../../../model/response/PageResponse';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-servers',
   standalone: true,
-  imports: [ServerListComponent],
+  imports: [ServerListComponent, RouterLink],
   templateUrl: './servers.component.html',
   styleUrl: './servers.component.scss'
 })

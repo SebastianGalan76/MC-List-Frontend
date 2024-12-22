@@ -5,6 +5,9 @@ import { Utils } from '../../../service/utils.service';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
 import { ApiService } from '../../../service/api.service';
 import { Response } from '../../../model/response/Response';
+import { BannerService } from '../../../service/banner.service';
+import { ObjectResponse } from '../../../model/response/ObjectResponse';
+import { Banner } from '../../../model/banner';
 
 @Component({
   selector: 'app-banner',
@@ -23,6 +26,7 @@ export class BannerPurchaseComponent {
 
   constructor(
     private apiService: ApiService,
+    private bannerService: BannerService,
     private notificationService: NotificationService
   ) {
 
@@ -33,7 +37,7 @@ export class BannerPurchaseComponent {
   }
 
   submit() {
-    if(this.selectedSize==0){
+    if (this.selectedSize == 0) {
       this.notificationService.showNotification("Wybierz rozmiar", NotificationType.ERROR);
       return;
     }
@@ -52,7 +56,7 @@ export class BannerPurchaseComponent {
 
       formData.append('file', this.selectedFile);
     }
-    else{
+    else {
       this.notificationService.showNotification("Prześlij plik z rozszerzeniem jpeg, png, gif lub webp", NotificationType.ERROR);
       return;
     }
@@ -63,9 +67,10 @@ export class BannerPurchaseComponent {
 
     formData.append('size', this.selectedSize == 1 ? 'BIG' : 'SMALL');
 
-    this.apiService.post<Response>('/banner', formData, { withCredentials: true }).subscribe({
+    this.apiService.post<ObjectResponse<Banner>>('/banner', formData, { withCredentials: true }).subscribe({
       next: (response) => {
         this.notificationService.showNotification(response.message);
+        this.bannerService.addBanner(response.object);
       },
       error: (response) => {
         if (response.error) {

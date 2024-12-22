@@ -1,0 +1,124 @@
+@import "../../../../../styles/base";
+
+$status-green: rgb(38, 202, 76);
+$status-red: rgb(249, 76, 41);
+$status-blue: rgb(41, 103, 249);
+$status-grey: rgb(57, 68, 96);
+
+#container {
+    width: 100%;
+    background-color: #1a1a1a;
+
+    #preview {
+        width: 100%;
+        max-height: calc(100vw * (1600 / 350));
+        aspect-ratio: 1600 / 350;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #settings {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5em;
+            color: rgba(240, 248, 255, 0.428);
+        }
+
+        #settings:hover {
+            color: rgba(240, 248, 255, 1);
+            cursor: pointer;
+        }
+
+        #status {
+            position: absolute;
+            bottom: 0;
+            right: 55px;
+
+            padding: 5px 20px;
+            font-weight: 700;
+            border-radius: 10px 10px 0 0;
+        }
+    }
+
+    #info {
+        padding: 10px;
+        text-align: center;
+
+        #pay-button {
+            width: fit-content;
+            margin: auto;
+            margin-top: 10px;
+
+            font-size: 1.2em;
+            font-weight: 600;
+
+            padding: 10px 30px;
+            border-radius: 15px;
+            background-color: $color-theme;
+        }
+
+        #pay-button:hover {
+            cursor: pointer;
+            background-color: $color-theme-dark;
+        }
+    }
+}
+
+.PUBLISHED {
+    border: 2px solid $status-green;
+
+    #preview {
+        #status {
+            background-color: $status-green;
+        }
+
+        border-bottom: 2px solid $status-green;
+    }
+}
+
+.REJECTED {
+    border: 2px solid $status-red;
+
+    #preview {
+        #status {
+            background-color: $status-red;
+        }
+
+        border-bottom: 2px solid $status-red;
+    }
+}
+
+.ACCEPTED {
+    border: 2px solid $status-blue;
+
+    #preview {
+        #status {
+            background-color: $status-blue;
+        }
+
+        border-bottom: 2px solid $status-blue;
+    }
+}
+
+.NOT_VERIFIED {
+    border: 2px solid $status-grey;
+
+    #preview {
+        #status {
+            background-color: $status-grey;
+        }
+
+        border-bottom: 2px solid $status-grey;
+    }
+}

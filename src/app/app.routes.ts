@@ -36,6 +36,7 @@ import { ManageUserComponent } from './manage/user/manageUser.component';
 import { manageUserAuthGuard } from './guards/manage-user-auth.guard';
 import { ProfileManageUserComponent } from './manage/user/profile/profile.component';
 import { ServersManageUserComponent } from './manage/user/servers/servers.component';
+import { BannersManageUserComponent } from './manage/user/banners/banners.component';
 
 export const routes: Routes = [
     {
@@ -103,6 +104,10 @@ export const routes: Routes = [
             path: "servers",
             component: ServersManageUserComponent
         }, {
+            path: "banners",
+            component: BannersManageUserComponent
+        },
+        {
             path: "",
             component: ProfileManageUserComponent
         }]
