@@ -20,6 +20,15 @@ export class AsideMenuManageUserComponent {
 
   }
 
+  getConvertedRole() : string{
+    switch (this.user.role){
+      case 'ADMIN': return 'Administrator';
+      case 'HELPER': return 'Pomocnik';
+      case 'MODERATOR': return 'Moderator'; 
+    }
+    return 'Użytkownik';
+  }
+
   logout() {
     this.userService.logout();
     this.router.navigate(['/auth/signIn'], { replaceUrl: true });

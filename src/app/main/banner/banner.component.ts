@@ -29,7 +29,7 @@ export class BannerPurchaseComponent {
     private bannerService: BannerService,
     private notificationService: NotificationService
   ) {
-
+    Utils.scrollToTop();
   }
 
   selectBanner(size: number) {

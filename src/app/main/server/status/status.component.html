@@ -1,6 +1,8 @@
 <div id="container" class="panel">
     <div class="logo">
-        <img class="logo-src" [src]="server.detail.icon">
+        @if (server.detail.icon) {
+            <img class="logo-src" [src]="server.detail.icon">
+        }
     </div>
     <div class="middle-panel">
         <h1 class="address-value">
