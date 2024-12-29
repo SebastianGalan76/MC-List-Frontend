@@ -66,13 +66,6 @@ header .wrapper .right-panel {
   align-items: center;
   z-index: 150;
 }
-header .wrapper .right-panel .user-logged-in {
-  font-weight: 800;
-}
-header .wrapper .right-panel .user-logged-in a {
-  display: flex;
-  gap: 10px;
-}
 header .wrapper .right-panel .sign-in {
   display: block;
   background-color: #e2a258;
@@ -84,11 +77,6 @@ header .wrapper .right-panel .sign-in {
 header .wrapper .right-panel .sign-in:hover {
   cursor: pointer;
   background-color: #ce8e45;
-}
-@media (max-width: 750px) {
-  header .wrapper .right-panel {
-    display: none;
-  }
 }
 header .right-panel-menu {
   display: none;

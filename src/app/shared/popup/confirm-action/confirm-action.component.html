@@ -1,0 +1,17 @@
+<div id="container">
+    <div id="header">
+        <i class="fa-solid fa-xmark close-button" (click)="cancel()"></i>
+    </div>
+    <div id="message">
+        {{message}}
+    </div>
+    <div id="button-container">
+        <div id="confirm" class="button" (click)="confirm()">
+            {{confirmText}}
+        </div>
+
+        <div id="cancel" class="button" (click)="cancel()">
+            {{cancelText}}
+        </div>
+    </div>
+</div>

@@ -61,8 +61,12 @@ export class BannerPurchaseComponent {
       return;
     }
 
-    if (this.url) {
+    if (this.isLinkValid(this.url)) {
       formData.append('url', this.url);
+    }
+    else {
+      this.notificationService.showNotification("Wprowadź poprawny docelowy link!", NotificationType.ERROR);
+      return;
     }
 
     formData.append('size', this.selectedSize == 1 ? 'BIG' : 'SMALL');
@@ -111,5 +115,14 @@ export class BannerPurchaseComponent {
       this.imageUrl = reader.result as string;
     };
     reader.readAsDataURL(file);
+  }
+
+  isLinkValid(input: string) {
+    if (!input) {
+      return true;
+    }
+
+    var URL_REGEX = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+    return URL_REGEX.test(input);
   }
 }

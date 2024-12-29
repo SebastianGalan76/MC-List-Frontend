@@ -1,12 +1,12 @@
 @if (banner) {
 <div id="container" [classList]="banner.status">
-    <div id="preview">
+    <div id="preview" [classList]="banner.size">
         <img [src]="'http://localhost:8080'+banner.filePath">
 
         <div id="settings" title="Edytuj" (click)="edit()"><i class="fa-solid fa-gear"></i></div>
 
-        <div id="status" title="Obecny status">{{getStatus()}}
-        </div>
+        <div id="status" title="Obecny status">{{getStatus()}}</div>
+        <div id="size" title="Rozmiar banera">{{banner.size.toString() == 'BIG' ? 'Duży baner':'Mały baner'}}</div>
     </div>
     <div id="info">
         @if(banner.status.toString() == 'PUBLISHED'){
@@ -18,12 +18,14 @@
         }
         @if(banner.status.toString() == 'REJECTED'){
         Baner został odrzucony w procesie weryfikacji przez Administrację serwisu! <br>
-        <b>Powód:</b> Brzydka stylistyka
+        <b>Powód:</b> {{banner.rejectedReason}}
+        <br><br>
+        Edytuj banera, aby przesłać go do ponownej weryfikacji.
         }
         @if(banner.status.toString() == 'ACCEPTED'){
-        Opłać baner, aby został opublikowany.
+        <b>Opłać baner, aby został opublikowany.</b>
 
-        <div id="pay-button">Zapłać 100zł</div>
+        <div id="pay-button">Zapłać {{getPrice()}}zł</div>
         }
     </div>
 </div>

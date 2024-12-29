@@ -10,10 +10,6 @@ $status-grey: rgb(57, 68, 96);
     background-color: #1a1a1a;
 
     #preview {
-        width: 100%;
-        max-height: calc(100vw * (1600 / 350));
-        aspect-ratio: 1600 / 350;
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -32,7 +28,7 @@ $status-grey: rgb(57, 68, 96);
             top: 15px;
             right: 15px;
             font-size: 1.5em;
-            color: rgba(240, 248, 255, 0.428);
+            color: rgba(240, 248, 255, 0.8);
         }
 
         #settings:hover {
@@ -49,6 +45,27 @@ $status-grey: rgb(57, 68, 96);
             font-weight: 700;
             border-radius: 10px 10px 0 0;
         }
+
+        #size{
+            position: absolute;
+            top: 0;
+            left: 10px;
+            background-color: $color-theme;
+            padding: 5px 20px;
+            font-weight: 600;
+            border-radius: 0 0 10px 10px;
+        }
+    }
+
+    #preview.BIG {
+        width: 100%;
+        max-height: calc(100vw * (1600 / 350));
+        aspect-ratio: 1600 / 350;
+    }
+    #preview.SMALL {
+        width: 100%;
+        max-height: calc(100vw * (1200 / 120));
+        aspect-ratio: 1200 / 120;
     }
 
     #info {

@@ -7,8 +7,6 @@ header {
     padding: 0 60px;
     position: relative;
 
-    
-
     .wrapper {
         height: 60px;
         display: flex;
@@ -81,15 +79,6 @@ header {
             align-items: center;
             z-index: 150;
         
-            .user-logged-in {
-                font-weight: 800;
-        
-                a {
-                    display: flex;
-                    gap: 10px;
-                }
-            }
-
             .sign-in {
                 display: block;
                 background-color: $color-theme;
@@ -105,9 +94,7 @@ header {
                 background-color: $color-theme-dark;
             }
 
-            @media (max-width: 750px) {
-                display: none;
-            }
+            
         }
     }
 

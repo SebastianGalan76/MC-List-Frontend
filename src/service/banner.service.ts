@@ -9,9 +9,7 @@ import { catchError, map, Observable, of } from 'rxjs';
 export class BannerService {
   userBanners: Banner[] | null = null;
 
-  constructor(private apiService: ApiService) {
-
-  }
+  constructor(private apiService: ApiService) {}
 
   public getUserBanners(): Observable<Banner[]> {
     if (this.userBanners) {
