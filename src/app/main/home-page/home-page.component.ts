@@ -6,6 +6,8 @@ import { ApiService } from '../../../service/api.service';
 import { ServerListService } from '../../../service/server/serverList.service';
 import { PageContent } from '../../../model/response/PageResponse';
 import { ServerList } from '../../../model/server/server';
+import { BannerService } from '../../../service/banner.service';
+import { Banner } from '../../../model/banner';
 
 @Component({
   selector: 'app-home-page',
@@ -15,10 +17,12 @@ import { ServerList } from '../../../model/server/server';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
-
+  bigBanner: Banner | undefined;
+  
   constructor(
     private apiService: ApiService,
-    private serverListService: ServerListService
+    private serverListService: ServerListService,
+    private bannerService: BannerService
   ) {
 
   }
@@ -27,6 +31,10 @@ export class HomePageComponent implements OnInit {
     this.apiService.get<PageContent<ServerList>>("/server/list/1", { withCredentials: true }).subscribe(response => {
       this.serverListService.load(response);
     });
+
+    this.bannerService.getBanners().subscribe(response => {
+      this.bigBanner = response.find(b => b.size.toString() == 'BIG');
+    })
   }
 
 }

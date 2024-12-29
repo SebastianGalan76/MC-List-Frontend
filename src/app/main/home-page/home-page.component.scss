@@ -18,11 +18,11 @@ h1.header{
     flex-direction: column;
     gap: 10px;
 
-    width: 1200px;
+    width: 1230px;
     margin: auto;
     padding: 15px;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1230px) {
         padding: 10px;
         width: 100%;
     }

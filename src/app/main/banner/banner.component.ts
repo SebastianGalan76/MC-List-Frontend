@@ -4,15 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { Utils } from '../../../service/utils.service';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
 import { ApiService } from '../../../service/api.service';
-import { Response } from '../../../model/response/Response';
 import { BannerService } from '../../../service/banner.service';
 import { ObjectResponse } from '../../../model/response/ObjectResponse';
 import { Banner } from '../../../model/banner';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.scss'
 })

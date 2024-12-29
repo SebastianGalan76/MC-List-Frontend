@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core';
 import { ServerComponent } from './server/server.component';
 import { ServerList } from '../../../../model/server/server';
 import { ApiService } from '../../../../service/api.service';
@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { ServerListService } from '../../../../service/server/serverList.service';
 import { Subscription } from 'rxjs';
 import { PageManagerComponent } from "../../../shared/page-manager/page-manager.component";
+import { SmallBannerComponent } from '../banner/small/small.component';
+import { Banner } from '../../../../model/banner';
+import { BannerService } from '../../../../service/banner.service';
 
 @Component({
   selector: 'app-server-list',
@@ -20,13 +23,18 @@ export class ServerListComponent implements OnDestroy {
   serverContainer!: ViewContainerRef;
 
   @Input() showHeaders: boolean = true;
+  @Input() showBanners: boolean = false;
 
   subscription: Subscription | null = null;
   test = true;
 
+  smallBannerIndex: number = 0;
+  smallBanners: Banner[] = [];
+
   constructor(
     private apiService: ApiService,
-    private serverListService: ServerListService
+    private serverListService: ServerListService,
+    private bannerService: BannerService
   ) {
     this.subscription = serverListService.serverList$.subscribe({
       next: (response) => {
@@ -34,6 +42,10 @@ export class ServerListComponent implements OnDestroy {
           this.populateList(response);
         }
       }
+    });
+
+    this.bannerService.getBanners().subscribe(response => {
+      this.smallBanners = response.filter(b => b.size.toString() == "SMALL");
     })
   }
 
@@ -45,6 +57,7 @@ export class ServerListComponent implements OnDestroy {
     this.serverContainer.clear();
 
     var headerType = -1;
+    var serverIndex = 1;
     servers.content.forEach(server => {
       if (headerType == -1) {
         if (server.promotionPoints > 0) {
@@ -62,8 +75,14 @@ export class ServerListComponent implements OnDestroy {
           headerType = 2;
         }
       }
+      
+      if (serverIndex % 5 == 0) {
+        this.addBannerComponent(this.smallBanners[this.smallBannerIndex % this.smallBanners.length]);
+        this.smallBannerIndex++;
+      }
 
       this.addServerComponent(server)
+      serverIndex += 1;
     });
   }
 
@@ -72,8 +91,6 @@ export class ServerListComponent implements OnDestroy {
     this.apiService.get<PageContent<ServerList>>(url, {}).subscribe(response => {
       this.serverListService.load(response);
     });
-
-    //Utils.scrollTop();
   }
 
   addServerComponent(server: ServerList) {
@@ -88,6 +105,15 @@ export class ServerListComponent implements OnDestroy {
 
     const componentRef = this.serverContainer.createComponent(HeaderComponent);
     componentRef.instance.promoted = promoted;
+  }
+
+  addBannerComponent(banner: Banner) {
+    if (!this.showBanners) {
+      return;
+    }
+
+    const componentRef = this.serverContainer.createComponent(SmallBannerComponent);
+    componentRef.instance.banner = banner;
   }
 
   ngOnDestroy(): void {

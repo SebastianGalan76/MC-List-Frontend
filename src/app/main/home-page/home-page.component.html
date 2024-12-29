@@ -1,9 +1,9 @@
 <h1 class="header">Lista serwerów minecraft</h1>
 
-<app-big-banner />
+<app-big-banner [banner]="bigBanner"/>
 
 <div id="container">
     <app-search-server />
 
-    <app-server-list />
+    <app-server-list [showBanners]="true"/>
 </div>

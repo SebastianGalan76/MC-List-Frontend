@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Banner } from '../model/banner';
 import { ApiService } from './api.service';
 import { catchError, map, Observable, of } from 'rxjs';
+import { ObjectResponse } from '../model/response/ObjectResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,27 @@ import { catchError, map, Observable, of } from 'rxjs';
 export class BannerService {
   userBanners: Banner[] | null = null;
 
-  constructor(private apiService: ApiService) {}
+  banners: Banner[] | null = null;
+
+  constructor(private apiService: ApiService) {
+
+  }
+
+  public getBanners(): Observable<Banner[]> {
+    if (this.banners) {
+      return of(this.banners);
+    }
+
+    return this.apiService.get<ObjectResponse<Banner[]>>('/banners', {}).pipe(
+      map(data => {
+        this.banners = data.object;
+        return data.object;
+      }),
+      catchError(error => {
+        console.error('Błąd pobierania banerów', error);
+        return of([]);
+      }));
+  }
 
   public getUserBanners(): Observable<Banner[]> {
     if (this.userBanners) {

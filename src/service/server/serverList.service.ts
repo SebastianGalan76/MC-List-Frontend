@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ServerList } from '../../model/server/server';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PageContent } from '../../model/response/PageResponse';
-import { ApiService } from '../api.service';
 
 @Injectable({
   providedIn: 'root'

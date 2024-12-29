@@ -1,10 +1,10 @@
 #container {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
-  width: 1600px;
-  max-height: 350px;
+  width: 1200px;
+  max-height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,4 +40,10 @@
   #container .banner img {
     width: 150%;
   }
-}/*# sourceMappingURL=big.component.css.map */
+}
+@media (max-width: 600px) {
+  #container {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}/*# sourceMappingURL=small.component.css.map */

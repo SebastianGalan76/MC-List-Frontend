@@ -10,7 +10,7 @@
     </div>
     <div id="info">
         @if(banner.status.toString() == 'PUBLISHED'){
-        Data zakończenia: 25.12.2025 16:32
+        Data zakończenia: {{convertLocalDateTime(banner.finishedAt)}}
         }
         @if(banner.status.toString() == 'NOT_VERIFIED'){
         Baner został przesłany do weryfikacji. Po zweryfikowaniu przez Administrację będziesz mógł go opłacić i
@@ -25,7 +25,7 @@
         @if(banner.status.toString() == 'ACCEPTED'){
         <b>Opłać baner, aby został opublikowany.</b>
 
-        <div id="pay-button">Zapłać {{getPrice()}}zł</div>
+        <div id="pay-button" (click)="buy()">Zapłać {{getPrice()}}zł</div>
         }
     </div>
 </div>

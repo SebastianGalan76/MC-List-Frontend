@@ -9,6 +9,15 @@
     font-weight: 500;
 
     position: relative;
+
+    @media (max-width: 500px) {
+        font-size: 1.1em;
+    }
+}
+
+.option{
+    text-align: center;
+    padding: 10px 0;
 }
 
 #banner-container-big {
@@ -32,21 +41,6 @@
         overflow: hidden;
 
         z-index: 100;
-
-        .banner {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            position: relative;
-
-            img {
-                width: 100%;
-                height: auto;
-                object-fit: fill;
-            }
-        }
     }
 
     .banner {
@@ -67,6 +61,19 @@
 
     @media (max-width: 1600px) {
         width: 100%;
+    }
+
+    @media (max-width: 700px) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .banner{
+            overflow: hidden;
+
+            img{
+                width: 150%;
+            }
+        }
     }
 }
 
@@ -93,22 +100,6 @@
         overflow: hidden;
 
         z-index: 100;
-
-        .banner {
-            width: 100%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            position: relative;
-            
-            img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-        }
     }
 
     .banner {
@@ -130,6 +121,19 @@
 
     @media (max-width: 1200px) {
         width: 100%;
+    }
+
+    @media (max-width: 700px) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .banner{
+            overflow: hidden;
+
+            img{
+                width: 150%;
+            }
+        }
     }
 }
 
@@ -174,6 +178,15 @@
     @media (max-width: 800px) {
         width: 100%;
     }
+
+    @media (max-width: 500px) {
+        padding: 30px 10px;
+
+        .title{
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+    }
 }
 
 .section {
@@ -209,10 +222,18 @@
                 padding: 15px 30px;
             }
         }
+
+        @media (max-width: 400px) {
+            justify-content: center;
+        }
     }
 
     @media (max-width: 800px) {
         width: 100%;
+    }
+
+    @media (max-width: 400px) {
+        padding: 10px;
     }
 }
 
@@ -223,4 +244,22 @@
 
 .link:hover {
     color: $color-theme-dark;
+}
+
+#your-banners{
+    margin: auto;
+
+    border-radius: 15px;
+    padding: 15px 30px;
+    border: 2px solid $color-theme;
+    background-color: $color-dark;
+    width: fit-content;
+    font-weight: 500;
+
+    margin-top: 25px;
+}
+
+#your-banners:hover{
+    cursor: pointer;
+    background-color: $color-theme;
 }
