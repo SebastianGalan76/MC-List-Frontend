@@ -7,8 +7,19 @@
         border-radius: 12px;
 
         #search-container {
-            height: auto;
-            padding: 10px;
+            display: block;
+            padding: 3px;
+        }
+
+        #filter {
+            border-radius: 10px 10px 0 0;
+
+            .fa-xmark{
+                display: block;
+            }
+            .fa-bars{
+                display: none;
+            }
         }
     }
 }
@@ -23,6 +34,13 @@
     display: none;
     justify-content: space-between;
 
+    .fa-xmark{
+        display: none;
+    }
+    .fa-bars{
+        display: block;
+    }
+
     @media (max-width: 600px) {
         display: flex;
     }
@@ -35,18 +53,19 @@
 #search-container {
     width: 100%;
 
-    overflow: hidden;
-    height: auto;
-
     #form-container {
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        width: 100%;
     }
 
     .row {
         display: flex;
         gap: 10px;
+
+        width: 100%;
 
         .row-half {
             width: 100%;
@@ -107,8 +126,7 @@
     }
 
     @media (max-width: 600px) {
-        padding: 0;
-        height: 0;
+        display: none;
     }
 
     @media (max-width: 500px) {

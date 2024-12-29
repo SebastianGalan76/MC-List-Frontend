@@ -1,7 +1,10 @@
 <section id="search-panel" [ngClass]="{'actived': isVisible}">
     <div id="filter" (click)="toggleVisibility()">
         <div class="text">Filtrowanie</div>
-        <div class="icon"><i class="fa-solid fa-bars"></i></div>
+        <div class="icon">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
     </div>
 
     <section id="search-container" class="center">

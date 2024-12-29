@@ -22,7 +22,7 @@
         color: $color-theme;
         font-weight: 600;
 
-        @media (max-width: 500px){
+        @media (max-width: 500px) {
             padding: 0 20px 0 10px;
         }
     }
@@ -40,7 +40,7 @@
         top: 50%;
         transform: translate(0, -50%);
 
-        @media (max-width: 500px){
+        @media (max-width: 500px) {
             right: 10px;
         }
     }
@@ -96,6 +96,10 @@
 
             padding: 20px;
             overflow-y: auto;
+
+            @media (max-width: 600px) {
+                padding: 4px;
+            }
         }
 
         .item-list-container {
@@ -114,11 +118,21 @@
 
                     border-radius: 4px;
                     border: 1px solid $color-white;
+
+                    @media (max-width: 600px) {
+                        width: 22px;
+                        height: 22px;
+                    }
                 }
 
                 label {
-                    margin-left: 8px !important;
+                    margin-left: 8px;
                     font-weight: 600;
+
+                    @media (max-width: 600px) {
+                        margin-left: 4px;
+                        font-weight: 500;
+                    }
                 }
             }
         }
@@ -144,7 +158,7 @@
             border: 2px solid $color-theme;
             border-radius: 10px;
 
-            @media (max-width: 500px){
+            @media (max-width: 500px) {
                 padding: 0 20px 0 10px;
             }
         }
@@ -169,11 +183,11 @@
             top: 50%;
             transform: translate(0, -50%);
 
-            .limit.max{
+            .limit.max {
                 color: $color-red;
             }
 
-            @media (max-width: 500px){
+            @media (max-width: 500px) {
                 right: 10px;
             }
         }
@@ -253,7 +267,7 @@
     align-items: center;
     gap: 10px;
     padding: 0px 20px 0 10px;
-    
+
     input {
         width: 30px;
         height: 30px;
@@ -360,7 +374,7 @@ input[type="color"]::-webkit-color-swatch {
 
     position: relative;
 
-    label{
+    label {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -396,7 +410,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .select-value-area {
-    background-color: $color-dark; 
+    background-color: $color-dark;
     border: 2px solid $color-theme;
     border-radius: 10px;
     padding: 10px;
