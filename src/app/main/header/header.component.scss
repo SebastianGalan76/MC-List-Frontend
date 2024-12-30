@@ -40,33 +40,33 @@ header {
                         font-weight: 600;
                         padding: 0 5px;
                     }
-        
+
                     li.add-server-button {
                         color: $color-green;
                     }
                     li.add-server-button:hover {
                         color: $color-green-dark;
                     }
-        
+
                     li.buy-banner-button {
                         color: $color-yellow;
                     }
                     li.buy-banner-button:hover {
                         color: $color-yellow-dark;
                     }
-        
+
                     li:hover {
                         cursor: pointer;
                         color: rgb(226, 221, 186);
                     }
                 }
-        
+
                 @media (max-width: 900px) {
                     ul {
                         gap: 3px;
                     }
                 }
-        
+
                 @media (max-width: 750px) {
                     display: none;
                 }
@@ -78,23 +78,20 @@ header {
             gap: 10px;
             align-items: center;
             z-index: 150;
-        
-            .sign-in {
-                display: block;
-                background-color: $color-theme;
-                padding: 8px 30px;
-                border-radius: 15px;
-                font-weight: 700;
-    
-                border: 2px solid $color-white;
-            }
-    
-            .sign-in:hover {
-                cursor: pointer;
-                background-color: $color-theme-dark;
+
+            #menu-button {
+                font-size: 1.5em;
+                display: none;
+
+                @media (max-width: 750px) {
+                    display: block;
+                }
             }
 
-            
+            #menu-button:hover{
+                cursor: pointer;
+                color: $color-theme;
+            }
         }
     }
 
@@ -107,6 +104,8 @@ header {
         position: absolute;
         top: 0;
         left: 0;
+
+        z-index: 1000;
 
         #background {
             position: absolute;
@@ -131,15 +130,18 @@ header {
             z-index: 100;
 
             .logo {
+                display: block;
                 width: auto;
                 height: 30px;
 
                 margin-top: 15px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .button-container {
                 display: flex;
-                flex-direction: column !important;
+                flex-direction: column;
 
                 margin-top: 50px;
 
@@ -148,20 +150,53 @@ header {
                     flex-direction: column;
                     gap: 20px;
                     align-items: center;
+                    list-style: none;
+                }
+
+                li:hover {
+                    cursor: pointer;
+                    color: $color-theme;
                 }
             }
 
-            .user-not-logged-in {
+            #user-section {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+
                 margin-top: 50px;
 
-                width: 80%;
-                text-align: center;
+                #profile-picture {
+                    display: flex;
+                    cursor: pointer;
+        
+                    img {
+                        height: 40px;
+                        width: auto;
+                        min-width: 40px;
+        
+                        border-radius: 5px;
+                        border: 2px solid $color-theme;
+        
+                        overflow: hidden;
+                    }
+                }
+        
+                #user-login {
+                    font-weight: 600;
+                    cursor: pointer;
+                }
             }
 
-            .user-logged-in {
+            .sign-in-menu {
+                width: fit-content;
                 margin-top: 50px;
-                text-align: center;
-            }
+             }
+        }
+
+        @media (min-width: 750px) {
+            display: none !important;
         }
     }
 
@@ -172,4 +207,19 @@ header {
     @media (max-width: 900px) {
         padding: 0 20px;
     }
+}
+
+.sign-in {
+    display: block;
+    background-color: $color-theme;
+    padding: 8px 30px;
+    border-radius: 15px;
+    font-weight: 700;
+
+    border: 2px solid $color-white;
+}
+
+.sign-in:hover {
+    cursor: pointer;
+    background-color: $color-theme-dark;
 }

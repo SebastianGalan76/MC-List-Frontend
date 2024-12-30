@@ -66,17 +66,18 @@ header .wrapper .right-panel {
   align-items: center;
   z-index: 150;
 }
-header .wrapper .right-panel .sign-in {
-  display: block;
-  background-color: #e2a258;
-  padding: 8px 30px;
-  border-radius: 15px;
-  font-weight: 700;
-  border: 2px solid #f5f5f5;
+header .wrapper .right-panel #menu-button {
+  font-size: 1.5em;
+  display: none;
 }
-header .wrapper .right-panel .sign-in:hover {
+@media (max-width: 750px) {
+  header .wrapper .right-panel #menu-button {
+    display: block;
+  }
+}
+header .wrapper .right-panel #menu-button:hover {
   cursor: pointer;
-  background-color: #ce8e45;
+  color: #e2a258;
 }
 header .right-panel-menu {
   display: none;
@@ -85,6 +86,7 @@ header .right-panel-menu {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1000;
 }
 header .right-panel-menu #background {
   position: absolute;
@@ -106,13 +108,16 @@ header .right-panel-menu .panel-menu {
   z-index: 100;
 }
 header .right-panel-menu .panel-menu .logo {
+  display: block;
   width: auto;
   height: 30px;
   margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 header .right-panel-menu .panel-menu .button-container {
   display: flex;
-  flex-direction: column !important;
+  flex-direction: column;
   margin-top: 50px;
 }
 header .right-panel-menu .panel-menu .button-container ul {
@@ -120,15 +125,44 @@ header .right-panel-menu .panel-menu .button-container ul {
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  list-style: none;
 }
-header .right-panel-menu .panel-menu .user-not-logged-in {
-  margin-top: 50px;
-  width: 80%;
-  text-align: center;
+header .right-panel-menu .panel-menu .button-container li:hover {
+  cursor: pointer;
+  color: #e2a258;
 }
-header .right-panel-menu .panel-menu .user-logged-in {
+header .right-panel-menu .panel-menu #user-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
   margin-top: 50px;
-  text-align: center;
+}
+header .right-panel-menu .panel-menu #user-section #profile-picture {
+  display: flex;
+  cursor: pointer;
+}
+header .right-panel-menu .panel-menu #user-section #profile-picture img {
+  height: 40px;
+  width: auto;
+  min-width: 40px;
+  border-radius: 5px;
+  border: 2px solid #e2a258;
+  overflow: hidden;
+}
+header .right-panel-menu .panel-menu #user-section #user-login {
+  font-weight: 600;
+  cursor: pointer;
+}
+header .right-panel-menu .panel-menu .sign-in-menu {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 50px;
+}
+@media (min-width: 750px) {
+  header .right-panel-menu {
+    display: none !important;
+  }
 }
 header .right-panel-menu.active {
   display: block;
@@ -137,4 +171,18 @@ header .right-panel-menu.active {
   header {
     padding: 0 20px;
   }
+}
+
+.sign-in {
+  display: block;
+  background-color: #e2a258;
+  padding: 8px 30px;
+  border-radius: 15px;
+  font-weight: 700;
+  border: 2px solid #f5f5f5;
+}
+
+.sign-in:hover {
+  cursor: pointer;
+  background-color: #ce8e45;
 }/*# sourceMappingURL=header.component.css.map */

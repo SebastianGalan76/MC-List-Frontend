@@ -4,16 +4,19 @@ import { User, UserService } from '../../../service/user.service';
 import { UserSectionComponent } from "./user-section/user-section.component";
 import { ApiService } from '../../../service/api.service';
 import { ObjectResponse } from '../../../model/response/ObjectResponse';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, UserSectionComponent],
+  imports: [RouterLink, UserSectionComponent, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   user: User | null = null;
+
+  isMenuActive: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -35,5 +38,9 @@ export class HeaderComponent {
         this.router.navigate(['/server', response.object]);
       }
     })
+  }
+
+  toggleMenu(){
+    this.isMenuActive = !this.isMenuActive;
   }
 }

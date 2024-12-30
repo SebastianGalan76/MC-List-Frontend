@@ -25,7 +25,51 @@
                     Logowanie
                 </a>
             }
+
+            <div id="menu-button" (click)="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </div>
     <div class="divider-line-horizontal"></div>
+
+    <div class="right-panel-menu" [ngClass]="isMenuActive ? 'active' : null">
+        <div class="panel-menu">
+            <a routerLink="/">
+                <img class="logo center" src="/img/logo.png">
+            </a>
+
+            <nav class="button-container">
+                <ul>
+                    <a routerLink="/add-new-server">
+                        <li class="add-server-button">Dodaj serwer</li>
+                    </a>
+                    <a routerLink="/banner">
+                        <li class="buy-banner-button">Zakup Baner</li>
+                    </a>
+                    <a (click)="getRandomServer()">
+                        <li class="buy-banner-button">Losuj serwer</li>
+                    </a>
+                </ul>
+            </nav>
+
+            @if (user) {
+                <a id="user-section" routerLink="/user">
+                    <div id="profile-picture">
+                        <img [src]="'https://minotar.net/avatar/'+user.login">
+                    </div>
+                    <span id="user-login">{{user.login}}</span>
+                </a>
+            }
+            @else {
+                <a routerLink="/auth/signIn" class="sign-in sign-in-menu center">
+                    Logowanie
+                </a>
+            }
+        </div>
+
+        <div id="background" (click)="toggleMenu()">
+
+        </div>
+    </div>
 </header>
