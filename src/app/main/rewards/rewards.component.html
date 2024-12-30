@@ -1,0 +1,99 @@
+<section id="container">
+    <br>
+    <h1 class="header center">Nagrody za głosowanie</h1>
+
+    <br><br>
+    <div class="info">Obecnie pracujemy nad publicznym pluginem do nagradzania graczy za głosowania na serwer. Pracę
+        wciąż trwają i w momencie zakończenia, pojawi się odpowiednia informacja.</div>
+    <br><br>
+    <div class="info">Jeśli chcesz wykonać swój własny plugin, który będzie zintegrowany z naszą stroną, poniżej
+        przedstawiamy dostępne API</div>
+    <br><br>
+    <h2 class="api-header">API</h2>
+    <div class="endpoint-container">
+        <h2 class="title">Weryfikacja głosu</h2>
+        <div class="description">Endpoint zwraca informację, czy dany gracz ma ważny głos, czyli taki, który pozwala
+            mu odebrać nagrodę.</div>
+
+        <div class="endpoint"><span class="method">GET</span> https://backend.mc-list.pl/api/vote/check/&#123;server_id&#125;/&#123;player_nick&#125;</div>
+        <div class="values">
+            <div class="value">&#123;server_id&#125; - Identyfikator serwera. Można go znaleźć w zakładce "Zarządzaj" serwera
+            </div>
+            <div class="value">&#123;player_nick&#125; - Nick gracza, dla którego chcecie sprawdzić, czy ma ważny głos</div>
+        </div>
+        <div class="response">
+            <div class="status">Status: OK - Sukces</div>
+            <code>
+                &#123;
+                    <br>
+                    <div class="fields">
+                    <span class="comment">//Dla HttpStatus 200 (OK), wartość error jest zawsze równa null</span><br>
+                    "error": null,<br>
+                    <span class="comment">//Identyfikator głosu. Potrzebny, aby potwierdzić odbiór nagrody</span><br>
+                    "voteId": 5,<br>
+                    <span class="comment">//Data głosowania. Każdy gracz może mieć kilka głosów bez odebranej nagrody</span><br>
+                    "votedAt": "2024-08-09"<br>
+                    </div>
+                &#125;
+            </code>
+        </div>
+
+        <div class="response">
+            <div class="status">Status: BAD_REQUEST - Błąd</div>
+            <code>
+                &#123;
+                    <br>
+                    <div class="fields">
+                    <span class="comment">//Dla HttpStatus 400 (BAD_REQUEST), wartość error posiada pole message oraz identyfikator błędu</span><br>
+                    "error": &#123;
+                        <div class="fields">"id": 2,</div>
+                        <div class="fields">"message": "This player has not voted or has already received his reward"</div>
+                    &#125;,<br>
+                    <span class="comment">//Identyfikator głosu. Potrzebny, aby potwierdzić odbiór nagrody</span><br>
+                    "voteId": null,<br>
+                    <span class="comment">//Data głosowania. Każdy gracz może mieć kilka głosów bez odebranej nagrody</span><br>
+                    "votedAt": null<br>
+                    </div>
+                &#125;
+            </code>
+
+            <br><br><br>
+            <span><b>Możliwe identyfikatory błędu:</b></span><br>
+            1 - Niepoprawny identyfikator serwera. Brak serwera z podanym identyfikatorem<br>
+            2 - Gracz o takim nicku nie posiada głosów, za które mógłby otrzymać nagrodę (wykorzystał już nagrodę
+            lub nie oddał głosu)<br>
+        </div>
+    </div>
+
+    <div class="endpoint-container">
+        <h2 class="title">Potwierdzenie nadania nagrody</h2>
+        <div class="description">Endpoint potwierdza nadanie nagrody dla konkretnego gracza. Pamiętaj o tym, aby go
+            wysyłać po nadaniu nagrody, ponieważ gdy tego nie zrobisz, użytkownik będzie mógł ciągle odbierać
+            nagrody za jeden głos.</div>
+
+        <div class="endpoint"><span class="method">POST</span> https://backend.mc-list.pl/api/vote/confirm/&#123;server_id&#125;/&#123;vote_id&#125;</div>
+        <div class="values">
+            <div class="value">&#123;server_id&#125; - Identyfikator serwera. Można go znaleźć w zakładce "Zarządzaj" serwera
+            </div>
+            <div class="value">&#123;vote_id&#125; - Identyfikator głosu. Można go otrzymać, korzystając z powyższego
+                endpointa.</div>
+        </div>
+        <div class="response">
+            <div class="status">Status: OK - Sukces</div>
+            <code>
+                SUCCESS
+            </code>
+        </div>
+
+        <div class="response">
+            <div class="status">Status: BAD_REQUEST - Błąd</div>
+            <code>
+                Message
+            </code>
+
+            <br><br><br>
+            <span><b>Możliwe błędy:</b></span><br>
+            Brak głosu o podanym identyfikatorze<br>
+        </div>
+    </div>
+</section>

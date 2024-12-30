@@ -37,6 +37,7 @@ import { manageUserAuthGuard } from './guards/manage-user-auth.guard';
 import { ProfileManageUserComponent } from './manage/user/profile/profile.component';
 import { ServersManageUserComponent } from './manage/user/servers/servers.component';
 import { BannersManageUserComponent } from './manage/user/banners/banners.component';
+import { RewardsComponent } from './main/rewards/rewards.component';
 
 export const routes: Routes = [
     {
@@ -168,6 +169,9 @@ export const routes: Routes = [
         }, {
             path: "rules",
             component: RulesComponent
+        }, {
+            path: "rewards",
+            component: RewardsComponent
         }, {
             path: "privacy-policy",
             component: PrivacyPolicyComponent
