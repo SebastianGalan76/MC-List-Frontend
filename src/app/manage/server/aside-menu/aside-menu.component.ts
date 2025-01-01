@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from '../../../../service/user.service';
 import { Server, ServerUserRole } from '../../../../model/server/server';
 import { RouterLink } from '@angular/router';
@@ -25,6 +25,8 @@ export class AsideMenuManageServerComponent {
   hasAdminPermission: boolean = false;
   hasOwnerPermission: boolean = false;
 
+  isShown: boolean = false;
+
   constructor(
     private parent: ManageServerComponent
   ) {
@@ -47,5 +49,7 @@ export class AsideMenuManageServerComponent {
     return roleEnum >= minPermission;
   }
 
-
+  toggleMenu(){
+    this.isShown = !this.isShown;
+  }
 }

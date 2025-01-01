@@ -1,35 +1,43 @@
 <div id="container">
-    @if (user) {
-    <div id="user-profile">
-        <div class="profile-picture">
-            <img [src]="'https://minotar.net/avatar/'+user.login">
+    <div id="wrapper" [ngClass]="{'active': isShown}">
+        <div id="menu-button" (click)="toggleMenu()"><i
+                [ngClass]="isShown ? 'fa-solid fa-angles-left' : 'fa-solid fa-bars'"></i></div>
+        <div id="content-wrapper" *ngIf="user">
+            <div id="content">
+                <div id="user-profile">
+                    <div class="profile-picture">
+                        <img [src]="'https://minotar.net/avatar/'+user.login">
+                    </div>
+                    <div class="info">
+                        <span class="login">{{user.login}}</span>
+                        <span class="role">{{getConvertedRole()}}</span>
+                    </div>
+                </div>
+
+                <div id="menu-container" class="scrollable-vertical scrollable">
+                    <div class="header">MENU</div>
+
+                    <div class="button" routerLink="/user">
+                        <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
+                        <div class="text">Podstawowe informacje</div>
+                    </div>
+                    <div class="button" routerLink="servers">
+                        <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
+                        <div class="text">Serwery</div>
+                    </div>
+                    <div class="button" routerLink="banners">
+                        <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
+                        <div class="text">Banery</div>
+                    </div>
+                </div>
+
+                <nav id="down-nav">
+                    <div id="server-page" routerLink="/">Strona Główna</div>
+                    <div id="server-page" (click)="logout()">Wyloguj</div>
+                </nav>
+            </div>
         </div>
-        <div class="info">
-            <span class="login">{{user.login}}</span>
-            <span class="role">{{getConvertedRole()}}</span>
-        </div>
+
+        <div class="divider-line-vertical"></div>
     </div>
-    }
-
-    <div id="menu-container" class="scrollable-vertical scrollable">
-        <div class="header">MENU</div>
-
-        <div class="button" routerLink="/user">
-            <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
-            <div class="text">Podstawowe informacje</div>
-        </div>
-        <div class="button" routerLink="servers">
-            <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
-            <div class="text">Serwery</div>
-        </div>
-        <div class="button" routerLink="banners">
-            <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
-            <div class="text">Banery</div>
-        </div>
-    </div>
-
-    <nav id="down-nav">
-        <div id="server-page" routerLink="/">Strona Główna</div>
-        <div id="server-page" (click)="logout()">Wyloguj</div>
-    </nav>
 </div>

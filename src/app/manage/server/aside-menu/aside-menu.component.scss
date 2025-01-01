@@ -1,99 +1,176 @@
 @import "../../../../styles/base";
 
 #container {
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+    width: 300px;
+
+    z-index: 100;
+
+    @media (max-width: 1350px) {
+        width: 250px;
+    }
+
+    @media (max-width: 1150px) {
+        width: 0;
+    }
+}
+
+#wrapper {
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
+    position: absolute;
+    top: 0;
 
-    #user-profile {
-        height: 74px;
+    #content-wrapper {
+        background-color: rgb(22, 22, 22);
+        width: 100%;
+        height: 100%;
 
-        display: flex;
-        align-items: center;
-        gap: 5px;
+        position: relative;
 
-        padding: 10px;
-        border-radius: 10px;
-        border: 2px solid $color-theme;
+        overflow: hidden;
 
-        .profile-picture{
-            height: 50px;
-            width: auto;
+        #content {
+            width: 100%;
+            height: 100%;
 
-            img{
-                height: 100%;
-                width: auto;
-            }
-        }
-
-        .info {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            justify-content: space-between;
+            gap: 20px;
 
-            .login {
-                font-weight: 700;
+            padding: 20px;
+
+            #user-profile {
+                height: 74px;
+
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid $color-theme;
+
+                .profile-picture {
+                    height: 50px;
+                    width: auto;
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .login {
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            #menu-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                overflow-y: auto;
+
+                .header {
+                    font-weight: 800;
+                    margin-left: 25px;
+                }
+
+                .button {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    padding: 10px;
+                    border-radius: 10px;
+                    background-color: rgba(255, 255, 255, 0.044);
+                    font-weight: 600;
+                }
+
+                .button.blocked {
+                    background-color: rgba(118, 107, 107, 0.044);
+                    color: rgba(131, 131, 131, 0.819);
+                }
+                .button.blocked:hover {
+                    cursor: not-allowed;
+                    background-color: rgba(118, 107, 107, 0.044);
+                    color: rgba(131, 131, 131, 0.819);
+                }
+
+                .button:hover {
+                    cursor: pointer;
+                    background-color: rgba(255, 255, 255, 0.131);
+                    color: $color-theme;
+                }
+            }
+
+            #server-page {
+                font-size: 1.2em;
+                font-weight: 600;
+
+                text-align: center;
+
+                background-color: $color-theme;
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            #server-page:hover {
+                cursor: pointer;
+                background-color: $color-theme-dark;
+            }
+
+            @media (max-width: 1350px) {
+                padding: 20px 8px;
             }
         }
     }
 
-    #menu-container{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        overflow-y: auto;
+    #menu-button {
+        position: absolute;
+        right: -40px;
+        top: 40px;
 
-        .header{
-            font-weight: 800;
-            margin-left: 25px;
-        }
-
-        .button{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            padding: 10px;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.044);
-            font-weight: 600;
-        }
-
-        .button.blocked{
-            background-color: rgba(118, 107, 107, 0.044);
-            color: rgba(131, 131, 131, 0.819);
-        }
-        .button.blocked:hover{
-            cursor: not-allowed;
-            background-color: rgba(118, 107, 107, 0.044);
-            color: rgba(131, 131, 131, 0.819);
-        }
-
-        .button:hover{
-            cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.131);
-            color: $color-theme;
-        }
-    }
-
-    #server-page{
-        font-size: 1.2em;
-        font-weight: 600;
-
-        text-align: center;
-
+        width: 40px;
+        height: 40px;
         background-color: $color-theme;
-        padding: 10px;
-        border-radius: 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+
+        border-radius: 0 10px 10px 0;
+
+        @media (min-width: 1150px) {
+            display: none;
+        }
     }
 
-    #server-page:hover{
+    #menu-button:hover{
         cursor: pointer;
         background-color: $color-theme-dark;
     }
+
+    .divider-line-vertical {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.active {
+    width: 300px !important;
 }
