@@ -99,6 +99,10 @@
             }
         }
 
+        .promotion-point{
+            display: none;
+        }
+
         @media (max-width: 800px) {
             gap: 10px;
 
@@ -113,7 +117,7 @@
         }
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
         .logo {
             width: 100px;
             height: 100px;
@@ -124,6 +128,12 @@
                 width: 100px;
                 height: 100px;
             }
+        }
+    }
+
+    @media (min-width: 1300px) {
+        .promotion-point{
+            display: flex !important;
         }
     }
 
@@ -140,6 +150,10 @@
             .tag-container {
                 justify-content: center;
             }
+        }
+
+        .promotion-point{
+            display: flex !important;
         }
     }
 }

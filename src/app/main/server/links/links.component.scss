@@ -55,8 +55,7 @@
 }
 
 .server-link:hover {
-    scale: 1.02;
-    cursor: pointer;
+    background-color: rgb(15, 15, 15);
 }
 
 .server-link.shop {
@@ -64,4 +63,11 @@
 }
 .server-link.discord {
     background-color: #7289da;
+}
+
+.server-link.shop:hover {
+    background-color: #e9a110;
+}
+.server-link.discord:hover {
+    background-color: #576cb8;
 }

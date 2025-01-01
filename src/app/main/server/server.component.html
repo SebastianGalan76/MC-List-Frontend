@@ -33,8 +33,8 @@
     </section>
     <aside>
         <div class="panel" id="ip-panel">
-            <div class="ip-address" (click)="copyServerIP()"> {{server.name.name}}</div>
-            <div class="copy-info">Kliknij, aby skopiować</div>
+            <div class="ip-address" (click)="copyServerIP()" title="Kliknij, aby skopiować"> {{server.name.name}}</div>
+            <div class="copy-info" (click)="copyServerIP()">Kliknij, aby skopiować</div>
         </div>
 
         <div class="panel action-buttons-container" id="button-panel-aside">

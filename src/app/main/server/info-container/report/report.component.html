@@ -11,10 +11,12 @@
         <div class="or">lub</div>
         <textarea placeholder="Napisz powód" [(ngModel)]="reportReason"></textarea>
 
+        @if (!submitSuccess) {
         <div id="submit-button" (click)="submit()">
             Zgłoś
         </div>
+        }
     </div>
 
-    
+
 </div>

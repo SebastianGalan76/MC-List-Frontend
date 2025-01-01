@@ -2,10 +2,13 @@
 @import "../../../../../styles/formElement.scss";
 
 #container {
-    width: 400px !important;
+    width: 400px;
     border-radius: 10px;
     transition: transform 0.15s ease;
-    background-color: #323232;
+    background:
+        url(../../../../../../public/img/background.png),
+        rgb(0, 0, 0) no-repeat;
+    border: 1px solid $color-theme;
 
     .header {
         position: relative;
@@ -66,6 +69,6 @@
     }
 
     @media (max-width: 400px) {
-        width: 100% !important;
+        width: 100vw;
     }
 }

@@ -40,6 +40,7 @@ import { BannersManageUserComponent } from './manage/user/banners/banners.compon
 import { RewardsComponent } from './main/rewards/rewards.component';
 import { ConnectionIssueComponent } from './main/connection-issue/connection-issue.component';
 import { InfoManageServerComponent } from './manage/server/info/info.component';
+import { ContactComponent } from './main/contact/contact.component';
 
 export const routes: Routes = [
     {
@@ -172,9 +173,12 @@ export const routes: Routes = [
                 }]
             }]
         }, {
-            path: "rules",
+            path: "regulamin",
             component: RulesComponent
         }, {
+            path: "kontakt",
+            component: ContactComponent
+        },  {
             path: "rewards",
             component: RewardsComponent
         }, {

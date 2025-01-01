@@ -113,6 +113,7 @@
 }
 @media (max-width: 500px) {
   .ratings-global .container {
+    flex-direction: column;
     gap: 5px;
   }
   .ratings-global .container .left-panel {
@@ -121,11 +122,6 @@
   }
   .ratings-global .container .left-panel .rating {
     font-size: 1.2em;
-  }
-}
-@media (max-width: 400px) {
-  .ratings-global .container {
-    flex-direction: column;
   }
 }
 .ratings-global .sign-in-to-rate-button {

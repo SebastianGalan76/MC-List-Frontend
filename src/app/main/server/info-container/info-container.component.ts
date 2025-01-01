@@ -1,8 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ServerPage } from '../serverPage.service';
 import { ServerService } from '../../../../service/server/serverService';
+import { DescriptionComponent } from './description/description.component';
 
 @Component({
   selector: 'app-server-info-container',
@@ -18,12 +19,12 @@ export class ServerInfoContainerComponent extends ServerPage {
   @ViewChild('mainContainer') outletContainer!: ElementRef;
 
   constructor(
-      protected override serverService: ServerService,
-      protected override route: ActivatedRoute,
-      private router: Router,
-    ) {
-      super(route, serverService);
-    }
+    protected override serverService: ServerService,
+    protected override route: ActivatedRoute,
+    private router: Router,
+  ) {
+    super(route, serverService);
+  }
 
   override onLoad(): void {
     this.navButtons = [];
@@ -72,14 +73,16 @@ export class ServerInfoContainerComponent extends ServerPage {
 
     const url = this.router.url;
     const parts = url.split('/');
-    const currentSection = parts[parts.length - 1];
+    if (parts.length == 4) {
+      const currentSection = parts[parts.length - 1];
 
-    this.navButtons.forEach(button => {
-      var destination = button.destination;
-      if (destination.includes(currentSection)) {
-        button.isSelected = true;
-      }
-    })
+      this.navButtons.forEach(button => {
+        var destination = button.destination;
+        if (destination.includes(currentSection)) {
+          button.isSelected = true;
+        }
+      })
+    }
   }
 
   selectButton(button: any) {

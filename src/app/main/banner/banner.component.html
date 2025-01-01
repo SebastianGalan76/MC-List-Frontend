@@ -56,7 +56,9 @@
         <div class="button" (click)="submit()">Prześlij do weryfikacji</div>
     </div>
 
-    <div id="your-banners" routerLink="/user/banners">Moje Banery</div>
+    @if ((user$ | async)) {
+        <div id="your-banners" routerLink="/user/banners">Moje Banery</div>
+    }
 
     <div class="section center">
         <h2>Metody płatności</h2>

@@ -103,6 +103,7 @@
 }
 @media (max-width: 500px) {
   .ratings .container {
+    flex-direction: column;
     gap: 5px;
   }
   .ratings .container .left-panel {
@@ -113,18 +114,13 @@
     font-size: 1.2em;
   }
 }
-@media (max-width: 400px) {
-  .ratings .container {
-    flex-direction: column;
-  }
-}
 @media (max-width: 700px) {
   .ratings {
     padding: 0;
   }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 500px) {
   .reversed .container .left-panel {
     order: 2;
   }

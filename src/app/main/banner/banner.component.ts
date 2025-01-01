@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Utils } from '../../../service/utils.service';
@@ -8,15 +8,18 @@ import { BannerService } from '../../../service/banner.service';
 import { ObjectResponse } from '../../../model/response/ObjectResponse';
 import { Banner } from '../../../model/banner';
 import { RouterLink } from '@angular/router';
+import { User, UserService } from '../../../service/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, AsyncPipe],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.scss'
 })
 export class BannerPurchaseComponent {
+  user$: Observable<User | null>;
   selectedSize: number = 0;
 
   url: string = "";
@@ -27,8 +30,11 @@ export class BannerPurchaseComponent {
   constructor(
     private apiService: ApiService,
     private bannerService: BannerService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private userService: UserService
   ) {
+    this.user$ = userService.getUser();
+
     Utils.scrollToTop();
   }
 

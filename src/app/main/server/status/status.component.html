@@ -63,8 +63,8 @@
         <div class="votes statistic">
             <div class="icon" title="Ilość głosów">❤️</div><span class="vote-value">{{server.votes}}</span>
         </div>
-        @if (server.promotionPoints >= 0) {
-        <div class="statistic">
+        @if (server.promotionPoints > 0) {
+        <div class="promotion-point statistic">
             <div class="icon" title="Dni promowania">👑</div><span class="vote-value">{{server.promotionPoints}}</span>
         </div>
         }

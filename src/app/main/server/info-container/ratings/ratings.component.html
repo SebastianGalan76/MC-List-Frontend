@@ -73,17 +73,17 @@
         <app-rating-category [ratings]="getRatingsByCategoryId(5)" [header]="'Administracja'" />
     </div>
 
-    @if (!userService.getUser()) {
-    <a [routerLink]="['/auth/signIn']">
-        <div class="sign-in-to-rate-button center" style="margin-top: 150px;">
-            Zaloguj się, aby ocenić
+    @if ((user$ | async); as user) {
+    <a (click)="rateServer()">
+        <div class="rate-button center" style="margin-top: 150px;">
+            Oceń serwer
         </div>
     </a>
     }
     @else{
-    <a (click)="rateServer()">
-        <div class="rate-button center" style="margin-top: 150px;">
-            Oceń serwer
+    <a [routerLink]="['/auth/signIn']">
+        <div class="sign-in-to-rate-button center" style="margin-top: 150px;">
+            Zaloguj się, aby ocenić
         </div>
     </a>
     }

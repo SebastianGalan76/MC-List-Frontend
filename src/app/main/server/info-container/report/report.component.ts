@@ -17,6 +17,7 @@ export class ServerReportComponent {
   reportOptions: OptionValue[] = [];
 
   reportReason: string = "";
+  submitSuccess: boolean = false;
 
   constructor(
     private parent: ServerComponent,
@@ -29,11 +30,13 @@ export class ServerReportComponent {
   }
 
   submit() {
+    this.submitSuccess = true;
     var selectedReasons = this.reportOptions.filter(reason => reason.isSelected).map(reason => reason.item.name);
 
     if(selectedReasons.length==0){
       if(this.reportReason.length<20){
         this.notificationService.showNotification("Wybierz powód lub dokładniej opisz powód zgłaszania", NotificationType.ERROR);
+        this.submitSuccess = false;
         return;
       }
     }
@@ -47,6 +50,7 @@ export class ServerReportComponent {
       },
       error: (response) => {
         this.notificationService.showNotification(response.message, NotificationType.ERROR);
+        this.submitSuccess = false;
       }
     })
   }

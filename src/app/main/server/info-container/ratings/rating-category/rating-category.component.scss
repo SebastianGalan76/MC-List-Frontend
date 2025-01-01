@@ -120,6 +120,7 @@
         }
 
         @media (max-width: 500px) {
+            flex-direction: column;
             gap: 5px;
 
             .left-panel {
@@ -131,9 +132,6 @@
                 }
             }
         }
-        @media (max-width: 400px) {
-            flex-direction: column;
-        }
     }
 
     @media (max-width: 700px){
@@ -142,7 +140,7 @@
 }
 
 .reversed {
-    @media (min-width: 400px) {
+    @media (min-width: 500px) {
         .container {
             .left-panel {
                 order: 2;

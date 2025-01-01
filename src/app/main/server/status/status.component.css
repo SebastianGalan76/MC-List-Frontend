@@ -79,6 +79,9 @@
 #container .statistic-container .statistic .icon {
   font-size: 2.2em;
 }
+#container .statistic-container .promotion-point {
+  display: none;
+}
 @media (max-width: 800px) {
   #container .statistic-container {
     gap: 10px;
@@ -91,7 +94,7 @@
     font-size: 1.8em;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   #container .logo {
     width: 100px;
     height: 100px;
@@ -99,6 +102,11 @@
   #container .statistic-container .statistic {
     width: 100px;
     height: 100px;
+  }
+}
+@media (min-width: 1300px) {
+  #container .promotion-point {
+    display: flex !important;
   }
 }
 @media (max-width: 900px) {
@@ -113,5 +121,8 @@
   }
   #container .middle-panel .tag-container {
     justify-content: center;
+  }
+  #container .promotion-point {
+    display: flex !important;
   }
 }/*# sourceMappingURL=status.component.css.map */

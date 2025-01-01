@@ -131,6 +131,7 @@
         }
 
         @media (max-width: 500px) {
+            flex-direction: column;
             gap: 5px;
 
             .left-panel {
@@ -141,9 +142,6 @@
                     font-size: 1.2em;
                 }
             }
-        }
-        @media (max-width: 400px) {
-            flex-direction: column;
         }
     }
 
