@@ -1,16 +1,48 @@
 <div class="main-container-content" id="information-main-container">
-    <h1 class="content-header">Informacje</h1>
+        <h1 class="content-header">Informacje</h1>
 
-    <span class="info-con"><span class="h">Adres: </span><span th:text="${server.name.name}"></span><br></span>
-    <span class="info-con" th:if="${server.port > 0}"><span class="h">Port: </span><span
-            th:text="${server.port}"></span>
-        <br></span>
-
-    <span class="info-con" th:if="${server.versions.size() > 0}"><span class="h">Wersja:</span> <span
-            id="server-versions-info"></span> <br></span>
-    <span class="info-con" th:if="${server.subServers.size() > 0 or server.mode != null}"><span
-            class="h">Tryby:</span> <span id="server-modes-info"></span><br></span>
-    <span class="info-con"><span class="h">Zaktualizowano:</span> <span
-            id="server-refresh-time-info"></span><br></span>
-    <span class="info-con"><span class="h">Dodano:</span> <span id="server-created-time-info"></span><br></span>
+        <div id="container">
+                <div class="row">
+                        <div class="item">
+                                <div class="content">{{parent.server.name.name}}</div>
+                                <div class="label">Adres</div>
+                        </div>
+                        @if (parent.server.port) {
+                        <div class="item">
+                                <div class="content">{{parent.server.port}}</div>
+                                <div class="label">Port</div>
+                        </div>
+                        }
+                </div>
+                <div class="row">
+                        <div class="item">
+                                <div class="content">{{parent.server.onlinePlayers}}</div>
+                                <div class="label">Online</div>
+                        </div>
+                        @if (versions) {
+                        <div class="item">
+                                <div class="content" [innerHTML]="versions"></div>
+                                <div class="label">Wersja</div>
+                        </div>
+                        }
+                </div>
+                @if (modes) {
+                        <div class="row">
+                        <div class="item">
+                                <div class="content">{{modes}}</div>
+                                <div class="label">Tryby</div>
+                        </div>
+                </div>
+                }
+                <div class="row">
+                        <div class="item">
+                                <div class="content">{{convertLocalDateTime(parent.server.createdAt)}}</div>
+                                <div class="label">Data dodania</div>
+                        </div>
+                        <div class="item">
+                                <div class="content">{{getUpdateDateTime(parent.server.nextRefreshAt)}}</div>
+                                <div class="label">Data aktualizacji</div>
+                        </div>
+                </div>
+        </div>
 </div>

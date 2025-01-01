@@ -19,22 +19,29 @@
                     </div>
                 </div>
 
-                <app-input-select [placeholder]="'Wybierz tryb serwera'" [maxChoice]="1" [options]="modeOptions" />
+                <div class="menu-panel">
+                    <app-input-select *ngIf="isServerLoaded" [placeholder]="'Wybierz tryb serwera'" [maxChoice]="1"
+                        [options]="modeOptions" />
 
-                <span class="info">Jeżeli jest to sieć serwerów, prosimy o dodanie poszczególnych trybów w zakładce "Tryby" <br>
-                    Jeśli brakuje jakiegoś trybu gry, to napisz do nas, a my go dodamy
-                </span>
+                    <span class="info">Jeżeli jest to sieć serwerów, prosimy o dodanie poszczególnych trybów w zakładce
+                        "<a class="link" routerLink="../mode">Tryby</a>" <br>
+                        Jeśli brakuje jakiegoś trybu gry, to napisz do nas, a my go dodamy
+                    </span>
+                </div>
 
-                <app-input-select [placeholder]="'Wybierz wersje serwera'" [maxChoice]="-1"
-                    [options]="versionOptions" />
-                <span class="info">Wystarczy wybrać najstarszą i najnowszą wersję serwera. Wszystkie wersje pomiędzy będą traktowane jako wspierane wersje</span>
+                <div class="menu-panel">
+                    <app-input-select *ngIf="isServerLoaded" [placeholder]="'Wybierz wersje serwera'" [maxChoice]="-1"
+                        [options]="versionOptions" />
+                    <span class="info">Wystarczy wybrać najstarszą i najnowszą wersję serwera. Wszystkie wersje pomiędzy
+                        będą traktowane jako wspierane wersje</span>
+                </div>
 
                 <div class="checkbox-container">
                     <div class="checkbox-area">
                         <input type="checkbox" id="server-premium-checkbox" [(ngModel)]="premium">
                         <label for="server-premium-checkbox">Premium</label>
                     </div>
-        
+
                     <div class="checkbox-area">
                         <input type="checkbox" id="server-mods-checkbox" [(ngModel)]="mods">
                         <label for="server-mods-checkbox">Mody</label>
@@ -47,7 +54,7 @@
                     serwera. Czy wpisałeś poprawny adres oraz port serwera?</span><br>
                 <br>
                 Jeśli serwer jest włączony i wciąż występuje błąd z połączeniem, przeczytaj więcej o możliwych
-                przyczynach <a href="/connectionError" class="link">tutaj</a>.
+                przyczynach <a routerLink="/connection-issue" class="link">tutaj</a>.
             </div>
             }
 

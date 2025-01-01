@@ -1,10 +1,43 @@
+@import "../../../../../styles/base";
+
 #information-main-container {
     .h {
         font-weight: 700;
     }
 
-    .info-con{
-        margin-top: 10px;
-        display: block;
+    #container{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .row{
+        display: flex;
+        gap: 15px;
+    }
+
+    .item{
+        background-color: $color-dark;
+        padding: 10px;
+        flex-grow: 1;
+
+        border-radius: 10px;
+        flex: 1 1 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .content{
+            font-weight: 700;
+        }
+
+        .label{
+            font-style: italic;
+            font-size: 0.9em;
+            color: #ffffff96;
+        }
     }
 }

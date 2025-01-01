@@ -1,0 +1,52 @@
+@import "../../../../styles/base";
+@import "../../../../styles/quillEditor.scss";
+
+#container{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    #header{
+        margin: 50px 0;
+
+        font-size: 2em;
+        text-align: center;
+        width: 100%;
+
+        @media (max-height: 500px){
+            margin: 25px 0;
+        }
+    }
+
+    #content{
+        width: 100%;
+
+        flex-grow: 1;
+        display: flex;
+
+        padding: 20px;
+
+        section{
+            text-align: center;
+            width: 800px;
+
+            margin: auto;
+
+            .server-id{
+                display: block;
+                background-color: $color-dark;
+                padding: 10px 30px;
+                border-radius: 15px;
+                border: 2px solid $color-theme;
+                margin-bottom: 40px;
+                font-size: 1.2em;
+            }
+
+            @media (max-width: 800px) {
+                width: 100%;
+            }
+        }
+    }
+}

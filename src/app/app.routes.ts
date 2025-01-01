@@ -38,6 +38,8 @@ import { ProfileManageUserComponent } from './manage/user/profile/profile.compon
 import { ServersManageUserComponent } from './manage/user/servers/servers.component';
 import { BannersManageUserComponent } from './manage/user/banners/banners.component';
 import { RewardsComponent } from './main/rewards/rewards.component';
+import { ConnectionIssueComponent } from './main/connection-issue/connection-issue.component';
+import { InfoManageServerComponent } from './manage/server/info/info.component';
 
 export const routes: Routes = [
     {
@@ -95,6 +97,9 @@ export const routes: Routes = [
             }, {
                 path: "promote",
                 component: PromoteManageServerComponent,
+            }, {
+                path: "",
+                component: InfoManageServerComponent
             }]
     },
     {
@@ -172,6 +177,9 @@ export const routes: Routes = [
         }, {
             path: "rewards",
             component: RewardsComponent
+        }, {
+            path: "connection-issue",
+            component: ConnectionIssueComponent
         }, {
             path: "privacy-policy",
             component: PrivacyPolicyComponent

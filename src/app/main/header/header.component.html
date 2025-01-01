@@ -17,14 +17,16 @@
             </nav>
         </div>
         <div class="right-panel">
-            @if (user) {
-                <app-user-section [user]="user" (onLogout)="onLogout()"/>
-            }
-            @else {
-                <a routerLink="/auth/signIn" class="sign-in">
-                    Logowanie
-                </a>
-            }
+            <div id="user-section-main">
+                @if (user) {
+                    <app-user-section [user]="user" (onLogout)="onLogout()"/>
+                }
+                @else {
+                    <a routerLink="/auth/signIn" class="sign-in">
+                        Logowanie
+                    </a>
+                }
+            </div>
 
             <div id="menu-button" (click)="toggleMenu()">
                 <i class="fa-solid fa-bars"></i>
@@ -48,7 +50,7 @@
                         <li class="buy-banner-button">Zakup Baner</li>
                     </a>
                     <a (click)="getRandomServer()">
-                        <li class="buy-banner-button">Losuj serwer</li>
+                        <li>Losuj serwer</li>
                     </a>
                 </ul>
             </nav>

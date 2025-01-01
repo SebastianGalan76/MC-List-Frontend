@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Server } from '../../../model/server/server';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServerService } from '../../../service/server/serverService';
 import { Utils } from '../../../service/utils.service';
 

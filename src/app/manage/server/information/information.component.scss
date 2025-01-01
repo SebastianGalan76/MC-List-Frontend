@@ -68,6 +68,18 @@
 
                     margin: auto;
                 }
+
+                .menu-panel{
+                    background-color: $color-dark;
+                    padding: 10px;
+                    border-radius: 10px;
+
+                    .info{
+                        text-align: center;
+                        display: block;
+                        margin-top: 5px;
+                    }
+                }
             }
 
             #server-status-response-error {

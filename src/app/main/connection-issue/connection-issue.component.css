@@ -1,0 +1,15 @@
+.center {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+#container {
+  margin: auto;
+  width: 600px;
+}
+@media (max-width: 600px) {
+  #container {
+    width: 100%;
+  }
+}/*# sourceMappingURL=connection-issue.component.css.map */

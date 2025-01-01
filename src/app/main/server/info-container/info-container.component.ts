@@ -1,7 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ServerPage } from '../serverPage.service';
+import { ServerService } from '../../../../service/server/serverService';
 
 @Component({
   selector: 'app-server-info-container',
@@ -15,6 +16,14 @@ export class ServerInfoContainerComponent extends ServerPage {
   isLoaded: boolean = false;
 
   @ViewChild('mainContainer') outletContainer!: ElementRef;
+
+  constructor(
+      protected override serverService: ServerService,
+      protected override route: ActivatedRoute,
+      private router: Router,
+    ) {
+      super(route, serverService);
+    }
 
   override onLoad(): void {
     this.navButtons = [];
@@ -60,6 +69,17 @@ export class ServerInfoContainerComponent extends ServerPage {
       destination: '/server/' + this.server.ip + '/ratings',
       isSelected: false
     });
+
+    const url = this.router.url;
+    const parts = url.split('/');
+    const currentSection = parts[parts.length - 1];
+
+    this.navButtons.forEach(button => {
+      var destination = button.destination;
+      if (destination.includes(currentSection)) {
+        button.isSelected = true;
+      }
+    })
   }
 
   selectButton(button: any) {

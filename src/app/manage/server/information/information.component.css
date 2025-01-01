@@ -445,6 +445,16 @@ textarea {
   gap: 10px;
   margin: auto;
 }
+#container #content section #form-container .menu-panel {
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  padding: 10px;
+  border-radius: 10px;
+}
+#container #content section #form-container .menu-panel .info {
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+}
 #container #content section #server-status-response-error {
   border: 2px solid rgb(252, 99, 107);
   border-radius: 10px;

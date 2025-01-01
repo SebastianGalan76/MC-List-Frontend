@@ -1,7 +1,32 @@
 #information-main-container .h {
   font-weight: 700;
 }
-#information-main-container .info-con {
-  margin-top: 10px;
-  display: block;
+#information-main-container #container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+#information-main-container .row {
+  display: flex;
+  gap: 15px;
+}
+#information-main-container .item {
+  background-color: rgba(0, 0, 0, 0.2588235294);
+  padding: 10px;
+  flex-grow: 1;
+  border-radius: 10px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#information-main-container .item .content {
+  font-weight: 700;
+}
+#information-main-container .item .label {
+  font-style: italic;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.5882352941);
 }/*# sourceMappingURL=info.component.css.map */

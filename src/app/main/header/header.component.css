@@ -34,18 +34,6 @@ header .wrapper .left-panel .button-container ul li {
   font-weight: 600;
   padding: 0 5px;
 }
-header .wrapper .left-panel .button-container ul li.add-server-button {
-  color: rgb(92, 228, 98);
-}
-header .wrapper .left-panel .button-container ul li.add-server-button:hover {
-  color: rgb(69, 202, 76);
-}
-header .wrapper .left-panel .button-container ul li.buy-banner-button {
-  color: #ffd447;
-}
-header .wrapper .left-panel .button-container ul li.buy-banner-button:hover {
-  color: #e9be32;
-}
 header .wrapper .left-panel .button-container ul li:hover {
   cursor: pointer;
   color: rgb(226, 221, 186);
@@ -78,6 +66,11 @@ header .wrapper .right-panel #menu-button {
 header .wrapper .right-panel #menu-button:hover {
   cursor: pointer;
   color: #e2a258;
+}
+@media (max-width: 750px) {
+  header .wrapper .right-panel #user-section-main {
+    display: none;
+  }
 }
 header .right-panel-menu {
   display: none;
@@ -185,4 +178,20 @@ header .right-panel-menu.active {
 .sign-in:hover {
   cursor: pointer;
   background-color: #ce8e45;
+}
+
+li.add-server-button {
+  color: rgb(92, 228, 98);
+}
+
+li.add-server-button:hover {
+  color: rgb(69, 202, 76);
+}
+
+li.buy-banner-button {
+  color: #ffd447;
+}
+
+li.buy-banner-button:hover {
+  color: #e9be32;
 }/*# sourceMappingURL=header.component.css.map */

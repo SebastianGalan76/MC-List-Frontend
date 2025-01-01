@@ -5,18 +5,18 @@ import { OptionValue, SelectComponent } from '../../../shared/input/select/selec
 import { ServerVersionService } from '../../../../service/serverVersion.service';
 import { ServerModeService } from '../../../../service/serverMode.service';
 import { NotificationService, NotificationType } from '../../../../service/notification.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ServerService } from '../../../../service/server/serverService';
 import { ApiService } from '../../../../service/api.service';
 import { RedirectResponse } from '../../../../model/response/RedirectResponse';
-import { defer, of } from 'rxjs';
+import { defer, forkJoin, of } from 'rxjs';
 import { ManageServerComponent } from '../manageServer.component';
 import { Utils } from '../../../../service/utils.service';
+import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-information-manage-server',
   standalone: true,
-  imports: [FormsModule, SelectComponent, LottieComponent],
+  imports: [FormsModule, SelectComponent, LottieComponent, RouterLink, NgIf],
   templateUrl: './information.component.html',
   styleUrl: './information.component.scss'
 })
@@ -33,60 +33,62 @@ export class InformationManageServerComponent {
   loading: boolean = false;
   responseError: boolean = false;
 
+  isServerLoaded: boolean = false;
+
   constructor(
     public parent: ManageServerComponent,
-    private serverService: ServerService,
     private apiService: ApiService,
     private serverVersionService: ServerVersionService,
     private serverModeService: ServerModeService,
     private notificationService: NotificationService,
-    private router: Router,
-    private route: ActivatedRoute
   ) {
-    serverVersionService.getVersionList().subscribe(list => {
-      list.forEach(item => {
+    const versionList$ = this.serverVersionService.getVersionList();
+    const modeList$ = this.serverModeService.getVersionList();
+
+    forkJoin([versionList$, modeList$]).subscribe(([versionList, modeList]) => {
+      versionList.forEach(item => {
         this.versionOptions.push({
           item: item,
           isSelected: false,
           isVisibled: true,
         })
       })
-    });
 
-    serverModeService.getVersionList().subscribe(list => {
-      list.forEach(item => {
+      modeList.forEach(item => {
         this.modeOptions.push({
           item: item,
           isSelected: false,
           isVisibled: true,
         })
       })
-    })
 
-    defer(() => this.parent.server ? of(null) : this.parent.serverInitialized).subscribe(() => {
-      var server = this.parent.server;
-
-      if (server) {
-        this.ip = server.name.name;
-        this.port = server.port == 0 ? null : server!.port;
-
-        this.premium = server.premium;
-        this.mods = server.mods;
-
-        var selectedVersionsIds = server.versions.map(version => version.id);
-        this.versionOptions.forEach(version => {
-          if (selectedVersionsIds.find(id => id == version.item.id)) {
-            version.isSelected = true;
+      defer(() => this.parent.server ? of(null) : this.parent.serverInitialized).subscribe(() => {
+        var server = this.parent.server;
+  
+        if (server) {
+          this.ip = server.name.name;
+          this.port = server.port == 0 ? null : server!.port;
+  
+          this.premium = server.premium;
+          this.mods = server.mods;
+  
+          var selectedVersionsIds = server.versions.map(version => version.id);
+          this.versionOptions.forEach(version => {
+            if (selectedVersionsIds.find(id => id == version.item.id)) {
+              version.isSelected = true;
+            }
+          });
+  
+          if (server.mode) {
+            var modeOptions = this.modeOptions.find(mode => mode.item.id == server.mode!.id);
+            if (modeOptions) {
+              modeOptions.isSelected = true;
+            }
           }
-        });
-
-        if (server.mode) {
-          var modeOptions = this.modeOptions.find(mode => mode.item.id == server.mode!.id);
-          if (modeOptions) {
-            modeOptions.isSelected = true;
-          }
+  
+          this.isServerLoaded = true;
         }
-      }
+      })
     })
   }
 

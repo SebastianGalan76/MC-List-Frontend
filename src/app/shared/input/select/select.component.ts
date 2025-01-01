@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 export interface Item {
@@ -33,7 +33,9 @@ export class SelectComponent {
 
   constructor(
     private elementRef: ElementRef
-  ) {}
+  ) {
+    
+  }
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent){
@@ -90,15 +92,5 @@ export class SelectComponent {
     this.selected--;
 
     this.onChange.emit();
-  }
-
-  populateList(list: Item[]) {
-    list.forEach(item => {
-      this.options.push({
-        item: item,
-        isSelected: false,
-        isVisibled: true,
-      })
-    })
   }
 }
