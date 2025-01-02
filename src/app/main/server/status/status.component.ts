@@ -4,7 +4,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Utils } from '../../../../service/utils.service';
 import { ServerPage } from '../serverPage.service';
 import { ServerService } from '../../../../service/server/serverService';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-server-status',
@@ -21,8 +21,9 @@ export class ServerStatusComponent extends ServerPage {
     private sanitizer: DomSanitizer,
     protected override serverService: ServerService,
     protected override route: ActivatedRoute,
+    protected override router: Router,
   ) {
-    super(route, serverService);
+    super(route, serverService, router);
   }
   
   override onLoad(): void {

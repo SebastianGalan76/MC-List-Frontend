@@ -13,7 +13,8 @@ export class ServerPage implements OnInit{
 
   constructor(
     protected route: ActivatedRoute,
-    protected serverService: ServerService
+    protected serverService: ServerService,
+    protected router: Router
   ) {}
 
   ngOnInit(): void {
@@ -24,6 +25,9 @@ export class ServerPage implements OnInit{
         if (response) {
           this.server = response;
           this.onLoad();
+        }
+        else{
+          this.router.navigate(['/error/404']);
         }
       })
 

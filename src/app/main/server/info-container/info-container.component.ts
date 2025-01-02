@@ -21,9 +21,9 @@ export class ServerInfoContainerComponent extends ServerPage {
   constructor(
     protected override serverService: ServerService,
     protected override route: ActivatedRoute,
-    private router: Router,
+    protected override router: Router,
   ) {
-    super(route, serverService);
+    super(route, serverService, router);
   }
 
   override onLoad(): void {

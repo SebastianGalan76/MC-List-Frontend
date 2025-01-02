@@ -23,10 +23,11 @@ export class ServerComponent extends ServerPage {
   constructor(
     protected override serverService: ServerService,
     protected override route: ActivatedRoute,
+    protected override router: Router,
     private notificationService: NotificationService,
     private popupService: PopupService
   ) {
-    super(route, serverService);
+    super(route, serverService, router);
   }
 
   copyServerIP() {
