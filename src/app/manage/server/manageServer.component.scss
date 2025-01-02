@@ -16,5 +16,9 @@
         min-height: 100vh;
 
         margin: auto;
+
+        @media (max-width: 1000px) {
+            width: 100%;
+        }
     }
 }

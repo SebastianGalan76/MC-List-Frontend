@@ -77,6 +77,10 @@
                 cursor: pointer;
                 background-color: $color-theme-dark;
             }
+
+            @media (max-width: 850px){
+                width: 100%;
+            }
         }
     }
 }

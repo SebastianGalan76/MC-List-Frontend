@@ -6,7 +6,7 @@
         <div id="add-button" class="button" (click)="addRank()">Dodaj</div>
 
         <section>
-            <ul id="list-container" class="sortable-list-link" cdkDropList (cdkDropListDropped)="onDrop($event)">
+            <ul id="item-list-container" cdkDropList (cdkDropListDropped)="onDrop($event)">
                 @for (role of staff; track $index) {
                 <li class="item" cdkDrag [cdkDragData]="role" (click)="editRank(role)">
                     <div class="name-preview" [ngStyle]="{'color': role.color}">{{role.name}}</div>

@@ -1407,4 +1407,9 @@
 #container #content section #submit-button:hover {
   cursor: pointer;
   background-color: #ce8e45;
+}
+@media (max-width: 900px) {
+  #container #content section {
+    width: 100%;
+  }
 }/*# sourceMappingURL=description.component.css.map */

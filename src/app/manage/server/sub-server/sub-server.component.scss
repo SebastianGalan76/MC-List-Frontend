@@ -1,5 +1,4 @@
 @import "../../../../styles/base";
-@import "../../../../styles/quillEditor.scss";
 
 @mixin item {
     background-color: #ffffff1e;
@@ -14,22 +13,30 @@
     justify-content: space-between;
     padding: 20px 30px;
 
-    .link-name-preview {
+    .name-preview {
+        color: $color-theme;
+
         font-weight: 800;
         font-size: 1.5em;
+
+        overflow-y: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .right-panel {
         display: flex;
         gap: 20px;
         align-items: center;
+        flex-shrink: 0;
 
         .click-to-edit {
             font-size: 0.9em;
             color: #c7c7c7;
         }
 
-        .remove-link-button {
+        .remove-button {
             padding: 8px 10px;
             width: fit-content;
             height: fit-content;
@@ -40,9 +47,23 @@
             border-radius: 10px;
         }
 
-        .remove-link-button:hover {
+        .remove-button:hover {
             cursor: pointer;
             background-color: rgba(255, 0, 0, 0.664);
+        }
+    }
+
+    @media (max-width: 500px) {
+        padding: 10px;
+        border-radius: 10px;
+
+        .name-preview {
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .right-panel {
+            gap: 10px;
         }
     }
 }
@@ -88,11 +109,11 @@
             cursor: pointer;
         }
 
-        #add-link-button {
+        #add-button {
             background-color: $color-green;
         }
 
-        #add-link-button:hover {
+        #add-button:hover {
             background-color: $color-green-dark;
         }
 
@@ -102,18 +123,22 @@
 
             margin: auto;
 
-            #link-list-container {
-                .link {
+            #item-list-container {
+                .item {
                     @include item();
                     backdrop-filter: blur(5px);
                 }
 
-                .link:hover {
+                .selected {
+                    background-color: $color-theme;
+                }
+
+                .item:hover {
                     cursor: pointer;
                     background-color: #ffffff3f;
                 }
 
-                .link.cdk-drag-placeholder {
+                .item.cdk-drag-placeholder {
                     opacity: 0.25;
                 }
             }
@@ -130,11 +155,15 @@
             #submit-button:hover {
                 background-color: $color-theme-dark;
             }
+
+            @media (max-width: 850px) {
+                width: 100%;
+            }
         }
     }
 }
 
-.link.cdk-drag-preview {
+.item.cdk-drag-preview {
     @include item();
 
     background-color: #161616;

@@ -43,153 +43,153 @@ import { InfoManageServerComponent } from './manage/server/info/info.component';
 import { ContactComponent } from './main/contact/contact.component';
 
 export const routes: Routes = [
-    {
-        path: "auth",
-        component: AuthComponent,
-        children: [{
-            path: "signIn",
-            component: SignInComponent
-        }, {
-            path: "signUp",
-            component: SignUpComponent
-        }, {
-            path: "resetPassword",
-            component: ResetPasswordComponent
-        }, {
-            path: 'active/:uuid',
-            component: SignInComponent
-        }],
-    },
-    {
-        path: 'add-new-server',
-        component: AddNewServerComponent
+{
+    path: "auth",
+    component: AuthComponent,
+    children: [{
+        path: "signIn",
+        component: SignInComponent
     }, {
-        path: "manage/server/:ip",
-        component: ManageServerComponent,
-        canActivate: [manageServerAuthGuard],
-        children: [
-            {
-                path: "info",
-                component: InformationManageServerComponent,
-                canDeactivate: [unsavedChangesGuard],
-            }, {
-                path: "remove",
-                component: RemoveManageServerComponent,
-            }, {
-                path: "description",
-                component: DescriptionManageServerComponent,
-                canDeactivate: [unsavedChangesGuard],
-            }, {
-                path: "banner",
-                component: BannerManageServerComponent,
-                canDeactivate: [unsavedChangesGuard],
-            }, {
-                path: "link",
-                component: LinkManageServerComponent,
-            }, {
-                path: "mode",
-                component: SubServerManageServerComponent,
-            }, {
-                path: "role",
-                component: RoleManageServerComponent,
-            }, {
-                path: "staff",
-                component: StaffManageServerComponent,
-            }, {
-                path: "promote",
-                component: PromoteManageServerComponent,
-            }, {
-                path: "",
-                component: InfoManageServerComponent
-            }]
-    },
-    {
-        path: "user",
-        component: ManageUserComponent,
-        canActivate: [manageUserAuthGuard],
-        children: [{
-            path: "servers",
-            component: ServersManageUserComponent
-        }, {
-            path: "banners",
-            component: BannersManageUserComponent
-        },
+        path: "signUp",
+        component: SignUpComponent
+    }, {
+        path: "resetPassword",
+        component: ResetPasswordComponent
+    }, {
+        path: 'active/:uuid',
+        component: SignInComponent
+    }],
+},
+{
+    path: 'add-new-server',
+    component: AddNewServerComponent
+}, {
+    path: "manage/server/:ip",
+    component: ManageServerComponent,
+    canActivate: [manageServerAuthGuard],
+    children: [
         {
+            path: "info",
+            component: InformationManageServerComponent,
+            canDeactivate: [unsavedChangesGuard],
+        }, {
+            path: "remove",
+            component: RemoveManageServerComponent,
+        }, {
+            path: "description",
+            component: DescriptionManageServerComponent,
+            canDeactivate: [unsavedChangesGuard],
+        }, {
+            path: "banner",
+            component: BannerManageServerComponent,
+            canDeactivate: [unsavedChangesGuard],
+        }, {
+            path: "link",
+            component: LinkManageServerComponent,
+        }, {
+            path: "mode",
+            component: SubServerManageServerComponent,
+        }, {
+            path: "role",
+            component: RoleManageServerComponent,
+        }, {
+            path: "staff",
+            component: StaffManageServerComponent,
+        }, {
+            path: "promote",
+            component: PromoteManageServerComponent,
+        }, {
             path: "",
-            component: ProfileManageUserComponent
+            component: InfoManageServerComponent
         }]
+},
+{
+    path: "user",
+    component: ManageUserComponent,
+    canActivate: [manageUserAuthGuard],
+    children: [{
+        path: "servers",
+        component: ServersManageUserComponent
+    }, {
+        path: "banners",
+        component: BannersManageUserComponent
     },
     {
         path: "",
-        component: MainPageComponent,
+        component: ProfileManageUserComponent
+    }]
+},
+{
+    path: "",
+    component: MainPageComponent,
+    children: [{
+        path: "",
+        component: HomePageComponent
+    }, {
+        path: "server/:ip",
+        component: ServerComponent,
         children: [{
             path: "",
-            component: HomePageComponent
-        }, {
-            path: "server/:ip",
-            component: ServerComponent,
+            component: ServerInfoContainerComponent,
             children: [{
+                path: "description",
+                component: ServerDescriptionComponent
+            },
+            {
+                path: "staff",
+                component: ServerStaffComponent
+            },
+            {
+                path: "statistics",
+                component: ServerStatisticsComponent
+            },
+            {
+                path: "ratings",
+                component: ServerRatingsComponent
+            },
+            {
+                path: "modes",
+                component: ServerModesComponent
+            },
+            {
+                path: "info",
+                component: ServerInfoComponent
+            },
+            {
+                path: "report",
+                component: ServerReportComponent
+            },
+            {
+                path: "promote",
+                component: ServerPromoteComponent
+            },
+            {
+                path: "adopt",
+                component: ServerAdoptComponent
+            },
+            {
                 path: "",
-                component: ServerInfoContainerComponent,
-                children: [{
-                    path: "description",
-                    component: ServerDescriptionComponent
-                },
-                {
-                    path: "staff",
-                    component: ServerStaffComponent
-                },
-                {
-                    path: "statistics",
-                    component: ServerStatisticsComponent
-                },
-                {
-                    path: "ratings",
-                    component: ServerRatingsComponent
-                },
-                {
-                    path: "modes",
-                    component: ServerModesComponent
-                },
-                {
-                    path: "info",
-                    component: ServerInfoComponent
-                },
-                {
-                    path: "report",
-                    component: ServerReportComponent
-                },
-                {
-                    path: "promote",
-                    component: ServerPromoteComponent
-                },
-                {
-                    path: "adopt",
-                    component: ServerAdoptComponent
-                },
-                {
-                    path: "",
-                    component: ServerInfoComponent
-                }]
+                component: ServerInfoComponent
             }]
-        }, {
-            path: "regulamin",
-            component: RulesComponent
-        }, {
-            path: "kontakt",
-            component: ContactComponent
-        },  {
-            path: "rewards",
-            component: RewardsComponent
-        }, {
-            path: "connection-issue",
-            component: ConnectionIssueComponent
-        }, {
-            path: "privacy-policy",
-            component: PrivacyPolicyComponent
-        }, {
-            path: "banner",
-            component: BannerPurchaseComponent
         }]
-    }
+    }, {
+        path: "regulamin",
+        component: RulesComponent
+    }, {
+        path: "kontakt",
+        component: ContactComponent
+    }, {
+        path: "rewards",
+        component: RewardsComponent
+    }, {
+        path: "connection-issue",
+        component: ConnectionIssueComponent
+    }, {
+        path: "privacy-policy",
+        component: PrivacyPolicyComponent
+    }, {
+        path: "banner",
+        component: BannerPurchaseComponent
+    }]
+}
 ];

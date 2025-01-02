@@ -33,10 +33,10 @@
 #container #content .button:hover {
   cursor: pointer;
 }
-#container #content #add-link-button {
+#container #content #add-button {
   background-color: rgb(92, 228, 98);
 }
-#container #content #add-link-button:hover {
+#container #content #add-button:hover {
   background-color: rgb(69, 202, 76);
 }
 #container #content section {
@@ -44,7 +44,7 @@
   width: 800px;
   margin: auto;
 }
-#container #content section #link-list-container .link {
+#container #content section #item-list-container .item {
   background-color: rgba(255, 255, 255, 0.1176470588);
   border: 1px solid rgba(121, 121, 121, 0.5607843137);
   margin-top: 25px;
@@ -57,20 +57,25 @@
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
 }
-#container #content section #link-list-container .link .link-name-preview {
+#container #content section #item-list-container .item .name-preview {
+  color: #e2a258;
   font-weight: 800;
   font-size: 1.5em;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-#container #content section #link-list-container .link .right-panel {
+#container #content section #item-list-container .item .right-panel {
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-shrink: 0;
 }
-#container #content section #link-list-container .link .right-panel .click-to-edit {
+#container #content section #item-list-container .item .right-panel .click-to-edit {
   font-size: 0.9em;
   color: #c7c7c7;
 }
-#container #content section #link-list-container .link .right-panel .remove-link-button {
+#container #content section #item-list-container .item .right-panel .remove-button {
   padding: 8px 10px;
   width: -moz-fit-content;
   width: fit-content;
@@ -81,18 +86,31 @@
   border: 2px solid rgb(252, 99, 107);
   border-radius: 10px;
 }
-#container #content section #link-list-container .link .right-panel .remove-link-button:hover {
+#container #content section #item-list-container .item .right-panel .remove-button:hover {
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.664);
 }
-#container #content section #link-list-container .selected {
+@media (max-width: 500px) {
+  #container #content section #item-list-container .item {
+    padding: 10px;
+    border-radius: 10px;
+  }
+  #container #content section #item-list-container .item .name-preview {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  #container #content section #item-list-container .item .right-panel {
+    gap: 10px;
+  }
+}
+#container #content section #item-list-container .selected {
   background-color: #e2a258;
 }
-#container #content section #link-list-container .link:hover {
+#container #content section #item-list-container .item:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.2470588235);
 }
-#container #content section #link-list-container .link.cdk-drag-placeholder {
+#container #content section #item-list-container .item.cdk-drag-placeholder {
   opacity: 0.25;
 }
 #container #content section #submit-button {
@@ -107,8 +125,13 @@
 #container #content section #submit-button:hover {
   background-color: #ce8e45;
 }
+@media (max-width: 850px) {
+  #container #content section {
+    width: 100%;
+  }
+}
 
-.link.cdk-drag-preview {
+.item.cdk-drag-preview {
   background-color: rgba(255, 255, 255, 0.1176470588);
   border: 1px solid rgba(121, 121, 121, 0.5607843137);
   margin-top: 25px;
@@ -120,20 +143,25 @@
   padding: 20px 30px;
   background-color: #161616;
 }
-.link.cdk-drag-preview .link-name-preview {
+.item.cdk-drag-preview .name-preview {
+  color: #e2a258;
   font-weight: 800;
   font-size: 1.5em;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.link.cdk-drag-preview .right-panel {
+.item.cdk-drag-preview .right-panel {
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-shrink: 0;
 }
-.link.cdk-drag-preview .right-panel .click-to-edit {
+.item.cdk-drag-preview .right-panel .click-to-edit {
   font-size: 0.9em;
   color: #c7c7c7;
 }
-.link.cdk-drag-preview .right-panel .remove-link-button {
+.item.cdk-drag-preview .right-panel .remove-button {
   padding: 8px 10px;
   width: -moz-fit-content;
   width: fit-content;
@@ -144,7 +172,20 @@
   border: 2px solid rgb(252, 99, 107);
   border-radius: 10px;
 }
-.link.cdk-drag-preview .right-panel .remove-link-button:hover {
+.item.cdk-drag-preview .right-panel .remove-button:hover {
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.664);
+}
+@media (max-width: 500px) {
+  .item.cdk-drag-preview {
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .item.cdk-drag-preview .name-preview {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .item.cdk-drag-preview .right-panel {
+    gap: 10px;
+  }
 }/*# sourceMappingURL=link.component.css.map */

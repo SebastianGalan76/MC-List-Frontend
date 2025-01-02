@@ -1,5 +1,4 @@
 @import "../../../../styles/base";
-@import "../../../../styles/quillEditor.scss";
 
 @mixin item {
     background-color: #ffffff1e;
@@ -15,14 +14,22 @@
     padding: 20px 30px;
 
     .name-preview {
+        color: $color-theme;
+
         font-weight: 800;
         font-size: 1.5em;
+
+        overflow-y: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .right-panel {
         display: flex;
         gap: 20px;
         align-items: center;
+        flex-shrink: 0;
 
         .click-to-edit {
             font-size: 0.9em;
@@ -43,6 +50,20 @@
         .remove-button:hover {
             cursor: pointer;
             background-color: rgba(255, 0, 0, 0.664);
+        }
+    }
+
+    @media (max-width: 500px) {
+        padding: 10px;
+        border-radius: 10px;
+
+        .name-preview {
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .right-panel {
+            gap: 10px;
         }
     }
 }
@@ -73,43 +94,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 20px;
-
-        #info-container{
-            padding-bottom: 20px;
-
-            .info{
-                text-align: center;
-            }
-
-            #role-description{
-                display: flex;
-                gap: 20px;
-                flex-wrap: wrap;
-                margin-top: 20px;
-        
-                .role{
-                    background-color: $color-dark;
-                    border-radius: 20px;
-                    padding: 20px;
-        
-                    border: 2px solid $color-theme;
-        
-                    flex-grow: 1;
-        
-                    .title{
-                        font-weight: 800;
-                        text-align: center;
-        
-                        margin-bottom: 25px;
-                    }
-        
-                    ul{
-                        list-style-type: none;
-                    }
-                }
-            }
-        }
+        padding: 20px;
 
         .button {
             padding: 15px;
@@ -126,7 +111,6 @@
 
         #add-button {
             background-color: $color-green;
-            margin-top: 20px;
         }
 
         #add-button:hover {
@@ -139,10 +123,14 @@
 
             margin: auto;
 
-            #list-container {
+            #item-list-container {
                 .item {
                     @include item();
                     backdrop-filter: blur(5px);
+                }
+
+                .selected {
+                    background-color: $color-theme;
                 }
 
                 .item:hover {
@@ -166,6 +154,10 @@
 
             #submit-button:hover {
                 background-color: $color-theme-dark;
+            }
+
+            @media (max-width: 850px) {
+                width: 100%;
             }
         }
     }

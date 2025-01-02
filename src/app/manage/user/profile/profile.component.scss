@@ -52,6 +52,27 @@
                     padding: 15px 30px;
                 }
             }
+
+            @media (max-width: 700px){
+                #head{
+                    width: 100px;
+                    height: 100px;
+
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            @media (max-width: 500px){
+                flex-direction: column;
+                align-items: center;
+
+                #form-container{
+                    width: 100%;
+                }
+            }
         }
 
         #password{
@@ -80,9 +101,19 @@
     border-radius: 15px;
 
     font-weight: 600;
+
+    @media (max-width: 800px){
+        padding: 10px 20px !important;
+    }
 }
 
 .submit-button:hover{
     cursor: pointer;
     background-color: $color-theme-dark;
+}
+
+.panel{
+    @media (max-width: 500px){
+        padding: 10px !important;
+    }
 }

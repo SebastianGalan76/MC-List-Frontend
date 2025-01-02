@@ -2,17 +2,17 @@
     <h1 id="header">Tryby serwera</h1>
     <div class="divider-line-horizontal"></div>
     <div id="content">
-        <div id="add-link-button" class="button" (click)="add()">Dodaj</div>
+        <div id="add-button" class="button" (click)="add()">Dodaj</div>
 
         <section>
-            <ul id="link-list-container" class="sortable-list-link" cdkDropList (cdkDropListDropped)="onDrop($event)">
+            <ul id="item-list-container" cdkDropList (cdkDropListDropped)="onDrop($event)">
                 @for (subServer of subServers; track $index) {
-                <li class="link item" cdkDrag [cdkDragData]="subServer" (click)="edit(subServer)">
-                    <div class="link-name-preview" [ngStyle]="{'color': subServer.name.color}">{{subServer.name.name}}</div>
+                <li class="item" cdkDrag [cdkDragData]="subServer" (click)="edit(subServer)">
+                    <div class="name-preview" [ngStyle]="{'color': subServer.name.color}">{{subServer.name.name}}</div>
 
                     <div class="right-panel">
                         <div class="click-to-edit">Kliknij, aby edytować</div>
-                        <div class="remove-link-button" (click)="removeSubServer(subServer, $event)">
+                        <div class="remove-button" (click)="removeSubServer(subServer, $event)">
                             <i class="fa-solid fa-trash" aria-hidden="true"></i>
                         </div>
                     </div>

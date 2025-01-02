@@ -435,6 +435,25 @@ textarea {
 #container #content #user-data #form-container .submit-button {
   padding: 15px 30px;
 }
+@media (max-width: 700px) {
+  #container #content #user-data #head {
+    width: 100px;
+    height: 100px;
+  }
+  #container #content #user-data #head img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 500px) {
+  #container #content #user-data {
+    flex-direction: column;
+    align-items: center;
+  }
+  #container #content #user-data #form-container {
+    width: 100%;
+  }
+}
 #container #content #password {
   display: flex;
   flex-direction: column;
@@ -459,8 +478,19 @@ textarea {
   border-radius: 15px;
   font-weight: 600;
 }
+@media (max-width: 800px) {
+  .submit-button {
+    padding: 10px 20px !important;
+  }
+}
 
 .submit-button:hover {
   cursor: pointer;
   background-color: #ce8e45;
+}
+
+@media (max-width: 500px) {
+  .panel {
+    padding: 10px !important;
+  }
 }/*# sourceMappingURL=profile.component.css.map */

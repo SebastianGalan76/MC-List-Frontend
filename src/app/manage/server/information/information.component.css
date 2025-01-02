@@ -491,7 +491,7 @@ textarea {
 }
 @media (max-width: 500px) {
   #container #content section {
-    padding: 0 25px;
+    padding: 0 5px;
     width: 100%;
     min-width: 300px;
     box-sizing: border-box;
@@ -514,4 +514,9 @@ textarea {
 #container #content section #submit-button:hover {
   cursor: pointer;
   background-color: #ce8e45;
+}
+@media (max-width: 500px) {
+  #container #content {
+    padding: 20px 8px;
+  }
 }/*# sourceMappingURL=information.component.css.map */

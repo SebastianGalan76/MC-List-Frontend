@@ -11,4 +11,9 @@
   width: 1000px;
   min-height: 100vh;
   margin: auto;
+}
+@media (max-width: 1000px) {
+  #container #content {
+    width: 100%;
+  }
 }/*# sourceMappingURL=manageServer.component.css.map */

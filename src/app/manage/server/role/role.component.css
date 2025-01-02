@@ -1405,6 +1405,17 @@
 #container #content #info-container #role-description .role ul {
   list-style-type: none;
 }
+@media (max-width: 400px) {
+  #container #content #info-container #role-description {
+    gap: 10px;
+  }
+  #container #content #info-container #role-description .role {
+    padding: 10px;
+  }
+  #container #content #info-container #role-description .role .title {
+    margin-bottom: 10px;
+  }
+}
 #container #content .button {
   padding: 15px;
   border-radius: 15px;
@@ -1492,4 +1503,9 @@
 }
 #container #content section #submit-button:hover {
   background-color: #ce8e45;
+}
+@media (max-width: 850px) {
+  #container #content section {
+    width: 100%;
+  }
 }/*# sourceMappingURL=role.component.css.map */

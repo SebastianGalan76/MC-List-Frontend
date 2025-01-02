@@ -454,4 +454,9 @@ textarea {
 #container #content section #submit-button:hover {
   cursor: pointer;
   background-color: #ce8e45;
+}
+@media (max-width: 850px) {
+  #container #content section {
+    width: 100%;
+  }
 }/*# sourceMappingURL=banner.component.css.map */

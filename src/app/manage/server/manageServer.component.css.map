@@ -1,1 +1,1 @@
-{"version":3,"sources":["manageServer.component.scss","manageServer.component.css"],"names":[],"mappings":"AAEA;EACI,WAAA;EACA,iBAAA;EAEA,aAAA;EACA,kBAAA;ACFJ;ADII;EACI,cAAA;ACFR;ADKI;EACI,aAAA;EACA,iBAAA;EAEA,YAAA;ACJR","file":"manageServer.component.css"}
+{"version":3,"sources":["manageServer.component.scss","manageServer.component.css"],"names":[],"mappings":"AAEA;EACI,WAAA;EACA,iBAAA;EAEA,aAAA;EACA,kBAAA;ACFJ;ADII;EACI,cAAA;ACFR;ADKI;EACI,aAAA;EACA,iBAAA;EAEA,YAAA;ACJR;ADMQ;EANJ;IAOQ,WAAA;ECHV;AACF","file":"manageServer.component.css"}

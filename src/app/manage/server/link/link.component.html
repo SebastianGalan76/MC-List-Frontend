@@ -2,17 +2,17 @@
     <h1 id="header">Linki serwera</h1>
     <div class="divider-line-horizontal"></div>
     <div id="content">
-        <div id="add-link-button" class="button" (click)="addNewLink()">Dodaj</div>
+        <div id="add-button" class="button" (click)="addNewLink()">Dodaj</div>
 
         <section>
-            <ul id="link-list-container" class="sortable-list-link" cdkDropList (cdkDropListDropped)="onDrop($event)">
+            <ul id="item-list-container" cdkDropList (cdkDropListDropped)="onDrop($event)">
                 @for (link of links; track $index) {
-                <li class="link item" cdkDrag [cdkDragData]="link" (click)="editLink(link)">
-                    <div class="link-name-preview">{{link.name}}</div>
+                <li class="item" cdkDrag [cdkDragData]="link" (click)="editLink(link)">
+                    <div class="name-preview">{{link.name}}</div>
 
                     <div class="right-panel">
                         <div class="click-to-edit">Kliknij, aby edytować</div>
-                        <div class="remove-link-button" (click)="removeServerLink(link, $event)">
+                        <div class="remove-button" (click)="removeServerLink(link, $event)">
                             <i class="fa-solid fa-trash" aria-hidden="true"></i>
                         </div>
                     </div>
