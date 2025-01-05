@@ -1,0 +1,20 @@
+@import "../../../styles/base";
+
+#container{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    position: relative;
+    
+    #aside-menu{
+        flex-shrink: 0;
+    }
+
+    #content{
+        width: 1000px;
+        min-height: 100vh;
+
+        margin: auto;
+    }
+}

@@ -39,6 +39,10 @@
 .server-link .icon {
   font-size: 1.15em;
 }
+.server-link .name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 @media (max-width: 600px) {
   .server-link {
     font-size: 0.9em;

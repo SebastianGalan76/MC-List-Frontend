@@ -21,6 +21,8 @@
 #subservers-main-container .subserver .title {
   font-size: 1.2em;
   font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 #subservers-main-container .subserver .tag-container {
   margin-top: 20px;

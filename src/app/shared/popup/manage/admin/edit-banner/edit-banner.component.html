@@ -1,0 +1,64 @@
+<div id="container">
+    <div id="header">
+        <span class="title">Edytowanie banera</span>
+        <i class="fa-solid fa-xmark close-button" (click)="closePopup()"></i>
+    </div>
+    <div id="banner-container" [classList]="banner.size">
+        <div class="banner-preview">
+            <div class="banner">
+                <img id="banner-preview-img" [src]="selectedFile ? imageUrl: 'http://localhost:8080'+imageUrl" />
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="form-container">
+        <div class="title">Edytuj dane</div>
+        <div class="input-area">
+            <input type="text" placeholder="Docelowy link (np. sklep, discord, strona główna)" maxlength="256"
+                [(ngModel)]="bannerLink">
+            <div class="icon">
+                <i class="fa-solid fa-link"></i>
+            </div>
+        </div>
+
+        <div class="file-input-container center">
+            <div class="file-input">
+                <button type="button" (click)="fileInputs.click()">Zmień plik</button>
+                <input type="file" id="file-input" size="1" (change)="onFileChange($event)" #fileInputs>
+            </div>
+            <span class="file-name" id="file-name">{{fileName}}</span>
+
+            <div class="icon">
+                <i class="fa-solid fa-file"></i>
+            </div>
+        </div>
+
+        <div id="button-container">
+            <div class="button remove" (click)="remove()">Usuń baner</div>
+
+            <div>
+                <div class="button cancel" (click)="closePopup()">Anuluj</div>
+                <div class="button" (click)="submit()">Zapisz</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container" style="margin-top: 50px;">
+        <div class="title">Weryfikacja</div>
+        <div class="input-area">
+            <input type="text" placeholder="Powód odrzucenia" maxlength="256"
+                [(ngModel)]="rejectReason">
+            <div class="icon">
+                <i class="fa-solid fa-link"></i>
+            </div>
+        </div>
+
+        <div id="button-container" >
+            <div class="button remove" (click)="reject()">Odrzuć baner</div>
+
+            <div>
+                <div class="button accept" (click)="accept()">Zaakceptuj</div>
+            </div>
+        </div>
+    </div>
+</div>

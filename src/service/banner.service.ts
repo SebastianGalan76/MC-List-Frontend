@@ -9,6 +9,7 @@ import { ObjectResponse } from '../model/response/ObjectResponse';
 })
 export class BannerService {
   userBanners: Banner[] | null = null;
+  adminBanners: Banner[] | null = null;
 
   banners: Banner[] | null = null;
 
@@ -41,6 +42,27 @@ export class BannerService {
       map(data => {
         if (data) {
           this.userBanners = data;
+          return data;
+        }
+        else {
+          return [];
+        }
+      }),
+      catchError(error => {
+        console.error('Błąd pobierania banerów', error);
+        return of([]);
+      }));
+  }
+
+  public getAdminBanners(): Observable<Banner[]> {
+    if (this.adminBanners) {
+      return of(this.adminBanners);
+    }
+
+    return this.apiService.get<Banner[]>("/admin/banners", { withCredentials: true }).pipe(
+      map(data => {
+        if (data) {
+          this.adminBanners = data;
           return data;
         }
         else {

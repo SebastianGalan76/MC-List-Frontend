@@ -1,0 +1,151 @@
+#container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  z-index: 100;
+}
+@media (max-width: 1350px) {
+  #container {
+    width: 250px;
+  }
+}
+@media (max-width: 1150px) {
+  #container {
+    width: 0;
+  }
+}
+
+#wrapper {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+#wrapper #content-wrapper {
+  background-color: rgb(22, 22, 22);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#wrapper #content-wrapper #content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+#wrapper #content-wrapper #content #user-profile {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #e2a258;
+}
+#wrapper #content-wrapper #content #user-profile .profile-picture {
+  height: 50px;
+  width: auto;
+}
+#wrapper #content-wrapper #content #user-profile .profile-picture img {
+  height: 100%;
+  width: auto;
+}
+#wrapper #content-wrapper #content #user-profile .info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#wrapper #content-wrapper #content #user-profile .info .login {
+  font-weight: 700;
+}
+#wrapper #content-wrapper #content #menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+#wrapper #content-wrapper #content #menu-container .header {
+  font-weight: 800;
+  margin-left: 25px;
+}
+#wrapper #content-wrapper #content #menu-container .button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.044);
+  font-weight: 600;
+}
+#wrapper #content-wrapper #content #menu-container .button.blocked {
+  background-color: rgba(118, 107, 107, 0.044);
+  color: rgba(131, 131, 131, 0.819);
+}
+#wrapper #content-wrapper #content #menu-container .button.blocked:hover {
+  cursor: not-allowed;
+  background-color: rgba(118, 107, 107, 0.044);
+  color: rgba(131, 131, 131, 0.819);
+}
+#wrapper #content-wrapper #content #menu-container .button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.131);
+  color: #e2a258;
+}
+#wrapper #content-wrapper #content #server-page {
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  background-color: #e2a258;
+  padding: 10px;
+  border-radius: 10px;
+}
+#wrapper #content-wrapper #content #server-page:hover {
+  cursor: pointer;
+  background-color: #ce8e45;
+}
+#wrapper #content-wrapper #content #down-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (max-width: 1350px) {
+  #wrapper #content-wrapper #content {
+    padding: 20px 8px;
+  }
+}
+#wrapper #menu-button {
+  position: absolute;
+  right: -40px;
+  top: 90px;
+  width: 40px;
+  height: 40px;
+  background-color: #e2a258;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  border-radius: 0 10px 10px 0;
+}
+@media (min-width: 1150px) {
+  #wrapper #menu-button {
+    display: none;
+  }
+}
+#wrapper #menu-button:hover {
+  cursor: pointer;
+  background-color: #ce8e45;
+}
+#wrapper .divider-line-vertical {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.active {
+  width: 300px !important;
+}/*# sourceMappingURL=aside-menu.component.css.map */

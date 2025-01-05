@@ -1,19 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Banner } from '../../../../../../model/banner';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { Utils } from '../../../../../../service/utils.service';
+import { BannersManageComponent } from '../../../../../manage/user/banners/banners.component';
+import { ApiService } from '../../../../../../service/api.service';
 import { NotificationService, NotificationType } from '../../../../../../service/notification.service';
 import { PopupService } from '../../../../../../service/popup.service';
-import { ApiService } from '../../../../../../service/api.service';
-import { Response } from '../../../../../../model/response/Response';
+import { Utils } from '../../../../../../service/utils.service';
 import { ObjectResponse } from '../../../../../../model/response/ObjectResponse';
-import { BannersManageComponent } from '../../../../../manage/user/banners/banners.component';
+import { Response } from '../../../../../../model/response/Response';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-banner',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule],
   templateUrl: './edit-banner.component.html',
   styleUrl: './edit-banner.component.scss'
 })
@@ -26,6 +25,7 @@ export class EditBannerPopupComponent implements OnInit {
   imageUrl?: string;
 
   bannerLink: string = "";
+  rejectReason: string = "";
 
   constructor(
     private apiService: ApiService,
@@ -63,7 +63,7 @@ export class EditBannerPopupComponent implements OnInit {
       return;
     }
 
-    if(!this.selectedFile && this.bannerLink == this.banner.link){
+    if (!this.selectedFile && this.bannerLink == this.banner.link) {
       this.closePopup();
       return;
     }
@@ -81,13 +81,37 @@ export class EditBannerPopupComponent implements OnInit {
     })
   }
 
+  reject() {
+    this.apiService.post<Response>('/banner/' + this.banner.id + "/reject", null, { withCredentials: true, params: {reason: this.rejectReason}  }).subscribe({
+      next: (response) => {
+        this.notificationService.showNotification(response.message);
+        this.closePopup();
+      },
+      error: (response) => {
+        this.notificationService.showNotification(response.error.message, NotificationType.ERROR);
+      }
+    })
+  }
+
+  accept() {
+    this.apiService.post<Response>('/banner/' + this.banner.id + "/accept", null, { withCredentials: true}).subscribe({
+      next: (response) => {
+        this.notificationService.showNotification(response.message);
+        this.closePopup();
+      },
+      error: (response) => {
+        this.notificationService.showNotification(response.error.message, NotificationType.ERROR);
+      }
+    })
+  }
+
   remove() {
     this.popupService.showConfirmPopup([
       { name: "message", value: "Czy na pewno chcesz usunąć ten baner?" }
     ]).subscribe({
       next: (data) => {
         if (data.event == 'confirm') {
-          this.apiService.delete<Response>('/banner/'+this.banner.id, {withCredentials: true}).subscribe({
+          this.apiService.delete<Response>('/banner/' + this.banner.id, { withCredentials: true }).subscribe({
             next: (response) => {
               this.notificationService.showNotification(response.message);
               this.bannersManageComponent.removeBanner(this.banner);

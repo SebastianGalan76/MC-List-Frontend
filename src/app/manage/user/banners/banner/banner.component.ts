@@ -3,7 +3,7 @@ import { Banner } from '../../../../../model/banner';
 import { CommonModule, DatePipe } from '@angular/common';
 import { PopupService } from '../../../../../service/popup.service';
 import { EditBannerPopupComponent } from '../../../../shared/popup/manage/user/edit-banner/edit-banner.component';
-import { BannersManageUserComponent } from '../banners.component';
+import { BannersManageComponent } from '../banners.component';
 import { ApiService } from '../../../../../service/api.service';
 import { ObjectResponse } from '../../../../../model/response/ObjectResponse';
 import { PaymentDto } from '../../../../../model/PaymentDto';
@@ -21,9 +21,8 @@ export class BannerManageUserComponent {
   @Input() banner!: Banner;
 
   constructor(
-    private parent: BannersManageUserComponent,
+    private parent: BannersManageComponent,
     private apiService: ApiService,
-    private popupService: PopupService,
     private notificationService: NotificationService,
     private datePipe: DatePipe
   ) {
@@ -68,10 +67,7 @@ export class BannerManageUserComponent {
   }
 
   edit() {
-    this.popupService.showPopup(EditBannerPopupComponent, [
-      { name: "banner", value: this.banner },
-      { name: "bannerListComponent", value: this.parent }
-    ])
+    this.parent.editBanner(this.banner);
   }
 
   getStatus(): string {

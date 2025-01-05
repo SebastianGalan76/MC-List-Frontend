@@ -57,6 +57,10 @@
                 position: relative;
                 bottom: 5px;
                 margin-left: 5px;
+
+                @media (max-width: 500px){
+                    bottom: 2px;
+                }
             }
         }
     }

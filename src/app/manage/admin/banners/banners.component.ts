@@ -1,26 +1,20 @@
 import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { BannerManageUserComponent } from "./banner/banner.component";
 import { BannerService } from '../../../../service/banner.service';
+import { BannerManageUserComponent } from '../../user/banners/banner/banner.component';
 import { Banner } from '../../../../model/banner';
-import { RouterLink } from '@angular/router';
-import { EditBannerPopupComponent } from '../../../shared/popup/manage/user/edit-banner/edit-banner.component';
+import { BannersManageComponent } from '../../user/banners/banners.component';
 import { PopupService } from '../../../../service/popup.service';
-
-export abstract class BannersManageComponent{
-  abstract updateBanner(banner: Banner) : void;
-  abstract removeBanner(banner: Banner) : void;
-  abstract editBanner(banner: Banner) : void;
-}
+import { EditBannerPopupComponent } from '../../../shared/popup/manage/admin/edit-banner/edit-banner.component';
 
 @Component({
   selector: 'app-banners',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './banners.component.html',
   styleUrl: './banners.component.scss',
-  providers: [{provide: BannersManageComponent, useExisting: BannersManageUserComponent}]
+  providers: [{provide: BannersManageComponent, useExisting: BannersManageAdminComponent}]
 })
-export class BannersManageUserComponent extends BannersManageComponent implements OnInit {
+export class BannersManageAdminComponent extends BannersManageComponent implements OnInit{
   @ViewChild('bannerContainer', { read: ViewContainerRef, static: true })
   bannerContainer!: ViewContainerRef;
 
@@ -28,13 +22,13 @@ export class BannersManageUserComponent extends BannersManageComponent implement
 
   constructor(
     private bannerService: BannerService,
-    private popupService: PopupService,
+    private popupService: PopupService
   ) {
     super();
   }
 
   ngOnInit(): void {
-    this.bannerService.getUserBanners().subscribe({
+    this.bannerService.getAdminBanners().subscribe({
       next: (response) => {
         response.forEach(banner => {
           this.addBannerComponent(banner);
@@ -64,9 +58,9 @@ export class BannersManageUserComponent extends BannersManageComponent implement
   }
 
   editBanner(banner: Banner) {
-    this.popupService.showPopup(EditBannerPopupComponent, [
-      { name: "banner", value: banner },
-      { name: "bannersManageComponent", value: this }
-    ])
-  }
+      this.popupService.showPopup(EditBannerPopupComponent, [
+        { name: "banner", value: banner },
+        { name: "bannersManageComponent", value: this }
+      ])
+    }
 }

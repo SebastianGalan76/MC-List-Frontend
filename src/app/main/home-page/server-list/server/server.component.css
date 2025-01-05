@@ -48,6 +48,11 @@
   bottom: 5px;
   margin-left: 5px;
 }
+@media (max-width: 500px) {
+  .server .up-panel .promotion .icon {
+    bottom: 2px;
+  }
+}
 .server .down-panel {
   padding: 10px;
   display: flex;

@@ -17,29 +17,18 @@
                 <div id="menu-container" class="scrollable-vertical scrollable">
                     <div class="header">MENU</div>
 
-                    <div class="button" routerLink="/user">
-                        <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
-                        <div class="text">Podstawowe informacje</div>
-                    </div>
-                    <div class="button" routerLink="servers">
-                        <div class="icon"><i class="fa-solid fa-server"></i></div>
-                        <div class="text">Serwery</div>
-                    </div>
                     <div class="button" routerLink="banners">
                         <div class="icon"><i class="fa-regular fa-image"></i></div>
                         <div class="text">Banery</div>
                     </div>
-                    @if (user.role.toString() != 'USER') {
-                    <div class="button" routerLink="/admin/banners">
-                        <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                        <div class="text">Panel administratora</div>
+                    <div class="button" routerLink="reports">
+                        <div class="icon"><i class="fa-solid fa-flag"></i></div>
+                        <div class="text">Zgłoszenia</div>
                     </div>
-                    }
                 </div>
 
                 <nav id="down-nav">
                     <div id="server-page" routerLink="/">Strona Główna</div>
-                    <div id="server-page" (click)="logout()">Wyloguj</div>
                 </nav>
             </div>
         </div>

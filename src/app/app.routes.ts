@@ -42,6 +42,8 @@ import { ConnectionIssueComponent } from './main/connection-issue/connection-iss
 import { InfoManageServerComponent } from './manage/server/info/info.component';
 import { ContactComponent } from './main/contact/contact.component';
 import { Error404Component } from './main/error/error404/error404.component';
+import { ManageAdminComponent } from './manage/admin/manageAdmin.component';
+import { BannersManageAdminComponent } from './manage/admin/banners/banners.component';
 
 export const routes: Routes = [
     {
@@ -118,6 +120,15 @@ export const routes: Routes = [
         {
             path: "",
             component: ProfileManageUserComponent
+        }]
+    },
+    {
+        path: "admin",
+        component: ManageAdminComponent,
+        canActivate: [manageUserAuthGuard],
+        children: [{
+            path: "banners",
+            component: BannersManageAdminComponent
         }]
     },
     {

@@ -1,0 +1,14 @@
+#container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+}
+#container #aside-menu {
+  flex-shrink: 0;
+}
+#container #content {
+  width: 1000px;
+  min-height: 100vh;
+  margin: auto;
+}/*# sourceMappingURL=manageAdmin.component.css.map */
