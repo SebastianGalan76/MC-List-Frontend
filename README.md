@@ -1,31 +1,39 @@
-<<<<<<< HEAD
-# MCListFrontend
+# MC-List.pl [Frontend]
+Strona główna: https://mc-list.pl/ <br>
+Backend: https://github.com/SebastianGalan76/MC-List-Backend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+<h1>Opis projektu</h1>
+Projektem jest lista serwerów, gdzie gracze mogą odkrywać i przeglądać serwery w grze Minecraft. Na stronie znajdują się szczegółowe informacje o każdym serwerze, takie jak nazwa, IP, tryb gry, liczba aktywnych graczy oraz wersja gry. Dodatkowo strona może oferować funkcję oceny serwerów oraz możliwość dodania własnego serwera do listy. Wyszukiwarka ułatwia szybkie znalezienie idealnego serwera dla każdego gracza, niezależnie od preferowanego stylu rozgrywki.
 
-## Development server
+<h1>Technologie użyte w projekcie</h1>
+- <b>Angular</b><br>
+- <b>TypeScript</b><br>
+- <b>HTML</b><br>
+- <b>SCSS</b><br>
+- <b>RxJS</b><br>
+- <b>ChartJS</b><br>
+- <b>QuillJS</b><br>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<h1>Aplikacja umożliwia</h1>
+<ul>
+  <li>Dodawanie i edytowanie serwerów.</li>
+<li>Filtrowanie serwerów po trybie gry i wersji.</li>
+<li>Wyświetlanie losowego serwera.</li>
+<li>Ocenianie serwera.</li>
+<li>Zgłaszanie serwera.</li>
+<li>Możliwość zakupu banera reklamowego.</li>
+<li>Możliwość zakupu punktów promowania.</li>
+<li>Możliwość oddania głosu na serwer, co zwiększa jego pozycjonowanie.</li>
+<li>Możliwość tworzenia zakładki z Administracją serwera.</li>
+<li>Możliwość ustawienia własnego banera na stronie serwera.</li>
+<li>Możliwość zarządzania uprawnieniami do edycji informacji o serwerze.</li>
+</ul>
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# MC-List-Frontend
->>>>>>> 32818c973f469838a787fc2d5766bf05e8262c53
+Podgląd:
+![Zrzut ekranu 2025-01-05 170036](https://github.com/user-attachments/assets/1fee23ee-ee35-4021-a2c5-669aac2e10e7)
+![Zrzut ekranu 2024-08-16 090944](https://github.com/user-attachments/assets/c5fe9ccd-9b94-4e9e-a3ea-a7e976a6a6d3)
+![Zrzut ekranu 2024-08-16 091027](https://github.com/user-attachments/assets/db02129b-c01c-4d9a-8962-990f6ced7509)
+![Zrzut ekranu 2024-08-16 091411](https://github.com/user-attachments/assets/8d1780b7-4159-4d11-96f0-0e193e3479b5)
+![Zrzut ekranu 2025-01-05 170202](https://github.com/user-attachments/assets/e338ca38-46b1-4883-b265-793fd6c38ee8)
+![Zrzut ekranu 2025-01-05 170242](https://github.com/user-attachments/assets/726b80cf-5993-49d5-a9b2-3d7c51d6c097)
+![Zrzut ekranu 2024-08-16 091346](https://github.com/user-attachments/assets/9080e420-87d8-41d1-885b-2e897de41c70)
