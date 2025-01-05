@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { SignUpService } from '../../../service/auth/signUp.service';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
 import { AuthService } from '../../../service/auth/auth.service';
@@ -25,7 +25,8 @@ export class SignUpComponent {
   constructor(
     private authService: AuthService,
     private signUpService: SignUpService, 
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router: Router
   ) {}
 
   signUp() {
@@ -60,6 +61,7 @@ export class SignUpComponent {
     this.signUpService.signUp(this.email, this.login, this.password).subscribe({
       next: (response) => {
         this.notificationService.showNotification(response.message);
+        this.router.navigate(['/auth/signIn']);
         this.clearForm();
       },
       error: (response) => {

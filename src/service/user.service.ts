@@ -70,5 +70,6 @@ export class UserService {
   logout(){
     sessionStorage.removeItem('user');
     CookieService.eraseCookie('jwt_token');
+    this.user = null;
   }
 }

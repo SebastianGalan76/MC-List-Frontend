@@ -17,7 +17,7 @@ import { Banner } from '../../../model/banner';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
-  bigBanner: Banner | undefined;
+  bigBanner: Banner | undefined | null = null;
   
   constructor(
     private apiService: ApiService,

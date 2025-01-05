@@ -1,12 +1,14 @@
 <div id="container">
+    @if (banner !== null) {
     @if (banner) {
     <a class="banner" target="_blank" [attr.href]="banner.link ? banner.link : null">
-        <img [src]="'https://backend.mc-list.pl'+banner.filePath" alt="Baner reklamowy">
+        <img [src]="getImageUrl(banner.filePath)" alt="Baner reklamowy">
     </a>
     }
     @else {
     <a class="banner" routerLink="/banner">
         <img src="/img/banner-big-preview.png" alt="Baner reklamowy">
     </a>
+    }
     }
 </div>

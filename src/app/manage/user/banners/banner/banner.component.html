@@ -1,7 +1,7 @@
 @if (banner) {
 <div id="container" [classList]="banner.status">
     <div id="preview" [classList]="banner.size">
-        <img [src]="'http://localhost:8080'+banner.filePath">
+        <img [src]="getImageUrl(banner.filePath)">
 
         <div id="settings" title="Edytuj" (click)="edit()"><i class="fa-solid fa-gear"></i></div>
 

@@ -7,6 +7,12 @@ import { NotificationService } from './notification.service';
   providedIn: 'root'
 })
 export class Utils {
+  static backendDomain = "http://localhost:8080";
+
+  static getImageUrl(path: string) {
+    return this.backendDomain + path;
+  }
+
 
   static copyToClipboard(text: string, notificationService: NotificationService) {
     navigator.clipboard.writeText(text).then(() => {
@@ -84,7 +90,7 @@ export class Utils {
     return null;
   }
 
-  static getRoleNumber(role: string) : number {
+  static getRoleNumber(role: string): number {
     if (!isNaN(Number(role))) {
       return Number(role);
     }

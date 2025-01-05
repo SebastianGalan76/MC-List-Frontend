@@ -1,13 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Banner } from '../../../../../model/banner';
 import { CommonModule, DatePipe } from '@angular/common';
-import { PopupService } from '../../../../../service/popup.service';
-import { EditBannerPopupComponent } from '../../../../shared/popup/manage/user/edit-banner/edit-banner.component';
 import { BannersManageComponent } from '../banners.component';
 import { ApiService } from '../../../../../service/api.service';
 import { ObjectResponse } from '../../../../../model/response/ObjectResponse';
 import { PaymentDto } from '../../../../../model/PaymentDto';
 import { NotificationService, NotificationType } from '../../../../../service/notification.service';
+import { Utils } from '../../../../../service/utils.service';
 
 @Component({
   selector: 'app-banner-manage-user',
@@ -15,7 +14,7 @@ import { NotificationService, NotificationType } from '../../../../../service/no
   imports: [CommonModule],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.scss',
-  providers: [DatePipe],
+  providers: [DatePipe, Utils],
 })
 export class BannerManageUserComponent {
   @Input() banner!: Banner;
@@ -99,5 +98,9 @@ export class BannerManageUserComponent {
       return this.datePipe.transform(date, 'dd.MM.yyyy HH:mm');
     }
     return null;
+  }
+
+  getImageUrl(path: string): string {
+    return Utils.getImageUrl(path);
   }
 }

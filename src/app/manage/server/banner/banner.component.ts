@@ -35,7 +35,7 @@ export class BannerManageServerComponent {
           this.imageUrl = this.url;
         }
         else {
-          this.imageUrl = this.apiService.domain + this.parent.server.banner;
+          this.imageUrl = Utils.backendDomain + this.parent.server.banner;
         }
       }
     })
